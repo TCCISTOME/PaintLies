@@ -1,4 +1,5 @@
 extends Node
 
-var player_attack := 1
-var dark_ghost := 1
+var player_attack := 50
+var player_life := 50
+var player_defese := 50

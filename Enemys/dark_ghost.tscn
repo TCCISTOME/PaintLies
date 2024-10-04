@@ -215,14 +215,14 @@ shape = SubResource("RectangleShape2D_mawjb")
 debug_color = Color(0.996078, 0, 0.168627, 0.27451)
 
 [node name="rayLeft" type="RayCast2D" parent="."]
-position = Vector2(-11, -16)
+position = Vector2(-9, -16)
 rotation = 1.5708
 target_position = Vector2(0, 18)
 collision_mask = 33
 hit_from_inside = true
 
 [node name="rayRight" type="RayCast2D" parent="."]
-position = Vector2(11, -16)
+position = Vector2(8, -16)
 rotation = -1.5708
 target_position = Vector2(0, 18)
 collision_mask = 33
