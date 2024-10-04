@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckjhu1m1rm8ov"]
+
+[ext_resource type="Texture2D" uid="uid://dkenh1asmyiil" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Blocks (16 x 16) - Copia.png" id="1_rve1f"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pl5l0"]
+texture = ExtResource("1_rve1f")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/physics_layer_0/polygon_0/one_way = true
+
+[sub_resource type="TileSet" id="TileSet_g5ot4"]
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
+sources/0 = SubResource("TileSetAtlasSource_pl5l0")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmfhf"]
+size = Vector2(352, 16)
+
+[node name="plataform" type="StaticBody2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_g5ot4")
+format = 2
+layer_0/tile_data = PackedInt32Array(65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 65525, 0, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_xmfhf")

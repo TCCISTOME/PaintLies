@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8w8c7nios1tn"]
+
+[ext_resource type="Script" path="res://plataforma.gd" id="1_0jbcg"]
+[ext_resource type="Texture2D" uid="uid://dkenh1asmyiil" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Blocks (16 x 16) - Copia.png" id="1_dgy00"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s421l"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0iems"]
+texture = ExtResource("1_dgy00")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_drrcw"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_0iems")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vcl8"]
+size = Vector2(336, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcgah"]
+size = Vector2(336, 19.5)
+
+[node name="Plataforma" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_s421l")
+script = ExtResource("1_0jbcg")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_drrcw")
+format = 2
+layer_0/tile_data = PackedInt32Array(65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 65528, 0, 0, 11, 0, 0, 12, 0, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(40, 8)
+shape = SubResource("RectangleShape2D_0vcl8")
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(40, 6.75)
+shape = SubResource("RectangleShape2D_qcgah")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
