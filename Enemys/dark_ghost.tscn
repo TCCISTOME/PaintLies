@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cb0v3mk1v0trl"]
+[gd_scene load_steps=11 format=3 uid="uid://cb0v3mk1v0trl"]
 
 [ext_resource type="Script" path="res://Enemys/dark_ghost.gd" id="1_jb0g7"]
 [ext_resource type="Texture2D" uid="uid://bholppipsp0co" path="res://assets/inimigos/lacaios/Dark_Ghost.png" id="1_x61gy"]
@@ -177,12 +177,16 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mawjb"]
 size = Vector2(21.375, 18)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ypp5"]
+size = Vector2(18, 22)
+
 [node name="DarkGhost" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
 collision_mask = 35
 script = ExtResource("1_jb0g7")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_b48ia")
 
@@ -206,6 +210,8 @@ target_position = Vector2(-9, 0)
 collision_mask = 6
 
 [node name="hurtBox" type="Area2D" parent="."]
+visible = false
+position = Vector2(1, 0)
 collision_layer = 64
 collision_mask = 32
 
@@ -214,18 +220,14 @@ position = Vector2(-1, -16)
 shape = SubResource("RectangleShape2D_mawjb")
 debug_color = Color(0.996078, 0, 0.168627, 0.27451)
 
-[node name="rayLeft" type="RayCast2D" parent="."]
-position = Vector2(-9, -16)
-rotation = 1.5708
-target_position = Vector2(0, 18)
-collision_mask = 33
-hit_from_inside = true
+[node name="hitBox" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 68
 
-[node name="rayRight" type="RayCast2D" parent="."]
-position = Vector2(8, -16)
-rotation = -1.5708
-target_position = Vector2(0, 18)
-collision_mask = 33
-hit_from_inside = true
+[node name="collision" type="CollisionShape2D" parent="hitBox"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_0ypp5")
+debug_color = Color(0.862592, 0.00062955, 0.869174, 0.42)
 
 [connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]

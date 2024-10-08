@@ -277,8 +277,8 @@ size = Vector2(23, 30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4k8s0"]
 size = Vector2(30, 32)
 
-[node name="Heleanor" type="CharacterBody2D"]
-collision_mask = 70
+[node name="Heleanor" type="CharacterBody2D" groups=["player"]]
+collision_mask = 102
 script = ExtResource("1_e8u8s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -298,7 +298,7 @@ frame_progress = 0.801592
 
 [node name="animator" type="AnimationPlayer" parent="."]
 
-[node name="hurtBox" type="Area2D" parent="."]
+[node name="hurtBox" type="Area2D" parent="." groups=["player"]]
 collision_layer = 64
 collision_mask = 4
 
@@ -308,7 +308,7 @@ shape = SubResource("RectangleShape2D_6r63a")
 debug_color = Color(0.996078, 0, 0.172549, 0.266667)
 
 [node name="hitBox" parent="." instance=ExtResource("3_jl5n5")]
-collision_mask = 96
+collision_mask = 68
 
 [node name="collison" type="CollisionShape2D" parent="hitBox"]
 position = Vector2(31, -16)

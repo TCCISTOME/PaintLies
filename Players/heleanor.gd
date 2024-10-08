@@ -10,7 +10,6 @@ var knockback_vetor := Vector2.ZERO
 
 @onready var animation := $anim as AnimatedSprite2D
 @onready var hitbox := $hitBox/collison as CollisionShape2D
-# @onready var raycast = $RayCast2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_attack = false
@@ -115,23 +114,22 @@ func _dead():
 
 func _on_hurt_box_body_entered(body):
 	#if body.is_in_group("enemy"):
-	print("Vida do player = ", player_life)
+	print("Player: ", player_life)
 	if player_life < 0:
 		owner.queue_free()
 	else:
 		if $ray_right.is_colliding():
-			take_damage(Vector2(-280,-70))
+			knockBack(Vector2(-280,-70))
 		elif $ray_left.is_colliding():
-			take_damage(Vector2(280,-70))
+			knockBack(Vector2(280,-70))
 		elif $ray_bottom.is_colliding():
-			take_damage(Vector2(300,-70))
+			knockBack(Vector2(300,-70))
 
-func take_damage(knockback_force := Vector2.ZERO, duration := 0.15):
-	player_life -= Global.dark_ghost
-	
+
+
+func knockBack(knockback_force := Vector2.ZERO, duration := 0.15):
 	if knockback_force != Vector2.ZERO:
 		knockback_vetor = knockback_force
-		
 		# Tween para resetar o knockback
 		var knockback_tween := get_tree().create_tween()
 		knockback_tween.parallel().tween_property(self, "knockback_vetor", Vector2.ZERO, duration)
