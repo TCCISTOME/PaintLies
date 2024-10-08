@@ -1,22 +1,23 @@
 extends CharacterBody2D
-
 const SPEED = 1500.0
 const JUMP_VELOCITY = -400.0
-
 var direction := -1
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+var is_dead := false
+
+# Variáveis do inimigo
 @export var darkGhost_life := 900
-@export var darkGhost_attack := 50
+@export var darkGhost_attack := 5
 @export var darkGhost_xp := 1300
 
-var knockback_vetor := Vector2.ZERO
 @onready var body := $hitBox/collision as Area2D
 @onready var wallDetector := $wallDetector as RayCast2D
 @onready var texture := $texture as Sprite2D
 @onready var anim := $anim as AnimationPlayer
 
 func _physics_process(delta):
-	# Adiciona a gravidade.
+	# Gravidade
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		
@@ -28,30 +29,50 @@ func _physics_process(delta):
 	# Inverte a textura com base na direção
 	texture.flip_h = direction == 1
 
-	# Aplica o knockback, se houver
-	if knockback_vetor != Vector2.ZERO:
-		velocity += knockback_vetor
-
 	velocity.x = direction * SPEED * delta
 	move_and_slide()
+	
+	# Só executa walking se o inimigo não estiver morrendo
+	if not is_dead and anim.current_animation != "attack":
+		walking()
 
-# Função que detecta se o player entrou no hitbox
+func walking():
+	anim.play("walking")
+
+#Função de hurt para receber dano do player 
+func _on_hurt_box_area_entered(area):
+	if darkGhost_life <= 0:
+		die()
+	else:
+		take_damage()
+
+# Função chamada ao morrer
+func die():
+	is_dead = true
+	anim.play("dead")
+
+# Função de ataque do inimigo
 func _on_hit_box_area_entered(area):
 	if area.is_in_group("player"):
-		print("O inimigo atingiu o player")
-		apply_damage_to_player()
+		anim.play("attack")
+		Global.player_defese -= darkGhost_attack
+		print("Escudo: ", Global.player_defese)
+		if Global.player_defese <= 0:
+			print("Player atingido")
+			apply_damage_to_player()
 
-# Função para aplicar o dano no player
+# Sinal para quando a animação terminar
+func _on_anim_animation_finished(anim_name):
+	if anim_name == "attack":
+		anim.play("walking")
+	elif anim_name == "dead":
+		queue_free() 
+
+
 func apply_damage_to_player():
 	Global.player_life -= darkGhost_attack
 	print("Vida do player: ", Global.player_life)
 
-# Função que lida com o dano no inimigo
 func take_damage():
 	print("VDG: ", darkGhost_life)
-	darkGhost_life -= Global.player_attack  # Subtrai o ataque do player da vida do inimigo
-
-	# Se a vida do inimigo acabar, ele morre
-	if darkGhost_life < 1:
-		anim.play("dead")
-		queue_free()
+	darkGhost_life -= Global.player_attack  

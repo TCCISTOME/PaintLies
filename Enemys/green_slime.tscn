@@ -1,7 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbrmcct01lqr0"]
+[gd_scene load_steps=12 format=3 uid="uid://bbrmcct01lqr0"]
 
 [ext_resource type="Texture2D" uid="uid://bnc8pexghotn5" path="res://assets/inimigos/slimes/slimeGreen.png" id="1_gdm54"]
 [ext_resource type="Script" path="res://Enemys/green_slime.gd" id="1_l64gn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bk2af"]
+size = Vector2(11.75, 9)
 
 [sub_resource type="Animation" id="Animation_a4iym"]
 length = 0.001
@@ -222,17 +225,22 @@ _data = {
 "walking": SubResource("Animation_sy4ax")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bk2af"]
-size = Vector2(11.75, 9)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72mtn"]
 size = Vector2(16, 10)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dy6p"]
+size = Vector2(14, 9)
+
 [node name="greenSlime" type="CharacterBody2D" groups=["enemy"]]
-position = Vector2(0, -8)
+position = Vector2(1, -20)
+scale = Vector2(1.5, 1.5)
 collision_layer = 4
 collision_mask = 35
 script = ExtResource("1_l64gn")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.125, 3.5)
+shape = SubResource("RectangleShape2D_bk2af")
 
 [node name="texture" type="Sprite2D" parent="."]
 texture = ExtResource("1_gdm54")
@@ -245,14 +253,11 @@ libraries = {
 "": SubResource("AnimationLibrary_fh307")
 }
 
-[node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(-0.125, 3.5)
-shape = SubResource("RectangleShape2D_bk2af")
-
 [node name="wallDetector" type="RayCast2D" parent="."]
 position = Vector2(0, 4)
 rotation = 1.5708
 target_position = Vector2(2.38419e-07, 7)
+collision_mask = 6
 
 [node name="hurtBox" type="Area2D" parent="."]
 collision_layer = 64
@@ -263,18 +268,16 @@ position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_72mtn")
 debug_color = Color(0.996078, 0, 0.196078, 0.227451)
 
-[node name="rayLeft" type="RayCast2D" parent="."]
-position = Vector2(-4, 4)
-rotation = 1.5708
-target_position = Vector2(2.38419e-07, 8)
-collision_mask = 33
-hit_from_inside = true
+[node name="hitBox" type="Area2D" parent="."]
+position = Vector2(-9, 1)
+collision_layer = 32
+collision_mask = 68
 
-[node name="rayRight" type="RayCast2D" parent="."]
-position = Vector2(4, 4)
-rotation = -1.5708
-target_position = Vector2(-2.38419e-07, 9)
-collision_mask = 33
-hit_from_inside = true
+[node name="collision" type="CollisionShape2D" parent="hitBox"]
+position = Vector2(9, 2)
+shape = SubResource("RectangleShape2D_7dy6p")
+debug_color = Color(0.704133, 0.271064, 1, 0.42)
 
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]

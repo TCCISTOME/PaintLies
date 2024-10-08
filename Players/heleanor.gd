@@ -8,6 +8,7 @@ var is_dead: bool = false
 @export var player_life := 10
 var knockback_vetor := Vector2.ZERO
 
+@onready var contador := $Timer as Timer
 @onready var animation := $anim as AnimatedSprite2D
 @onready var hitbox := $hitBox/collison as CollisionShape2D
 
@@ -113,9 +114,7 @@ func _dead():
 	print("morreu")
 
 func _on_hurt_box_body_entered(body):
-	#if body.is_in_group("enemy"):
-	print("Player: ", player_life)
-	if player_life < 0:
+	if Global.player_life <= 0:
 		owner.queue_free()
 	else:
 		if $ray_right.is_colliding():
@@ -125,8 +124,6 @@ func _on_hurt_box_body_entered(body):
 		elif $ray_bottom.is_colliding():
 			knockBack(Vector2(300,-70))
 
-
-
 func knockBack(knockback_force := Vector2.ZERO, duration := 0.15):
 	if knockback_force != Vector2.ZERO:
 		knockback_vetor = knockback_force
@@ -135,3 +132,7 @@ func knockBack(knockback_force := Vector2.ZERO, duration := 0.15):
 		knockback_tween.parallel().tween_property(self, "knockback_vetor", Vector2.ZERO, duration)
 		animation.modulate = Color(1,0,0,1)
 		knockback_tween.parallel().tween_property(animation, "modulate", Color(1,1,1,1), duration)
+
+
+#func _on_timer_timeout():
+	#pass # Replace with function body.
