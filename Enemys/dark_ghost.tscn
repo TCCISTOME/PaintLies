@@ -257,6 +257,7 @@ target_position = Vector2(-9, 0)
 collision_mask = 6
 
 [node name="hurtBox" type="Area2D" parent="."]
+visible = false
 position = Vector2(1, 0)
 collision_layer = 64
 collision_mask = 32
@@ -267,6 +268,7 @@ shape = SubResource("RectangleShape2D_mawjb")
 debug_color = Color(0.996078, 0, 0.168627, 0.27451)
 
 [node name="hitBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 32
 collision_mask = 68
 
@@ -274,6 +276,10 @@ collision_mask = 68
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_0ypp5")
 debug_color = Color(0.862592, 0.00062955, 0.869174, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
 
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]

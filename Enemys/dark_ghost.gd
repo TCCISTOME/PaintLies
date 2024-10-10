@@ -76,3 +76,5 @@ func apply_damage_to_player():
 func take_damage():
 	print("VDG: ", darkGhost_life)
 	darkGhost_life -= Global.player_attack  
+	
+

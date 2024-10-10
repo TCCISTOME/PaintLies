@@ -317,12 +317,12 @@ disabled = true
 debug_color = Color(5.0056e-06, 0.624908, 0.222338, 0.321569)
 
 [node name="ray_right" type="RayCast2D" parent="."]
-position = Vector2(9, -12)
+position = Vector2(9, -10)
 target_position = Vector2(4, 0)
 collision_mask = 4
 
 [node name="ray_left" type="RayCast2D" parent="."]
-position = Vector2(-8, -12)
+position = Vector2(-8, -10)
 target_position = Vector2(-4, 0)
 collision_mask = 4
 
