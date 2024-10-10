@@ -1,18 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://c3d2r8wubvu6x"]
+[gd_scene load_steps=14 format=3 uid="uid://c3d2r8wubvu6x"]
 
 [ext_resource type="Texture2D" uid="uid://dxmoslt75dr3i" path="res://assets/tilesets/Maytch 16x16 Tilesets/tilesheet_pagoda.png" id="1_5q02s"]
 [ext_resource type="Texture2D" uid="uid://b8qqg05du7usc" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Blocks (16 x 16).png" id="1_hjic5"]
 [ext_resource type="Texture2D" uid="uid://bpy61macm0ffx" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Snack_machine_Bench_Trash_bin (16 x 16).png" id="2_ytw0h"]
 [ext_resource type="Texture2D" uid="uid://dkenh1asmyiil" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Blocks (16 x 16) - Copia.png" id="4_jx21d"]
-[ext_resource type="PackedScene" uid="uid://bekmpdx0e4tnm" path="res://Comerciantes/Ferreiro.tscn" id="5_tonvj"]
-[ext_resource type="PackedScene" uid="uid://bu58octmw0xa0" path="res://Comerciantes/Alquimista.tscn" id="6_s30di"]
-[ext_resource type="PackedScene" uid="uid://bp3tbewt8mnxs" path="res://Comerciantes/Comerciante_2d.tscn" id="7_rsode"]
 [ext_resource type="PackedScene" uid="uid://bbrmcct01lqr0" path="res://Enemys/green_slime.tscn" id="9_5xxa6"]
 [ext_resource type="PackedScene" uid="uid://bg6cyoqu3qgrh" path="res://Players/heleanor.tscn" id="9_qohc1"]
 [ext_resource type="PackedScene" uid="uid://ckjhu1m1rm8ov" path="res://plataform.tscn" id="10_30wjt"]
-[ext_resource type="PackedScene" uid="uid://cuuqgfh5aswo2" path="res://Players/alicia.tscn" id="10_d1mna"]
-[ext_resource type="PackedScene" uid="uid://c6licdgc3l2vk" path="res://Players/josh.tscn" id="11_p468m"]
-[ext_resource type="PackedScene" uid="uid://lx6vqi7othwx" path="res://Players/sabrina.tscn" id="12_5x7lb"]
 [ext_resource type="PackedScene" uid="uid://cb0v3mk1v0trl" path="res://Enemys/dark_ghost.tscn" id="13_fmrn5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_drere"]
@@ -449,44 +443,11 @@ position = Vector2(816, 80)
 [node name="plataform5" parent="." instance=ExtResource("10_30wjt")]
 position = Vector2(816, 17)
 
-[node name="Ferreiro" parent="." instance=ExtResource("5_tonvj")]
-position = Vector2(277, 189)
-scale = Vector2(2, 2)
-collision_layer = 16
-collision_mask = 2
-
-[node name="Alquimista" parent="." instance=ExtResource("6_s30di")]
-position = Vector2(152, 196)
-collision_layer = 16
-collision_mask = 2
-
-[node name="Comerciante" parent="." instance=ExtResource("7_rsode")]
-position = Vector2(407, 190)
-collision_layer = 16
-collision_mask = 2
+[node name="DarkGhost" parent="." instance=ExtResource("13_fmrn5")]
+position = Vector2(169, 209)
 
 [node name="greenSlime" parent="." instance=ExtResource("9_5xxa6")]
 position = Vector2(233, 198)
 
-[node name="DarkGhost" parent="." instance=ExtResource("13_fmrn5")]
-visible = false
-position = Vector2(327, 198)
-collision_mask = 34
-
 [node name="heleanor" parent="." instance=ExtResource("9_qohc1")]
 position = Vector2(43, 207)
-
-[node name="alicia" parent="." instance=ExtResource("10_d1mna")]
-visible = false
-position = Vector2(43, 206)
-collision_mask = 2
-
-[node name="josh" parent="." instance=ExtResource("11_p468m")]
-visible = false
-position = Vector2(70, 206)
-collision_mask = 2
-
-[node name="sabrina" parent="." instance=ExtResource("12_5x7lb")]
-visible = false
-position = Vector2(27, 208)
-collision_mask = 2

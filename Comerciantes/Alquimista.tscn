@@ -81,6 +81,8 @@ size = Vector2(20, 38)
 light_mask = 16
 visibility_layer = 2
 position = Vector2(0, -14)
+collision_layer = 16
+collision_mask = 2
 script = ExtResource("1_blc8j")
 animation = NodePath("Alquimista")
 
