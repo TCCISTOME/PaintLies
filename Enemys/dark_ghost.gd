@@ -35,23 +35,34 @@ func _physics_process(delta):
 	# Só executa walking se o inimigo não estiver morrendo
 	if not is_dead and anim.current_animation != "attack":
 		walking()
+	# Valida se a personagem caiu no void
+	check_void()
+
+
+# Função para verificar se a personagem caiu no void
+func check_void():
+	if global_position.y > 10000:
+		die()
+
 
 func walking():
 	anim.play("walking")
 
-#Função de hurt para receber dano do player 
+
+#Inimigo recebendo dano
 func _on_hurt_box_area_entered(area):
 	if darkGhost_life <= 0:
 		die()
 	else:
-		take_damage()
+		if area.is_in_group("player"):
+			take_damage()
 
 # Função chamada ao morrer
 func die():
 	is_dead = true
 	anim.play("dead")
 
-# Função de ataque do inimigo
+# Player recebendo dano
 func _on_hit_box_area_entered(area):
 	if area.is_in_group("player"):
 		anim.play("attack")
@@ -77,4 +88,12 @@ func take_damage():
 	print("VDG: ", darkGhost_life)
 	darkGhost_life -= Global.player_attack  
 	
+	# Altera a cor do inimigo para vermelho
+	texture.modulate = Color(1, 0, 0)  # Vermelho
+	
+	# Espera 0.2 segundos usando 'await'
+	await get_tree().create_timer(0.2).timeout
+	
+	# Volta a cor ao normal (branco)
+	texture.modulate = Color(1, 1, 1)  # Branco (cor original)
 

@@ -32,6 +32,14 @@ func _physics_process(delta):
 	
 	if !animation_jump:
 		drink()
+		
+	check_void()
+
+
+# Função para verificar se a personagem caiu no void
+func check_void():
+	if global_position.y > 1000:
+		_dead()
 
 func move(delta):
 	# Aplicando gravidade
@@ -112,6 +120,10 @@ func _dead():
 	animation.play("dead")
 	queue_free()
 	print("morreu")
+	
+	get_tree().quit()
+	# Troca para a cena de Game Over ou reinicia o nível
+	#get_tree().change_scene_to(preload("res://path_para_sua_proxima_cena.tscn"))
 
 func _on_hurt_box_body_entered(body):
 	if Global.player_life <= 0:

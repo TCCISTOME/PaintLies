@@ -298,7 +298,7 @@ frame_progress = 0.801592
 
 [node name="animator" type="AnimationPlayer" parent="."]
 
-[node name="hurtBox" type="Area2D" parent="." groups=["player"]]
+[node name="hurtBox" type="Area2D" parent="."]
 collision_layer = 64
 collision_mask = 4
 
@@ -307,7 +307,7 @@ position = Vector2(0.5, -14)
 shape = SubResource("RectangleShape2D_6r63a")
 debug_color = Color(0.996078, 0, 0.172549, 0.266667)
 
-[node name="hitBox" parent="." instance=ExtResource("3_jl5n5")]
+[node name="hitBox" parent="." groups=["player"] instance=ExtResource("3_jl5n5")]
 collision_mask = 68
 
 [node name="collison" type="CollisionShape2D" parent="hitBox"]
@@ -332,7 +332,7 @@ rotation = -1.5708
 target_position = Vector2(-4, 0)
 collision_mask = 4
 
-[node name="Timer" type="Timer" parent="."]
+[node name="ShieldRegenTimer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="hurtBox" to="." method="_on_hurt_box_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="ShieldRegenTimer" to="." method="_on_shield_regen_timer_timeout"]

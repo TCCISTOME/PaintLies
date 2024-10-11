@@ -44,7 +44,8 @@ func _on_hurt_box_area_entered(area):
 	if greenSlime_life <= 0:
 		die()
 	else:
-		take_damage()
+		if area.is_in_group("player"):
+			take_damage()
 
 # Função chamada ao morrer
 func die():
@@ -74,5 +75,13 @@ func apply_damage_to_player():
 	print("Vida do player: ", Global.player_life)
 
 func take_damage():
-	print("VDG: ", greenSlime_life)
-	greenSlime_life -= Global.player_attack  
+	print("GS: ", greenSlime_life)
+	greenSlime_life -= Global.player_attack 
+	# Altera a cor do inimigo para vermelho
+	texture.modulate = Color(1, 0, 0)  # Vermelho
+	
+	# Espera 0.2 segundos usando 'await'
+	await get_tree().create_timer(0.2).timeout
+	
+	# Volta a cor ao normal (branco)
+	texture.modulate = Color(1, 1, 1)  # Branco (cor original)
