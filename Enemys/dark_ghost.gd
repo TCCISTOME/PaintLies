@@ -3,6 +3,7 @@ const SPEED = 1500.0
 const JUMP_VELOCITY = -400.0
 var direction := -1
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var xp_enemy = 50
 
 var is_dead := false
 
@@ -51,7 +52,9 @@ func walking():
 
 #Inimigo recebendo dano
 func _on_hurt_box_area_entered(area):
-	if darkGhost_life <= 0:
+	if darkGhost_life <= 0 and not is_dead:  # Verifica se o inimigo já morreu
+		is_dead = true  # Marca o inimigo como morto
+		Global.player_xp += xp_enemy
 		die()
 	else:
 		if area.is_in_group("player"):
@@ -65,6 +68,7 @@ func die():
 # Player recebendo dano
 func _on_hit_box_area_entered(area):
 	if area.is_in_group("player"):
+		print("entrou")
 		anim.play("attack")
 		Global.player_defese -= darkGhost_attack
 		print("Escudo: ", Global.player_defese)

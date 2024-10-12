@@ -5,7 +5,7 @@ var direction := -1
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var is_dead := false
-
+var xp_enemy = 50
 # Variáveis do inimigo
 @export var greenSlime_life := 900
 @export var greenSlime_attack := 5
@@ -41,7 +41,9 @@ func walking():
 
 #Função de hurt para receber dano do player 
 func _on_hurt_box_area_entered(area):
-	if greenSlime_life <= 0:
+	if greenSlime_life <= 0 and not is_dead:  # Verifica se o inimigo já morreu
+		is_dead = true  # Marca o inimigo como morto
+		Global.player_xp += xp_enemy
 		die()
 	else:
 		if area.is_in_group("player"):

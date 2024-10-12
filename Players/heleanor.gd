@@ -8,7 +8,6 @@ var is_dead: bool = false
 @export var player_life := 10
 var knockback_vetor := Vector2.ZERO
 
-@onready var contador := $Timer as Timer
 @onready var animation := $anim as AnimatedSprite2D
 @onready var hitbox := $hitBox/collison as CollisionShape2D
 
@@ -35,11 +34,10 @@ func _physics_process(delta):
 		
 	check_void()
 
-
 # Função para verificar se a personagem caiu no void
 func check_void():
 	if global_position.y > 1000:
-		_dead()
+		dead()
 
 func move(delta):
 	# Aplicando gravidade
@@ -56,6 +54,7 @@ func move(delta):
 		is_jump = true
 
 	if is_on_floor():
+		print("XP: ",Global.player_xp)
 		animation_jump = false
 		down_x1 = true
 	
@@ -116,18 +115,15 @@ func drop_plataform():
 	if Input.is_action_just_pressed("descer"):
 		position.y += 4
 
-func _dead():
-	animation.play("dead")
-	queue_free()
-	print("morreu")
-	
-	get_tree().quit()
-	# Troca para a cena de Game Over ou reinicia o nível
-	#get_tree().change_scene_to(preload("res://path_para_sua_proxima_cena.tscn"))
+func dead():
+	get_tree().quit()  
+	# get_tree().change_scene("res://path_para_sua_cena_de_game_over.tscn")
 
-func _on_hurt_box_body_entered(body):
+func _on_hurt_box_body_entered(_body):
+	print("PL: ", Global.player_life )
+	print("PE: ", Global.player_defese )
 	if Global.player_life <= 0:
-		owner.queue_free()
+		dead()
 	else:
 		if $ray_right.is_colliding():
 			knockBack(Vector2(-280,-70))
@@ -135,6 +131,9 @@ func _on_hurt_box_body_entered(body):
 			knockBack(Vector2(280,-70))
 		elif $ray_bottom.is_colliding():
 			knockBack(Vector2(300,-70))
+
+
+
 
 func knockBack(knockback_force := Vector2.ZERO, duration := 0.15):
 	if knockback_force != Vector2.ZERO:
@@ -146,5 +145,8 @@ func knockBack(knockback_force := Vector2.ZERO, duration := 0.15):
 		knockback_tween.parallel().tween_property(animation, "modulate", Color(1,1,1,1), duration)
 
 
-#func _on_timer_timeout():
-	#pass # Replace with function body.
+
+
+
+func _on_anim_animation_finished():
+	pass # Replace with function body.
