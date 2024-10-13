@@ -1,12 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://bbrmcct01lqr0"]
+[gd_scene load_steps=11 format=3 uid="uid://udyvalhxyb3e"]
 
-[ext_resource type="Texture2D" uid="uid://bnc8pexghotn5" path="res://assets/inimigos/slimes/slimeGreen.png" id="1_gdm54"]
-[ext_resource type="Script" path="res://Enemys/green_slime.gd" id="1_l64gn"]
+[ext_resource type="Script" path="res://Enemys/yellow_slime.gd" id="1_0sxoc"]
+[ext_resource type="Texture2D" uid="uid://xq3w4siuye77" path="res://assets/inimigos/slimes/slimeAmarelo.png" id="1_mk42v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccqge"]
-size = Vector2(11.3333, 8)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcai0"]
+size = Vector2(12, 7)
 
-[sub_resource type="Animation" id="Animation_a4iym"]
+[sub_resource type="Animation" id="Animation_irmvy"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -18,7 +18,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_gdm54")]
+"values": [ExtResource("1_mk42v")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -42,7 +42,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [70]
+"values": [48]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -54,12 +54,12 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.8]
+"values": [0.8]
 }
 
-[sub_resource type="Animation" id="Animation_h6brb"]
+[sub_resource type="Animation" id="Animation_fvb2n"]
 resource_name = "attack"
-length = 1.1
+length = 0.36
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -70,7 +70,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_gdm54")]
+"values": [ExtResource("1_mk42v")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -91,7 +91,7 @@ tracks/2/path = NodePath("texture:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68]
@@ -103,15 +103,15 @@ tracks/3/path = NodePath("anim:speed_scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.1),
+"times": PackedFloat32Array(0, 0.36),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [1.8, 1.8]
+"values": [1.0, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_tqiot"]
+[sub_resource type="Animation" id="Animation_cd2ep"]
 resource_name = "dead"
-length = 2.0
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -122,7 +122,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_gdm54")]
+"values": [ExtResource("1_mk42v")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -143,50 +143,10 @@ tracks/2/path = NodePath("texture:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.36),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84]
-}
-
-[sub_resource type="Animation" id="Animation_8te0k"]
-resource_name = "idle"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("texture:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_gdm54")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("texture:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("texture:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 23]
+"values": [70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 83]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -195,14 +155,15 @@ tracks/3/path = NodePath("anim:speed_scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [1.0, 1.0]
+"values": [0.5, 0.5]
 }
 
-[sub_resource type="Animation" id="Animation_sy4ax"]
+[sub_resource type="Animation" id="Animation_w1w2o"]
 resource_name = "walking"
+length = 0.32
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -210,10 +171,10 @@ tracks/0/path = NodePath("texture:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_gdm54")]
+"values": [ExtResource("1_mk42v")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -222,7 +183,7 @@ tracks/1/path = NodePath("texture:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [10]
@@ -234,53 +195,64 @@ tracks/2/path = NodePath("texture:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [48, 49, 50, 51, 52, 53, 54, 55, 56, 57]
 }
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fh307"]
-_data = {
-"RESET": SubResource("Animation_a4iym"),
-"attack": SubResource("Animation_h6brb"),
-"dead": SubResource("Animation_tqiot"),
-"idle": SubResource("Animation_8te0k"),
-"walking": SubResource("Animation_sy4ax")
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("anim:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.32),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.8, 0.8]
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_72mtn"]
-size = Vector2(13.3333, 7.33333)
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r8w6k"]
+_data = {
+"RESET": SubResource("Animation_irmvy"),
+"attack": SubResource("Animation_fvb2n"),
+"dead": SubResource("Animation_cd2ep"),
+"walking": SubResource("Animation_w1w2o")
+}
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dy6p"]
-size = Vector2(11.3333, 7.83333)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41w1p"]
+size = Vector2(14, 8)
 
-[node name="greenSlime" type="CharacterBody2D" groups=["enemy"]]
-position = Vector2(0, -12)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ums8s"]
+size = Vector2(12, 7)
+
+[node name="yellow_slime" type="CharacterBody2D"]
+position = Vector2(-1, -8)
 scale = Vector2(1.5, 1.5)
 collision_layer = 4
 collision_mask = 35
-script = ExtResource("1_l64gn")
+script = ExtResource("1_0sxoc")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(-0.333333, 3.33333)
-shape = SubResource("RectangleShape2D_ccqge")
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_wcai0")
 
 [node name="texture" type="Sprite2D" parent="."]
-texture = ExtResource("1_gdm54")
+texture = ExtResource("1_mk42v")
 hframes = 10
 vframes = 9
-frame = 70
+frame = 48
 
 [node name="anim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_fh307")
+"": SubResource("AnimationLibrary_r8w6k")
 }
-speed_scale = 1.8
+speed_scale = 0.8
 
 [node name="wallDetector" type="RayCast2D" parent="."]
-position = Vector2(0, 3.33333)
-target_position = Vector2(-6.66667, 0)
+position = Vector2(1, 4)
+target_position = Vector2(-8, 0)
 collision_mask = 6
 
 [node name="hurtBox" type="Area2D" parent="."]
@@ -288,21 +260,18 @@ collision_layer = 64
 collision_mask = 32
 
 [node name="collision" type="CollisionShape2D" parent="hurtBox"]
-position = Vector2(2.38419e-07, 3.33333)
-shape = SubResource("RectangleShape2D_72mtn")
-debug_color = Color(0.996078, 0, 0.196078, 0.227451)
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_41w1p")
+debug_color = Color(0.993183, 0, 0.241368, 0.42)
 
 [node name="hitBox" type="Area2D" parent="."]
-visible = false
-position = Vector2(-9, 1)
 collision_layer = 32
 collision_mask = 64
 
 [node name="collision" type="CollisionShape2D" parent="hitBox"]
-position = Vector2(8.66667, 2.25)
-shape = SubResource("RectangleShape2D_7dy6p")
-debug_color = Color(0.704133, 0.271064, 1, 0.42)
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_ums8s")
+debug_color = Color(0.765267, 0.448558, 1.92523e-07, 0.42)
 
-[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]

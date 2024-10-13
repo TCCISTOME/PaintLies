@@ -53,7 +53,6 @@ func move(delta):
 		is_jump = true
 
 	if is_on_floor():
-		print("XP: ",Global.player_xp)
 		animation_jump = false
 		down_x1 = true
 	
@@ -119,11 +118,11 @@ func dead():
 	# get_tree().change_scene("res://path_para_sua_cena_de_game_over.tscn")
 
 func _on_hurt_box_body_entered(body: Node2D)-> void:
+	print("PL: ", Global.player_life )
+	print("PE: ", Global.player_defese )
 	var knockback = Vector2((global_position.x - body.global_position.x) * knockback_power, -50)
 	knockBack(knockback)
 	
-	print("PL: ", Global.player_life )
-	print("PE: ", Global.player_defese )
 	if Global.player_life <= 0:
 		dead()
 	
@@ -136,7 +135,3 @@ func knockBack(knockback_force := Vector2.ZERO, duration := 0.15):
 		knockback_tween.parallel().tween_property(self, "knockback_vetor", Vector2.ZERO, duration)
 		animation.modulate = Color(1,0,0,1)
 		knockback_tween.parallel().tween_property(animation, "modulate", Color(1,1,1,1), duration)
-
-
-
-

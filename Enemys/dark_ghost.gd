@@ -100,4 +100,3 @@ func take_damage():
 	
 	# Volta a cor ao normal (branco)
 	texture.modulate = Color(1, 1, 1)  # Branco (cor original)
-

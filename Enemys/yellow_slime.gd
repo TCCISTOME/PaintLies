@@ -7,9 +7,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_dead := false
 var xp_enemy = 50
 # Variáveis do inimigo
-@export var greenSlime_life := 900
-@export var greenSlime_attack := 5
-@export var greenSlime_xp := 1300
+@export var yellowSlime_life := 900
+@export var yellowSlime_attack := 5
+@export var yellowSlime_xp := 1300
 
 @onready var body := $hitBox/collision as Area2D
 @onready var wallDetector := $wallDetector as RayCast2D
@@ -41,7 +41,7 @@ func walking():
 
 #Função de hurt para receber dano do player 
 func _on_hurt_box_area_entered(area):
-	if greenSlime_life <= 0 and not is_dead:  # Verifica se o inimigo já morreu
+	if yellowSlime_life <= 0 and not is_dead:  # Verifica se o inimigo já morreu
 		is_dead = true  # Marca o inimigo como morto
 		Global.player_xp += xp_enemy
 		die()
@@ -58,8 +58,10 @@ func die():
 func _on_hit_box_area_entered(area):
 	if area.is_in_group("player"):
 		anim.play("attack")
-		Global.player_defese -= greenSlime_attack
+		Global.player_defese -= yellowSlime_attack
+		print("Escudo: ", Global.player_defese)
 		if Global.player_defese <= 0:
+			print("Player atingido")
 			apply_damage_to_player()
 
 # Sinal para quando a animação terminar
@@ -71,11 +73,12 @@ func _on_anim_animation_finished(anim_name):
 
 
 func apply_damage_to_player():
-	Global.player_life -= greenSlime_attack
+	Global.player_life -= yellowSlime_attack
+	print("Vida do player: ", Global.player_life)
 
 func take_damage():
-	print("GS: ", greenSlime_life)
-	greenSlime_life -= Global.player_attack 
+	print("GS: ", yellowSlime_life)
+	yellowSlime_life -= Global.player_attack 
 	# Altera a cor do inimigo para vermelho
 	texture.modulate = Color(1, 0, 0)  # Vermelho
 	
