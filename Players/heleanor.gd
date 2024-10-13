@@ -4,12 +4,12 @@ var SPEED = 250.0
 var JUMP_VELOCITY = -370.0
 var animation_jump := false
 var is_dead: bool = false
+var knockback_power := 15
 
-@export var player_life := 10
 var knockback_vetor := Vector2.ZERO
 
 @onready var animation := $anim as AnimatedSprite2D
-@onready var hitbox := $hitBox/collison as CollisionShape2D
+@onready var hitbox := $hitBox/collision as CollisionShape2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_attack = false
@@ -34,7 +34,6 @@ func _physics_process(delta):
 		
 	check_void()
 
-# Função para verificar se a personagem caiu no void
 func check_void():
 	if global_position.y > 1000:
 		dead()
@@ -97,12 +96,12 @@ func move(delta):
 func attack_player():
 	if not animation.is_playing():
 		is_attack = false
-		$hitBox/collison.disabled = true
+		$hitBox/collision.disabled = true
 		
 	if Input.is_action_just_pressed("ataque") and is_on_floor():
 		is_attack = true
 		animation.play("attack")
-		$hitBox/collison.disabled = false
+		$hitBox/collision.disabled = false
 
 func drink():
 	if not animation.is_playing():
@@ -119,21 +118,15 @@ func dead():
 	get_tree().quit()  
 	# get_tree().change_scene("res://path_para_sua_cena_de_game_over.tscn")
 
-func _on_hurt_box_body_entered(_body):
+func _on_hurt_box_body_entered(body: Node2D)-> void:
+	var knockback = Vector2((global_position.x - body.global_position.x) * knockback_power, -50)
+	knockBack(knockback)
+	
 	print("PL: ", Global.player_life )
 	print("PE: ", Global.player_defese )
 	if Global.player_life <= 0:
 		dead()
-	else:
-		if $ray_right.is_colliding():
-			knockBack(Vector2(-280,-70))
-		elif $ray_left.is_colliding():
-			knockBack(Vector2(280,-70))
-		elif $ray_bottom.is_colliding():
-			knockBack(Vector2(300,-70))
-
-
-
+	
 
 func knockBack(knockback_force := Vector2.ZERO, duration := 0.15):
 	if knockback_force != Vector2.ZERO:
@@ -147,6 +140,3 @@ func knockBack(knockback_force := Vector2.ZERO, duration := 0.15):
 
 
 
-
-func _on_anim_animation_finished():
-	pass # Replace with function body.

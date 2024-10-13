@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c6licdgc3l2vk"]
+[gd_scene load_steps=34 format=3 uid="uid://c6licdgc3l2vk"]
 
 [ext_resource type="Script" path="res://Players/josh.gd" id="1_k075r"]
 [ext_resource type="Texture2D" uid="uid://6s5obr8bs24k" path="res://assets/Players/Sprite_Josh.png" id="1_x1l4b"]
@@ -270,11 +270,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="josh" type="CharacterBody2D"]
-collision_mask = 6
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2ek4"]
+size = Vector2(20, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dci18"]
+size = Vector2(21.5, 27.25)
+
+[node name="josh" type="CharacterBody2D" groups=["player"]]
+collision_mask = 102
 script = ExtResource("1_k075r")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(1, -14.5)
 shape = SubResource("RectangleShape2D_lbnnq")
 
@@ -288,3 +294,23 @@ sprite_frames = SubResource("SpriteFrames_d7uk5")
 animation = &"attack"
 
 [node name="animator" type="AnimationPlayer" parent="."]
+
+[node name="hurtBox" type="Area2D" parent="." groups=["player"]]
+collision_layer = 64
+collision_mask = 36
+
+[node name="hurtCollision" type="CollisionShape2D" parent="hurtBox"]
+position = Vector2(1, -14.5)
+shape = SubResource("RectangleShape2D_p2ek4")
+debug_color = Color(0.7721, 0, 0.0847395, 0.42)
+
+[node name="hitBox" type="Area2D" parent="." groups=["player"]]
+collision_layer = 32
+collision_mask = 68
+
+[node name="collision" type="CollisionShape2D" parent="hitBox"]
+position = Vector2(22, -14.375)
+shape = SubResource("RectangleShape2D_dci18")
+disabled = true
+
+[connection signal="body_entered" from="hurtBox" to="." method="_on_hurt_box_body_entered"]

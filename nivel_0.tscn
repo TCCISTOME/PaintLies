@@ -449,5 +449,5 @@ position = Vector2(169, 209)
 [node name="greenSlime" parent="." instance=ExtResource("9_5xxa6")]
 position = Vector2(233, 198)
 
-[node name="heleanor" parent="." instance=ExtResource("9_qohc1")]
-position = Vector2(43, 207)
+[node name="Heleanor" parent="." instance=ExtResource("9_qohc1")]
+position = Vector2(92, 198)

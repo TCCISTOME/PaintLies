@@ -49,7 +49,6 @@ func check_void():
 func walking():
 	anim.play("walking")
 
-
 #Inimigo recebendo dano
 func _on_hurt_box_area_entered(area):
 	if darkGhost_life <= 0 and not is_dead:  # Verifica se o inimigo já morreu
@@ -83,11 +82,12 @@ func _on_anim_animation_finished(anim_name):
 	elif anim_name == "dead":
 		queue_free() 
 
-
+#Subtraindo a vida do player
 func apply_damage_to_player():
 	Global.player_life -= darkGhost_attack
 	print("Vida do player: ", Global.player_life)
 
+#Subtraindo a vida do inimigo e exibindo animação de dano
 func take_damage():
 	print("VDG: ", darkGhost_life)
 	darkGhost_life -= Global.player_attack  
