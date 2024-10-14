@@ -52,7 +52,7 @@ func walking():
 #Inimigo recebendo dano
 func _on_hurt_box_area_entered(area):
 	if darkGhost_life <= 0 and not is_dead:  # Verifica se o inimigo já morreu
-		is_dead = true  # Marca o inimigo como morto
+		is_dead = true  
 		Global.player_xp += xp_enemy
 		die()
 	else:
@@ -63,7 +63,7 @@ func _on_hurt_box_area_entered(area):
 func die():
 	is_dead = true
 	anim.play("dead")
-
+	
 # Player recebendo dano
 func _on_hit_box_area_entered(area):
 	if area.is_in_group("player"):

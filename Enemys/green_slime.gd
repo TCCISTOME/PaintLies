@@ -7,9 +7,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_dead := false
 var xp_enemy = 50
 # Variáveis do inimigo
-@export var greenSlime_life := 900
-@export var greenSlime_attack := 5
-@export var greenSlime_xp := 1300
+@export var greenSlime_life := 50
+@export var greenSlime_attack := 10
+@export var greenSlime_xp := 200
 
 @onready var body := $hitBox/collision as Area2D
 @onready var wallDetector := $wallDetector as RayCast2D
@@ -53,6 +53,7 @@ func _on_hurt_box_area_entered(area):
 func die():
 	is_dead = true
 	anim.play("dead")
+	
 
 # Função de ataque do inimigo
 func _on_hit_box_area_entered(area):
@@ -67,7 +68,7 @@ func _on_anim_animation_finished(anim_name):
 	if anim_name == "attack":
 		anim.play("walking")
 	elif anim_name == "dead":
-		queue_free() 
+		queue_free()  # O inimigo só será removido quando a animação "dead" terminar
 
 
 func apply_damage_to_player():
