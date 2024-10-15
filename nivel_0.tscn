@@ -1,12 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://c3d2r8wubvu6x"]
+[gd_scene load_steps=17 format=3 uid="uid://c3d2r8wubvu6x"]
 
 [ext_resource type="Texture2D" uid="uid://dxmoslt75dr3i" path="res://assets/tilesets/Maytch 16x16 Tilesets/tilesheet_pagoda.png" id="1_5q02s"]
 [ext_resource type="Texture2D" uid="uid://b8qqg05du7usc" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Blocks (16 x 16).png" id="1_hjic5"]
 [ext_resource type="Texture2D" uid="uid://bpy61macm0ffx" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Snack_machine_Bench_Trash_bin (16 x 16).png" id="2_ytw0h"]
 [ext_resource type="Texture2D" uid="uid://dkenh1asmyiil" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Blocks (16 x 16) - Copia.png" id="4_jx21d"]
+[ext_resource type="Texture2D" uid="uid://c20625xcgetvu" path="res://assets/tilesets/Seasonal Tilesets/3 - Tropics/Terrain (16 x 16).png" id="5_d3sut"]
 [ext_resource type="PackedScene" uid="uid://bbrmcct01lqr0" path="res://Enemys/green_slime.tscn" id="9_5xxa6"]
-[ext_resource type="PackedScene" uid="uid://bg6cyoqu3qgrh" path="res://Players/heleanor.tscn" id="9_qohc1"]
 [ext_resource type="PackedScene" uid="uid://udyvalhxyb3e" path="res://Enemys/yellow_slime.tscn" id="9_weeah"]
+[ext_resource type="PackedScene" uid="uid://c6licdgc3l2vk" path="res://Players/josh.tscn" id="10_4m20i"]
 [ext_resource type="PackedScene" uid="uid://ckjhu1m1rm8ov" path="res://plataform.tscn" id="10_30wjt"]
 [ext_resource type="PackedScene" uid="uid://cb0v3mk1v0trl" path="res://Enemys/dark_ghost.tscn" id="13_fmrn5"]
 
@@ -147,6 +148,46 @@ texture = ExtResource("4_jx21d")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:0/0/physics_layer_0/polygon_0/one_way = true
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_igp0v"]
+texture = ExtResource("5_d3sut")
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+11:1/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+11:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+15:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+11:4/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+11:5/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+4:8/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_a1wq5"]
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
@@ -154,6 +195,7 @@ sources/11 = SubResource("TileSetAtlasSource_w5qgo")
 sources/0 = SubResource("TileSetAtlasSource_drere")
 sources/1 = SubResource("TileSetAtlasSource_s4gje")
 sources/2 = SubResource("TileSetAtlasSource_igpc6")
+sources/3 = SubResource("TileSetAtlasSource_igp0v")
 
 [node name="PlataformForTest" type="Node2D"]
 
@@ -168,9 +210,10 @@ layer_2/name = "elements"
 layer_2/tile_data = PackedInt32Array(720904, 458763, 6, 720906, 327691, 6, 720905, 393227, 6, 786468, 589835, 5, 786471, 524299, 5, 786435, 524299, 5, 786432, 589835, 5, 393216, 458763, 2, 393222, 458763, 2, 393228, 458763, 2, 393234, 458763, 2, 393240, 458763, 2, 393246, 458763, 2, 393252, 458763, 2, 720925, 65537, 1, 786461, 65537, 2, 720926, 131073, 1, 786462, 131073, 2, 720927, 196609, 1, 786463, 196609, 2, 720928, 262145, 1, 786464, 262145, 2, 720929, 327681, 1, 786465, 327681, 2, 786466, 393217, 2)
 layer_3/name = "door"
 layer_3/tile_data = PackedInt32Array(720933, 262144, 3, 786469, 262144, 4, 720934, 262144, 3, 786470, 262144, 4, 720897, 262144, 3, 786433, 262144, 4, 720898, 262144, 3, 786434, 262144, 4)
-layer_4/name = "Balcoes"
+layer_4/name = "Balcoes2"
 layer_5/name = "niveis"
 layer_5/tile_data = PackedInt32Array(1376296, 2, 0, 1376297, 2, 0, 1376298, 2, 0, 1376299, 2, 0, 1376300, 2, 0, 1376301, 2, 0, 1376302, 2, 0, 1376303, 2, 0, 1376304, 2, 0, 1376305, 2, 0, 1376306, 2, 0, 1376307, 2, 0, 1376308, 2, 0, 1376309, 2, 0, 1376310, 2, 0, 1376311, 2, 0, 1376312, 2, 0, 1376313, 2, 0, 1376314, 2, 0, 1376315, 2, 0, 1376316, 2, 0)
+layer_6/name = "Teste"
 
 [node name="plataform7" parent="." instance=ExtResource("10_30wjt")]
 position = Vector2(13, 177)
@@ -184,7 +227,7 @@ rotation = -1.57539
 scale = Vector2(0.985019, 0.877263)
 
 [node name="plataform" parent="." instance=ExtResource("10_30wjt")]
-position = Vector2(816, 208)
+position = Vector2(772, 208)
 scale = Vector2(0.992481, 0.936623)
 
 [node name="plataform2" parent="." instance=ExtResource("10_30wjt")]
@@ -194,19 +237,19 @@ position = Vector2(816, 273)
 position = Vector2(815, 143)
 
 [node name="plataform4" parent="." instance=ExtResource("10_30wjt")]
-position = Vector2(816, 80)
+position = Vector2(742, 78)
 
 [node name="plataform5" parent="." instance=ExtResource("10_30wjt")]
-position = Vector2(816, 17)
+position = Vector2(883, 10)
 
 [node name="DarkGhost" parent="." instance=ExtResource("13_fmrn5")]
-position = Vector2(169, 209)
+position = Vector2(720, 273)
 
 [node name="greenSlime" parent="." instance=ExtResource("9_5xxa6")]
-position = Vector2(233, 198)
-
-[node name="Heleanor" parent="." instance=ExtResource("9_qohc1")]
-position = Vector2(92, 198)
+position = Vector2(694, 62)
 
 [node name="yellow_slime" parent="." instance=ExtResource("9_weeah")]
-position = Vector2(286, 187)
+position = Vector2(750, 129)
+
+[node name="josh" parent="." instance=ExtResource("10_4m20i")]
+position = Vector2(451, 184)

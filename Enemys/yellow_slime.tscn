@@ -253,7 +253,11 @@ speed_scale = 0.8
 [node name="wallDetector" type="RayCast2D" parent="."]
 position = Vector2(1, 4)
 target_position = Vector2(-8, 0)
-collision_mask = 6
+collision_mask = 2
+
+[node name="floorDetector" type="RayCast2D" parent="."]
+position = Vector2(0, 4)
+target_position = Vector2(0, 6)
 
 [node name="hurtBox" type="Area2D" parent="."]
 collision_layer = 64

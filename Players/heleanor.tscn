@@ -292,8 +292,6 @@ visibility_layer = 18
 position = Vector2(-1, -16)
 sprite_frames = SubResource("SpriteFrames_ex7ss")
 animation = &"attack"
-frame = 1
-frame_progress = 0.801592
 
 [node name="animator" type="AnimationPlayer" parent="."]
 

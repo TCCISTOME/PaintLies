@@ -13,6 +13,7 @@ var xp_enemy = 50
 
 @onready var body := $hitBox/collision as Area2D
 @onready var wallDetector := $wallDetector as RayCast2D
+@onready var floorDetector := $floorDetector as RayCast2D  # Detector de chão
 @onready var texture := $texture as Sprite2D
 @onready var anim := $anim as AnimationPlayer
 
@@ -21,13 +22,15 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		
-	# Detecta colisão com a parede
-	if wallDetector.is_colliding():
+	# Detecta colisão com a parede ou falta de chão
+	if wallDetector.is_colliding() or not floorDetector.is_colliding():
 		direction *= -1
 		wallDetector.scale.x *= -1
-	
+		floorDetector.scale.x *= -1
+		
 	# Inverte a textura com base na direção
 	texture.flip_h = direction == 1
+
 
 	velocity.x = direction * SPEED * delta
 	move_and_slide()
