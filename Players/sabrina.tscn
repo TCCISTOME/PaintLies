@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://lx6vqi7othwx"]
+[gd_scene load_steps=34 format=3 uid="uid://lx6vqi7othwx"]
 
 [ext_resource type="Texture2D" uid="uid://5kh6g5x5wc" path="res://assets/Players/Sprite_Sabrina.png" id="1_0ygo7"]
 [ext_resource type="Script" path="res://Players/sabrina.gd" id="1_cexty"]
@@ -21,22 +21,6 @@ region = Rect2(64, 256, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_u6m3w"]
 atlas = ExtResource("1_0ygo7")
 region = Rect2(96, 256, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r2ng6"]
-atlas = ExtResource("1_0ygo7")
-region = Rect2(0, 288, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_147sg"]
-atlas = ExtResource("1_0ygo7")
-region = Rect2(32, 288, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jq1qm"]
-atlas = ExtResource("1_0ygo7")
-region = Rect2(64, 288, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tpcdd"]
-atlas = ExtResource("1_0ygo7")
-region = Rect2(96, 288, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4cxod"]
 atlas = ExtResource("1_0ygo7")
@@ -81,10 +65,6 @@ region = Rect2(0, 224, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3d31u"]
 atlas = ExtResource("1_0ygo7")
 region = Rect2(32, 224, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lr11r"]
-atlas = ExtResource("1_0ygo7")
-region = Rect2(0, 320, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_403nt"]
 atlas = ExtResource("1_0ygo7")
@@ -150,25 +130,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_u6m3w")
 }],
 "loop": false,
-"name": &"attackBlack",
-"speed": 15.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r2ng6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_147sg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jq1qm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tpcdd")
-}],
-"loop": false,
-"name": &"attackWhite",
-"speed": 15.0
+"name": &"attack",
+"speed": 18.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -231,9 +194,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lr11r")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_403nt")
 }, {
 "duration": 1.0,
@@ -241,7 +201,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"drink",
-"speed": 4.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -304,7 +264,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="sabrina" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kqhw"]
+size = Vector2(23, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0vpa"]
+size = Vector2(22, 31)
+
+[node name="sabrina" type="CharacterBody2D" groups=["player"]]
 collision_mask = 6
 script = ExtResource("1_cexty")
 
@@ -319,6 +285,28 @@ zoom = Vector2(1.5, 1.5)
 visibility_layer = 18
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_uvhw7")
-animation = &"side"
+animation = &"drink"
+frame = 1
+frame_progress = 1.0
 
 [node name="animator" type="AnimationPlayer" parent="."]
+
+[node name="hurtBox" type="Area2D" parent="." groups=["player"]]
+collision_layer = 64
+collision_mask = 36
+
+[node name="collision" type="CollisionShape2D" parent="hurtBox"]
+position = Vector2(0.5, -14)
+shape = SubResource("RectangleShape2D_1kqhw")
+debug_color = Color(0.996078, 0, 0.172549, 0.266667)
+
+[node name="hitBox" type="Area2D" parent="." groups=["player"]]
+collision_layer = 32
+collision_mask = 68
+
+[node name="collision" type="CollisionShape2D" parent="hitBox"]
+position = Vector2(25, -15.5)
+shape = SubResource("RectangleShape2D_d0vpa")
+disabled = true
+
+[connection signal="body_entered" from="hurtBox" to="." method="_on_hurt_box_body_entered"]

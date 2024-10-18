@@ -271,7 +271,7 @@ zoom = Vector2(1.5, 1.5)
 visibility_layer = 18
 position = Vector2(-13, -36)
 sprite_frames = SubResource("SpriteFrames_dmuvu")
-animation = &"walking"
+animation = &"attack"
 centered = false
 
 [node name="animator" type="AnimationPlayer" parent="."]

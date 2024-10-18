@@ -99,7 +99,7 @@ func attack_player():
 		
 	if Input.is_action_just_pressed("ataque") and is_on_floor():
 		is_attack = true
-		animation.play("attack")
+		animation.play("attackRigth")
 		$hitBox/collision.disabled = false
 
 func drink():
