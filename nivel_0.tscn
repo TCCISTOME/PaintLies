@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://c20625xcgetvu" path="res://assets/tilesets/Seasonal Tilesets/3 - Tropics/Terrain (16 x 16).png" id="5_d3sut"]
 [ext_resource type="PackedScene" uid="uid://bbrmcct01lqr0" path="res://Enemys/green_slime.tscn" id="9_5xxa6"]
 [ext_resource type="PackedScene" uid="uid://udyvalhxyb3e" path="res://Enemys/yellow_slime.tscn" id="9_weeah"]
-[ext_resource type="PackedScene" uid="uid://c6licdgc3l2vk" path="res://Players/josh.tscn" id="10_4m20i"]
 [ext_resource type="PackedScene" uid="uid://ckjhu1m1rm8ov" path="res://plataform.tscn" id="10_30wjt"]
+[ext_resource type="PackedScene" uid="uid://lx6vqi7othwx" path="res://Players/sabrina.tscn" id="10_at2e8"]
 [ext_resource type="PackedScene" uid="uid://cb0v3mk1v0trl" path="res://Enemys/dark_ghost.tscn" id="13_fmrn5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_drere"]
@@ -251,4 +251,4 @@ position = Vector2(694, 62)
 [node name="yellow_slime" parent="." instance=ExtResource("9_weeah")]
 position = Vector2(750, 129)
 
-[node name="josh" parent="." instance=ExtResource("10_4m20i")]
+[node name="sabrina" parent="." instance=ExtResource("10_at2e8")]

@@ -122,10 +122,8 @@ func _on_hurt_box_body_entered(body: Node2D)-> void:
 	print("PE: ", Global.player_defese )
 	var knockback = Vector2((global_position.x - body.global_position.x) * knockback_power, -50)
 	knockBack(knockback)
-	
 	if Global.player_life <= 0:
 		dead()
-	
 
 func knockBack(knockback_force := Vector2.ZERO, duration := 0.15):
 	if knockback_force != Vector2.ZERO:

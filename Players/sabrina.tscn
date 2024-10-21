@@ -265,13 +265,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1kqhw"]
-size = Vector2(23, 30)
+size = Vector2(24, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d0vpa"]
 size = Vector2(22, 31)
 
 [node name="sabrina" type="CharacterBody2D" groups=["player"]]
-collision_mask = 6
+collision_mask = 102
 script = ExtResource("1_cexty")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -296,7 +296,7 @@ collision_layer = 64
 collision_mask = 36
 
 [node name="collision" type="CollisionShape2D" parent="hurtBox"]
-position = Vector2(0.5, -14)
+position = Vector2(1, -15.5)
 shape = SubResource("RectangleShape2D_1kqhw")
 debug_color = Color(0.996078, 0, 0.172549, 0.266667)
 
