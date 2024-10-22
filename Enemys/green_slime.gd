@@ -43,14 +43,14 @@ func walking():
 	anim.play("walking")
 
 #Função de hurt para receber dano do player 
-func _on_hurt_box_area_entered(area):
-	if greenSlime_life <= 0 and not is_dead:  # Verifica se o inimigo já morreu
-		is_dead = true  # Marca o inimigo como morto
-		Global.player_xp += xp_enemy
-		die()
-	else:
-		if area.is_in_group("player"):
-			take_damage()
+#func _on_hurt_box_area_entered(area):
+	#if greenSlime_life <= 0 and not is_dead:  # Verifica se o inimigo já morreu
+		#is_dead = true  # Marca o inimigo como morto
+		#Global.player_xp += xp_enemy
+		#die()
+	#else:
+		#if area.is_in_group("player"):
+			#take_damage()
 
 # Função chamada ao morrer
 func die():
@@ -88,3 +88,13 @@ func take_damage():
 	
 	# Volta a cor ao normal (branco)
 	texture.modulate = Color(1, 1, 1)  # Branco (cor original)
+
+
+func hurtBoxGreen(area: Area2D) -> void:
+	if greenSlime_life <= 0 and not is_dead:  # Verifica se o inimigo já morreu
+		is_dead = true  # Marca o inimigo como morto
+		Global.player_xp += xp_enemy
+		die()
+	else:
+		if area.is_in_group("player"):
+			take_damage()

@@ -17,6 +17,7 @@ var xp_enemy = 50
 @onready var texture := $texture as Sprite2D
 @onready var anim := $anim as AnimationPlayer
 
+
 func _physics_process(delta):
 	# Gravidade
 	if not is_on_floor():
@@ -42,8 +43,8 @@ func _physics_process(delta):
 
 func walking():
 	anim.play("walking")
-
-func _on_hurt_box_area_enteredbOSTA(area):
+#
+func hurtBoxYellow(area: Area2D) -> void:
 	if yellowSlime_life <= 0 and not is_dead:  # Verifica se o inimigo já morreu
 		print("O inimigo morreu!")  # Verifique se essa linha está sendo executada
 		is_dead = true  # Marca o inimigo como morto
@@ -56,6 +57,7 @@ func _on_hurt_box_area_enteredbOSTA(area):
 # Função chamada ao morrer
 func die():
 	is_dead = true
+	$hitBox/collision.disabled = true
 	print("Iniciando animação de morte")
 	anim.play("dead")
 
@@ -92,7 +94,3 @@ func take_damage():
 	
 	# Volta a cor ao normal (branco)
 	texture.modulate = Color(1, 1, 1)  # Branco (cor original)
-
-
-func _on_hurt_box_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.

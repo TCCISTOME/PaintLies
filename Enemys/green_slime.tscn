@@ -249,11 +249,11 @@ _data = {
 "walking": SubResource("Animation_sy4ax")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_72mtn"]
-size = Vector2(13.3333, 7.33333)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dy6p"]
 size = Vector2(11.3333, 7.83333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j34pb"]
+size = Vector2(14, 8)
 
 [node name="greenSlime" type="CharacterBody2D" groups=["enemy"]]
 position = Vector2(0, -12)
@@ -288,15 +288,6 @@ position = Vector2(0, 2.66667)
 target_position = Vector2(0, 5.33333)
 collision_mask = 2
 
-[node name="hurtBox" type="Area2D" parent="."]
-collision_layer = 64
-collision_mask = 32
-
-[node name="collision" type="CollisionShape2D" parent="hurtBox"]
-position = Vector2(2.38419e-07, 3.33333)
-shape = SubResource("RectangleShape2D_72mtn")
-debug_color = Color(0.996078, 0, 0.196078, 0.227451)
-
 [node name="hitBox" type="Area2D" parent="."]
 visible = false
 position = Vector2(-9, 1)
@@ -308,6 +299,15 @@ position = Vector2(8.66667, 2.25)
 shape = SubResource("RectangleShape2D_7dy6p")
 debug_color = Color(0.704133, 0.271064, 1, 0.42)
 
+[node name="hurtBox" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 32
+
+[node name="collision" type="CollisionShape2D" parent="hurtBox"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_j34pb")
+debug_color = Color(0.993183, 0, 0.241368, 0.42)
+
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
-[connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="area_entered" from="hurtBox" to="." method="hurtBoxGreen"]
