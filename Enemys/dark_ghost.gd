@@ -8,8 +8,8 @@ var xp_enemy = 50
 var is_dead := false
 
 # Variáveis do inimigo
-@export var darkGhost_life := 900
-@export var darkGhost_attack := 5
+@export var darkGhost_life := 500
+@export var darkGhost_attack := 20
 @export var darkGhost_xp := 1300
 
 @onready var body := $hitBox/collision as Area2D

@@ -10,6 +10,8 @@ var knockback_vetor := Vector2.ZERO
 
 @onready var animation := $anim as AnimatedSprite2D
 @onready var hitbox := $hitBox/collision as CollisionShape2D
+@onready var healthbar = $CanvasLayer/HealthBar
+
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_attack = false
@@ -18,8 +20,10 @@ var is_down = false
 var down_x1 = true
 var is_jump = false
 
-var attack := 50
 
+func _ready() -> void:
+	healthbar.init_health(Global.player_life)
+	
 func _physics_process(delta):
 	drop_plataform()
 	

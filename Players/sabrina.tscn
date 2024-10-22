@@ -1,7 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://lx6vqi7othwx"]
+[gd_scene load_steps=35 format=3 uid="uid://lx6vqi7othwx"]
 
 [ext_resource type="Texture2D" uid="uid://5kh6g5x5wc" path="res://assets/Players/Sprite_Sabrina.png" id="1_0ygo7"]
 [ext_resource type="Script" path="res://Players/sabrina.gd" id="1_cexty"]
+[ext_resource type="PackedScene" uid="uid://dtrvoo8bq551m" path="res://UI/scenes/health_bar.tscn" id="3_klwxf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ioide"]
 size = Vector2(21, 31)
@@ -308,5 +309,9 @@ collision_mask = 68
 position = Vector2(25, -15.5)
 shape = SubResource("RectangleShape2D_d0vpa")
 disabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" parent="CanvasLayer" instance=ExtResource("3_klwxf")]
 
 [connection signal="body_entered" from="hurtBox" to="." method="_on_hurt_box_body_entered"]
