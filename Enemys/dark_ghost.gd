@@ -69,13 +69,13 @@ func die():
 	
 # Player recebendo dano
 func _on_hit_box_area_entered(area):
+	if is_dead:  # Verifica se o inimigo está morto
+		return  # Se o inimigo estiver morto, não ataca
+	
 	if area.is_in_group("player"):
-		print("entrou")
 		anim.play("attack")
 		Global.player_defese -= darkGhost_attack
-		print("Escudo: ", Global.player_defese)
 		if Global.player_defese <= 0:
-			print("Player atingido")
 			apply_damage_to_player()
 
 # Sinal para quando a animação terminar

@@ -57,14 +57,18 @@ func die():
 	is_dead = true
 	anim.play("dead")
 	
-
+	
 # Função de ataque do inimigo
 func _on_hit_box_area_entered(area):
+	if is_dead:  # Verifica se o inimigo está morto
+		return  # Se o inimigo estiver morto, não ataca
+	
 	if area.is_in_group("player"):
 		anim.play("attack")
 		Global.player_defese -= greenSlime_attack
 		if Global.player_defese <= 0:
 			apply_damage_to_player()
+
 
 # Sinal para quando a animação terminar
 func _on_anim_animation_finished(anim_name):
@@ -78,16 +82,14 @@ func apply_damage_to_player():
 	Global.player_life -= greenSlime_attack
 
 func take_damage():
+	if is_dead:  # Impede que o inimigo receba dano se já estiver morto
+		return
 	print("GS: ", greenSlime_life)
-	greenSlime_life -= Global.player_attack 
-	# Altera a cor do inimigo para vermelho
-	texture.modulate = Color(1, 0, 0)  # Vermelho
-	
-	# Espera 0.2 segundos usando 'await'
+	greenSlime_life -= Global.player_attack
+	texture.modulate = Color(1, 0, 0)  # Muda para vermelho
 	await get_tree().create_timer(0.2).timeout
-	
-	# Volta a cor ao normal (branco)
-	texture.modulate = Color(1, 1, 1)  # Branco (cor original)
+	texture.modulate = Color(1, 1, 1)  # Volta para branco
+
 
 
 func hurtBoxGreen(area: Area2D) -> void:

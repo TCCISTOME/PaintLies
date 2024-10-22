@@ -71,12 +71,13 @@ func _on_anim_animation_finished(anim_name):
 
 # Função de ataque do inimigo
 func _on_hit_box_area_entered(area):
+	if is_dead:  # Verifica se o inimigo está morto
+		return  # Se o inimigo estiver morto, não ataca
+	
 	if area.is_in_group("player"):
 		anim.play("attack")
 		Global.player_defese -= yellowSlime_attack
-		print("Escudo: ", Global.player_defese)
 		if Global.player_defese <= 0:
-			print("Player atingido")
 			apply_damage_to_player()
 
 func apply_damage_to_player():
