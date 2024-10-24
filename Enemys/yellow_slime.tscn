@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://udyvalhxyb3e"]
+[gd_scene load_steps=13 format=3 uid="uid://udyvalhxyb3e"]
 
 [ext_resource type="Script" path="res://Enemys/yellow_slime.gd" id="1_0sxoc"]
 [ext_resource type="Texture2D" uid="uid://xq3w4siuye77" path="res://assets/inimigos/slimes/slimeAmarelo.png" id="1_mk42v"]
+[ext_resource type="PackedScene" uid="uid://dtrvoo8bq551m" path="res://UI/scenes/health_bar.tscn" id="3_ro71f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wcai0"]
 size = Vector2(12, 7)
@@ -227,6 +228,8 @@ size = Vector2(14, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ums8s"]
 size = Vector2(12, 7)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ajc75"]
+
 [node name="yellow_slime" type="CharacterBody2D" groups=["enemy"]]
 position = Vector2(-1, -8)
 scale = Vector2(1.5, 1.5)
@@ -276,6 +279,13 @@ collision_mask = 64
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_ums8s")
 debug_color = Color(0.765267, 0.448558, 1.92523e-07, 0.42)
+
+[node name="HealthBar" parent="." instance=ExtResource("3_ro71f")]
+offset_left = -4.0
+offset_top = -3.0
+offset_right = 4.0
+offset_bottom = -2.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_ajc75")
 
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="area_entered" from="hurtBox" to="." method="hurtBoxYellow"]

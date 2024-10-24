@@ -16,7 +16,11 @@ var xp_enemy = 50
 @onready var floorDetector := $floorDetector as RayCast2D  # Detector de chão
 @onready var texture := $texture as Sprite2D
 @onready var anim := $anim as AnimationPlayer
+@onready var healthbar = $HealthBar
 
+func _ready() -> void:
+	healthbar.init_health(yellowSlime_life)
+	healthbar.visible = false  # A barra de vida começa invisível
 
 func _physics_process(delta):
 	# Gravidade
@@ -87,6 +91,13 @@ func apply_damage_to_player():
 func take_damage():
 	print("YS: ", yellowSlime_life)
 	yellowSlime_life -= Global.player_attack 
+	
+	healthbar.health = yellowSlime_life
+
+	if yellowSlime_life <= 0:
+		healthbar.visible = false  # Esconde a barra de vida quando o slime morre
+	else:
+		healthbar.visible = true  # Mostra a barra de vida ao sofrer dano
 	# Altera a cor do inimigo para vermelho
 	texture.modulate = Color(1, 0, 0)  # Vermelho
 	

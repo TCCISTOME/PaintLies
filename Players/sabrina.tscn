@@ -1,8 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://lx6vqi7othwx"]
+[gd_scene load_steps=37 format=3 uid="uid://lx6vqi7othwx"]
 
 [ext_resource type="Texture2D" uid="uid://5kh6g5x5wc" path="res://assets/Players/Sprite_Sabrina.png" id="1_0ygo7"]
 [ext_resource type="Script" path="res://Players/sabrina.gd" id="1_cexty"]
 [ext_resource type="PackedScene" uid="uid://dtrvoo8bq551m" path="res://UI/scenes/health_bar.tscn" id="3_klwxf"]
+[ext_resource type="PackedScene" uid="uid://dfng34rn43ptf" path="res://UI/scenes/shield_bar.tscn" id="4_lcax5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ioide"]
 size = Vector2(21, 31)
@@ -271,6 +272,8 @@ size = Vector2(24, 33)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d0vpa"]
 size = Vector2(22, 31)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ajc75"]
+
 [node name="sabrina" type="CharacterBody2D" groups=["player"]]
 collision_mask = 102
 script = ExtResource("1_cexty")
@@ -313,5 +316,10 @@ disabled = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthBar" parent="CanvasLayer" instance=ExtResource("3_klwxf")]
+theme_override_styles/background = SubResource("StyleBoxEmpty_ajc75")
+
+[node name="shieldBar" parent="CanvasLayer" instance=ExtResource("4_lcax5")]
+offset_top = 11.0
+offset_bottom = 19.0
 
 [connection signal="body_entered" from="hurtBox" to="." method="_on_hurt_box_body_entered"]

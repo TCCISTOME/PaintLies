@@ -11,6 +11,7 @@ var knockback_vetor := Vector2.ZERO
 @onready var animation := $anim as AnimatedSprite2D
 @onready var hitbox := $hitBox/collision as CollisionShape2D
 @onready var healthbar = $CanvasLayer/HealthBar
+@onready var shieldBar = $CanvasLayer/shieldBar
 
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -23,6 +24,7 @@ var is_jump = false
 
 func _ready() -> void:
 	healthbar.init_health(Global.player_life)
+	shieldBar.init_shield(Global.player_defese)
 	
 func _physics_process(delta):
 	drop_plataform()
@@ -128,6 +130,11 @@ func _on_hurt_box_body_entered(body: Node2D)-> void:
 	knockBack(knockback)
 	if Global.player_life <= 0:
 		dead()
+	if is_instance_valid(shieldBar):
+		shieldBar.shield = Global.player_defese  # Apenas atualiza se o shieldBar ainda existir
+		
+	if is_instance_valid(healthbar):
+		healthbar.health = Global.player_life  # Apenas atualiza se o healthbar ainda existir
 
 func knockBack(knockback_force := Vector2.ZERO, duration := 0.15):
 	if knockback_force != Vector2.ZERO:
