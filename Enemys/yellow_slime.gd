@@ -7,7 +7,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_dead := false
 var xp_enemy = 50
 # Variáveis do inimigo
-@export var yellowSlime_life := 100
+@export var yellowSlime_life := 200
 @export var yellowSlime_attack := 10
 @export var yellowSlime_xp := 400
 
@@ -57,6 +57,9 @@ func hurtBoxYellow(area: Area2D) -> void:
 	else:
 		if area.is_in_group("player"):
 			take_damage()
+	if is_instance_valid(healthbar):
+		healthbar.health = yellowSlime_life  # Apenas atualiza se o healthbar ainda existir
+	
 
 # Função chamada ao morrer
 func die():
@@ -91,11 +94,11 @@ func apply_damage_to_player():
 func take_damage():
 	print("YS: ", yellowSlime_life)
 	yellowSlime_life -= Global.player_attack 
-	
 	healthbar.health = yellowSlime_life
 
 	if yellowSlime_life <= 0:
 		healthbar.visible = false  # Esconde a barra de vida quando o slime morre
+		die()
 	else:
 		healthbar.visible = true  # Mostra a barra de vida ao sofrer dano
 	# Altera a cor do inimigo para vermelho
