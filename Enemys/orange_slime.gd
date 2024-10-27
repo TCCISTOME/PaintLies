@@ -7,9 +7,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_dead := false
 var xp_enemy = 50
 # Variáveis do inimigo
-@export var greenSlime_life := 300
-@export var greenSlime_attack := 10
-@export var greenSlime_xp := 200
+@export var orangeSlime_life := 300
+@export var orangeSlime_attack := 10
+@export var orangeSlime_xp := 200
 
 @onready var body := $hitBox/collision as Area2D
 @onready var wallDetector := $wallDetector as RayCast2D
@@ -19,7 +19,7 @@ var xp_enemy = 50
 @onready var healthbar = $HealthBar
 
 func _ready() -> void:
-	healthbar.init_health(greenSlime_life)
+	healthbar.init_health(orangeSlime_life)
 	healthbar.visible = false  # A barra de vida começa invisível
 
 func _physics_process(delta):
@@ -60,7 +60,7 @@ func _on_hit_box_area_entered(area):
 	
 	if area.is_in_group("player"):
 		anim.play("attack")
-		Global.player_defese -= greenSlime_attack
+		Global.player_defese -= orangeSlime_attack
 		if Global.player_defese <= 0:
 			apply_damage_to_player()
 
@@ -74,29 +74,30 @@ func _on_anim_animation_finished(anim_name):
 
 
 func apply_damage_to_player():
-	Global.player_life -= greenSlime_attack
+	Global.player_life -= orangeSlime_attack
 
 func take_damage():
 	if is_dead:  # Impede que o inimigo receba dano se já estiver morto
 		return
-	print("GS: ", greenSlime_life)
+	print("OS: ", orangeSlime_life)
 
-	greenSlime_life -= Global.player_attack
-	healthbar.health = greenSlime_life
+	orangeSlime_life -= Global.player_attack
+	healthbar.health = orangeSlime_life
 
-	if greenSlime_life <= 0:
+	if orangeSlime_life <= 0:
 		healthbar.visible = false  # Esconde a barra de vida quando o slime morre
 		die()
 	else:
 		healthbar.visible = true  # Mostra a barra de vida ao sofrer dano
+		
 	texture.modulate = Color(1, 0, 0)  # Muda para vermelho
 	await get_tree().create_timer(0.2).timeout
-	texture.modulate = Color(1, 1, 1)  # Volta para branco
+	texture.modulate = Color(1, 0.455, 0)  # Volta para branco
 
 
 
-func hurtBoxGreen(area: Area2D) -> void:
-	if greenSlime_life <= 0 and not is_dead:  # Verifica se o inimigo já morreu
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	if orangeSlime_life <= 0 and not is_dead:  # Verifica se o inimigo já morreu
 		is_dead = true  # Marca o inimigo como morto
 		Global.player_xp += xp_enemy
 		die()
@@ -105,4 +106,4 @@ func hurtBoxGreen(area: Area2D) -> void:
 			take_damage()
 			
 	if is_instance_valid(healthbar):
-		healthbar.health = greenSlime_life  # Apenas atualiza se o healthbar ainda existir
+		healthbar.health = orangeSlime_life  # Apenas atualiza se o healthbar ainda existir

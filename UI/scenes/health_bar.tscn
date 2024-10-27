@@ -19,6 +19,7 @@ shadow_offset = Vector2(0, 1)
 bg_color = Color(1, 1, 1, 1)
 
 [node name="HealthBar" type="ProgressBar"]
+modulate = Color(1, 1, 1, 0.784314)
 z_index = 1
 offset_right = 164.0
 offset_bottom = 8.0

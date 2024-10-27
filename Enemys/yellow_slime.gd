@@ -6,8 +6,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var is_dead := false
 var xp_enemy = 50
+
 # Variáveis do inimigo
-@export var yellowSlime_life := 200
+@export var yellowSlime_life := 300
 @export var yellowSlime_attack := 10
 @export var yellowSlime_xp := 400
 
@@ -64,7 +65,6 @@ func hurtBoxYellow(area: Area2D) -> void:
 # Função chamada ao morrer
 func die():
 	is_dead = true
-	$hitBox/collision.disabled = true
 	print("Iniciando animação de morte")
 	anim.play("dead")
 
@@ -93,19 +93,24 @@ func apply_damage_to_player():
 
 func take_damage():
 	print("YS: ", yellowSlime_life)
-	yellowSlime_life -= Global.player_attack 
-	healthbar.health = yellowSlime_life
+	yellowSlime_life -= Global.player_attack
+
+	if is_instance_valid(healthbar):  # Verifica se a healthbar ainda é válida
+		healthbar.health = yellowSlime_life  # Apenas atualiza se o healthbar ainda existir
 
 	if yellowSlime_life <= 0:
-		healthbar.visible = false  # Esconde a barra de vida quando o slime morre
+		if is_instance_valid(healthbar):
+			healthbar.visible = false  # Esconde a barra de vida quando o slime morre
 		die()
 	else:
-		healthbar.visible = true  # Mostra a barra de vida ao sofrer dano
+		if is_instance_valid(healthbar):
+			healthbar.visible = true  # Mostra a barra de vida ao sofrer dano
+			
 	# Altera a cor do inimigo para vermelho
 	texture.modulate = Color(1, 0, 0)  # Vermelho
-	
+
 	# Espera 0.2 segundos usando 'await'
 	await get_tree().create_timer(0.2).timeout
-	
+
 	# Volta a cor ao normal (branco)
 	texture.modulate = Color(1, 1, 1)  # Branco (cor original)

@@ -263,7 +263,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"walking",
-"speed": 5.0
+"speed": 7.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1kqhw"]
@@ -289,8 +289,8 @@ zoom = Vector2(1.5, 1.5)
 visibility_layer = 18
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_uvhw7")
-animation = &"drink"
-frame = 1
+animation = &"walking"
+frame = 7
 frame_progress = 1.0
 
 [node name="animator" type="AnimationPlayer" parent="."]

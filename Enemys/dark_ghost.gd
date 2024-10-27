@@ -17,6 +17,11 @@ var is_dead := false
 @onready var texture := $texture as Sprite2D
 @onready var anim := $anim as AnimationPlayer
 @onready var floorDetector := $floorDetector as RayCast2D  # Detector de chão
+@onready var healthbar = $HealthBar #Barra de vida
+
+func _ready() -> void:
+	healthbar.init_health(darkGhost_life)
+	healthbar.visible = false  # A barra de vida começa invisível
 
 func _physics_process(delta):
 	# Gravidade
@@ -31,7 +36,6 @@ func _physics_process(delta):
 		
 	# Inverte a textura com base na direção
 	texture.flip_h = direction == 1
-
 
 	velocity.x = direction * SPEED * delta
 	move_and_slide()
@@ -54,18 +58,26 @@ func walking():
 
 #Inimigo recebendo dano
 func _on_hurt_box_area_entered(area):
-	if darkGhost_life <= 0 and not is_dead:  # Verifica se o inimigo já morreu
-		is_dead = true  
+	if darkGhost_life <= 0 and not is_dead:
+		is_dead = true
 		Global.player_xp += xp_enemy
 		die()
 	else:
 		if area.is_in_group("player"):
 			take_damage()
+			
+	if is_instance_valid(healthbar):  # Confirma se ainda existe healthbar
+		healthbar.health = darkGhost_life
 
-# Função chamada ao morrer
 func die():
 	is_dead = true
 	anim.play("dead")
+	texture.modulate = Color(0, 0, 0)
+	
+	if is_instance_valid(healthbar):
+		healthbar.queue_free()  # Libera o healthbar antes de liberar o inimigo
+	
+	print("Inimigo morrendo...")
 	
 # Player recebendo dano
 func _on_hit_box_area_entered(area):
@@ -83,7 +95,7 @@ func _on_anim_animation_finished(anim_name):
 	if anim_name == "attack":
 		anim.play("walking")
 	elif anim_name == "dead":
-		queue_free() 
+		queue_free()
 
 #Subtraindo a vida do player
 func apply_damage_to_player():
@@ -91,15 +103,25 @@ func apply_damage_to_player():
 	print("Vida do player: ", Global.player_life)
 
 #Subtraindo a vida do inimigo e exibindo animação de dano
+# Função para receber dano
 func take_damage():
 	print("VDG: ", darkGhost_life)
-	darkGhost_life -= Global.player_attack  
-	
+	darkGhost_life -= Global.player_attack
+
+	if is_instance_valid(healthbar):  # Verifica se a healthbar ainda é válida
+		healthbar.health = darkGhost_life
+
+	if darkGhost_life <= 0:
+		die()
+	else:
+		if is_instance_valid(healthbar):
+			healthbar.visible = true  # Mostra a barra de vida ao sofrer dano
+			
 	# Altera a cor do inimigo para vermelho
-	texture.modulate = Color(1, 0, 0)  # Vermelho
-	
+	texture.modulate = Color(1, 0, 0)
+
 	# Espera 0.2 segundos usando 'await'
 	await get_tree().create_timer(0.2).timeout
-	
+
 	# Volta a cor ao normal (branco)
-	texture.modulate = Color(1, 1, 1)  # Branco (cor original)
+	texture.modulate = Color(1, 1, 1)

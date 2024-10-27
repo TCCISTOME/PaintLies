@@ -1,15 +1,19 @@
-[gd_scene load_steps=17 format=3 uid="uid://c3d2r8wubvu6x"]
+[gd_scene load_steps=23 format=3 uid="uid://c3d2r8wubvu6x"]
 
 [ext_resource type="Texture2D" uid="uid://dxmoslt75dr3i" path="res://assets/tilesets/Maytch 16x16 Tilesets/tilesheet_pagoda.png" id="1_5q02s"]
 [ext_resource type="Texture2D" uid="uid://b8qqg05du7usc" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Blocks (16 x 16).png" id="1_hjic5"]
 [ext_resource type="Texture2D" uid="uid://bpy61macm0ffx" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Snack_machine_Bench_Trash_bin (16 x 16).png" id="2_ytw0h"]
 [ext_resource type="Texture2D" uid="uid://dkenh1asmyiil" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Blocks (16 x 16) - Copia.png" id="4_jx21d"]
 [ext_resource type="Texture2D" uid="uid://c20625xcgetvu" path="res://assets/tilesets/Seasonal Tilesets/3 - Tropics/Terrain (16 x 16).png" id="5_d3sut"]
+[ext_resource type="Texture2D" uid="uid://c48lton4bgggo" path="res://assets/tilesets/Part1/Decoração.png" id="6_57rkd"]
+[ext_resource type="Texture2D" uid="uid://c7mjs3t733ly5" path="res://assets/tilesets/Part1/Chão De Madeira.png" id="7_c0w04"]
 [ext_resource type="PackedScene" uid="uid://bbrmcct01lqr0" path="res://Enemys/green_slime.tscn" id="9_5xxa6"]
 [ext_resource type="PackedScene" uid="uid://udyvalhxyb3e" path="res://Enemys/yellow_slime.tscn" id="9_weeah"]
 [ext_resource type="PackedScene" uid="uid://ckjhu1m1rm8ov" path="res://plataform.tscn" id="10_30wjt"]
 [ext_resource type="PackedScene" uid="uid://lx6vqi7othwx" path="res://Players/sabrina.tscn" id="10_at2e8"]
 [ext_resource type="PackedScene" uid="uid://cb0v3mk1v0trl" path="res://Enemys/dark_ghost.tscn" id="13_fmrn5"]
+[ext_resource type="PackedScene" uid="uid://fld66um2q5o5" path="res://Enemys/blue_slime.tscn" id="13_o21xc"]
+[ext_resource type="PackedScene" uid="uid://qgkawkctkfmb" path="res://Enemys/orange_slime.tscn" id="14_2w8sm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_drere"]
 texture = ExtResource("1_hjic5")
@@ -188,6 +192,29 @@ texture = ExtResource("5_d3sut")
 5:6/0 = 0
 4:8/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_omvag"]
+texture = ExtResource("6_57rkd")
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dxtgl"]
+texture = ExtResource("7_c0w04")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+2:4/0 = 0
+1:4/0 = 0
+0:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_a1wq5"]
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
@@ -196,10 +223,13 @@ sources/0 = SubResource("TileSetAtlasSource_drere")
 sources/1 = SubResource("TileSetAtlasSource_s4gje")
 sources/2 = SubResource("TileSetAtlasSource_igpc6")
 sources/3 = SubResource("TileSetAtlasSource_igp0v")
+sources/5 = SubResource("TileSetAtlasSource_omvag")
+sources/6 = SubResource("TileSetAtlasSource_dxtgl")
 
 [node name="PlataformForTest" type="Node2D"]
 
 [node name="level" type="TileMap" parent="."]
+position = Vector2(13, -5)
 tile_set = SubResource("TileSet_a1wq5")
 format = 2
 layer_0/name = "floor_roof"
@@ -251,4 +281,11 @@ position = Vector2(694, 62)
 [node name="yellow_slime" parent="." instance=ExtResource("9_weeah")]
 position = Vector2(750, 129)
 
+[node name="blue_slime" parent="." instance=ExtResource("13_o21xc")]
+position = Vector2(766, 2)
+
 [node name="sabrina" parent="." instance=ExtResource("10_at2e8")]
+position = Vector2(83, 197)
+
+[node name="red_orange" parent="." instance=ExtResource("14_2w8sm")]
+position = Vector2(324, 190)
