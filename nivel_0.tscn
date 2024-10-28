@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c3d2r8wubvu6x"]
+[gd_scene load_steps=27 format=3 uid="uid://c3d2r8wubvu6x"]
 
 [ext_resource type="Texture2D" uid="uid://dxmoslt75dr3i" path="res://assets/tilesets/Maytch 16x16 Tilesets/tilesheet_pagoda.png" id="1_5q02s"]
 [ext_resource type="Texture2D" uid="uid://b8qqg05du7usc" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Blocks (16 x 16).png" id="1_hjic5"]
@@ -14,6 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://cb0v3mk1v0trl" path="res://Enemys/dark_ghost.tscn" id="13_fmrn5"]
 [ext_resource type="PackedScene" uid="uid://fld66um2q5o5" path="res://Enemys/blue_slime.tscn" id="13_o21xc"]
 [ext_resource type="PackedScene" uid="uid://qgkawkctkfmb" path="res://Enemys/orange_slime.tscn" id="14_2w8sm"]
+[ext_resource type="PackedScene" uid="uid://dl1dluded6qcw" path="res://Enemys/pink_slime.tscn" id="15_nu63t"]
+[ext_resource type="PackedScene" uid="uid://nk5gqrbetekb" path="res://Enemys/purple_slime.tscn" id="16_bnps2"]
+[ext_resource type="PackedScene" uid="uid://7ru60vjmj7c0" path="res://Enemys/ink_monster.tscn" id="16_kobvk"]
+[ext_resource type="PackedScene" uid="uid://dah007dnf4lm5" path="res://Enemys/worm.tscn" id="17_x3cd0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_drere"]
 texture = ExtResource("1_hjic5")
@@ -284,8 +288,21 @@ position = Vector2(750, 129)
 [node name="blue_slime" parent="." instance=ExtResource("13_o21xc")]
 position = Vector2(766, 2)
 
-[node name="sabrina" parent="." instance=ExtResource("10_at2e8")]
-position = Vector2(83, 197)
-
 [node name="red_orange" parent="." instance=ExtResource("14_2w8sm")]
 position = Vector2(324, 190)
+
+[node name="purple_slime" parent="." instance=ExtResource("16_bnps2")]
+position = Vector2(809, 58)
+scale = Vector2(2.25, 2.25)
+
+[node name="pink_slime" parent="." instance=ExtResource("15_nu63t")]
+position = Vector2(868, 125)
+
+[node name="worm" parent="." instance=ExtResource("17_x3cd0")]
+position = Vector2(800, 133)
+
+[node name="ink_monster" parent="." instance=ExtResource("16_kobvk")]
+position = Vector2(805, 260)
+
+[node name="sabrina" parent="." instance=ExtResource("10_at2e8")]
+position = Vector2(83, 197)

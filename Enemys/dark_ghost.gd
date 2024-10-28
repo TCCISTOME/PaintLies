@@ -72,7 +72,7 @@ func _on_hurt_box_area_entered(area):
 func die():
 	is_dead = true
 	anim.play("dead")
-	texture.modulate = Color(0, 0, 0)
+	
 	
 	if is_instance_valid(healthbar):
 		healthbar.queue_free()  # Libera o healthbar antes de liberar o inimigo
@@ -117,8 +117,8 @@ func take_damage():
 		if is_instance_valid(healthbar):
 			healthbar.visible = true  # Mostra a barra de vida ao sofrer dano
 			
-	# Altera a cor do inimigo para vermelho
-	texture.modulate = Color(1, 0, 0)
+	# Altera a cor do inimigo para Preto
+	texture.modulate = Color(0, 0, 0)
 
 	# Espera 0.2 segundos usando 'await'
 	await get_tree().create_timer(0.2).timeout

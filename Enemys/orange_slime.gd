@@ -90,7 +90,7 @@ func take_damage():
 	else:
 		healthbar.visible = true  # Mostra a barra de vida ao sofrer dano
 		
-	texture.modulate = Color(1, 0, 0)  # Muda para vermelho
+	texture.modulate = Color(0, 0, 0)  # Muda para Preto
 	await get_tree().create_timer(0.2).timeout
 	texture.modulate = Color(1, 0.455, 0)  # Volta para branco
 
