@@ -283,7 +283,6 @@ position = Vector2(1.5, -15.5)
 shape = SubResource("RectangleShape2D_ioide")
 
 [node name="camera" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 visibility_layer = 18

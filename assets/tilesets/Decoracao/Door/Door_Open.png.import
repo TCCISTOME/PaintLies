@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c48lton4bgggo"
-path="res://.godot/imported/Decoração.png-d015acf79d638e133d4f421f7326e7ab.ctex"
+uid="uid://d0jyt8tgfa6j1"
+path="res://.godot/imported/Door_Open.png-2613230f6652c099ea38900c63961936.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/Part1/Decoração.png"
-dest_files=["res://.godot/imported/Decoração.png-d015acf79d638e133d4f421f7326e7ab.ctex"]
+source_file="res://assets/tilesets/Decoracao/Door/Door_Open.png"
+dest_files=["res://.godot/imported/Door_Open.png-2613230f6652c099ea38900c63961936.ctex"]
 
 [params]
 

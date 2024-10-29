@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7mjs3t733ly5"
-path="res://.godot/imported/Chão De Madeira.png-5185a79204e0b44bf75e017031111de9.ctex"
+path="res://.godot/imported/Chão De Madeira.png-3c97edde4b138767256fbfdaeedd4e93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/Part1/Chão De Madeira.png"
-dest_files=["res://.godot/imported/Chão De Madeira.png-5185a79204e0b44bf75e017031111de9.ctex"]
+source_file="res://assets/tilesets/Decoracao/Chão De Madeira.png"
+dest_files=["res://.godot/imported/Chão De Madeira.png-3c97edde4b138767256fbfdaeedd4e93.ctex"]
 
 [params]
 
