@@ -45,7 +45,7 @@ size = Vector2(16, 17)
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("animation")]
 visibility_layer = 2
 position = Vector2(-1, -16)
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_r8hsq")
 animation = NodePath("Comerciante")
 
@@ -58,6 +58,7 @@ animation = &"Comerciante"
 autoplay = "Comerciante_parado"
 frame_progress = 0.268028
 speed_scale = 0.4
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

@@ -237,16 +237,15 @@ collision_layer = 4
 collision_mask = 35
 script = ExtResource("1_0sxoc")
 
-[node name="Collision" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, 3.5)
-shape = SubResource("RectangleShape2D_wcai0")
-
 [node name="texture" type="Sprite2D" parent="."]
 texture = ExtResource("1_mk42v")
 hframes = 10
 vframes = 9
 frame = 48
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_wcai0")
 
 [node name="anim" type="AnimationPlayer" parent="."]
 libraries = {
@@ -255,13 +254,14 @@ libraries = {
 speed_scale = 0.8
 
 [node name="wallDetector" type="RayCast2D" parent="."]
-position = Vector2(1, 4)
+position = Vector2(0.666667, 3.33333)
 target_position = Vector2(-8, 0)
 collision_mask = 2
 
 [node name="floorDetector" type="RayCast2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0.666667, 2)
 target_position = Vector2(0, 6)
+collision_mask = 2
 
 [node name="hurtBox" type="Area2D" parent="."]
 visible = false

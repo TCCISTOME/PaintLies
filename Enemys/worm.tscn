@@ -107,7 +107,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.133333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.7, 0.7]
+"values": [0.5, 0.5]
 }
 
 [sub_resource type="Animation" id="Animation_77gkt"]
@@ -211,7 +211,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tph83"]
-size = Vector2(17, 15)
+size = Vector2(25, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_114p7"]
 size = Vector2(19, 17)
@@ -249,13 +249,12 @@ target_position = Vector2(0, 9)
 collision_mask = 2
 
 [node name="hitBox" type="Area2D" parent="."]
-visible = false
 position = Vector2(-9, 1)
 collision_layer = 32
 collision_mask = 64
 
 [node name="collision" type="CollisionShape2D" parent="hitBox"]
-position = Vector2(9.5, -0.5)
+position = Vector2(8.5, 0)
 shape = SubResource("RectangleShape2D_tph83")
 debug_color = Color(0.704133, 0.271064, 1, 0.42)
 
