@@ -2,9 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bp5h4qt1qefcw" path="res://assets/inimigos/bosses/BossJugleDog.png" id="1_2mte4"]
 
-[sub_resource type="Animation" id="Animation_6m622"]
-resource_name = "idle"
-length = 0.42
+[sub_resource type="Animation" id="Animation_3pdx4"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -30,8 +29,9 @@ tracks/1/keys = {
 "values": [6]
 }
 
-[sub_resource type="Animation" id="Animation_3pdx4"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_6m622"]
+resource_name = "idle"
+length = 0.42
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -71,6 +71,7 @@ position = Vector2(0, -16)
 [node name="texture" type="Sprite2D" parent="."]
 texture = ExtResource("1_2mte4")
 hframes = 6
+vframes = 2
 
 [node name="anim" type="AnimationPlayer" parent="."]
 libraries = {
