@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c3d2r8wubvu6x"]
+[gd_scene load_steps=28 format=3 uid="uid://c3d2r8wubvu6x"]
 
 [ext_resource type="Texture2D" uid="uid://dxmoslt75dr3i" path="res://assets/tilesets/Maytch 16x16 Tilesets/tilesheet_pagoda.png" id="1_5q02s"]
 [ext_resource type="Texture2D" uid="uid://b8qqg05du7usc" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Blocks (16 x 16).png" id="1_hjic5"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://nk5gqrbetekb" path="res://Enemys/purple_slime.tscn" id="16_bnps2"]
 [ext_resource type="PackedScene" uid="uid://7ru60vjmj7c0" path="res://Enemys/ink_monster.tscn" id="16_kobvk"]
 [ext_resource type="PackedScene" uid="uid://dah007dnf4lm5" path="res://Enemys/worm.tscn" id="17_x3cd0"]
+[ext_resource type="PackedScene" uid="uid://d34scno7exfdo" path="res://UI/scenes/HUD.tscn" id="19_ng3u8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_drere"]
 texture = ExtResource("1_hjic5")
@@ -306,3 +307,7 @@ position = Vector2(805, 260)
 
 [node name="sabrina" parent="." instance=ExtResource("10_at2e8")]
 position = Vector2(54, -8)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="control" parent="CanvasLayer" instance=ExtResource("19_ng3u8")]

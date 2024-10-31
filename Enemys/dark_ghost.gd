@@ -3,14 +3,13 @@ const SPEED = 1500.0
 const JUMP_VELOCITY = -400.0
 var direction := -1
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var xp_enemy = 50
 
 var is_dead := false
 
 # Variáveis do inimigo
 @export var darkGhost_life := 500
 @export var darkGhost_attack := 20
-@export var darkGhost_xp := 1300
+@export var xp := 2
 
 @onready var body := $hitBox/collision as Area2D
 @onready var wallDetector := $wallDetector as RayCast2D
@@ -60,7 +59,6 @@ func walking():
 func _on_hurt_box_area_entered(area):
 	if darkGhost_life <= 0 and not is_dead:
 		is_dead = true
-		Global.player_xp += xp_enemy
 		die()
 	else:
 		if area.is_in_group("player"):
@@ -71,14 +69,11 @@ func _on_hurt_box_area_entered(area):
 
 func die():
 	is_dead = true
+	
+	Global.countXp += xp
 	anim.play("dead")
 	
-	
-	if is_instance_valid(healthbar):
-		healthbar.queue_free()  # Libera o healthbar antes de liberar o inimigo
-	
-	print("Inimigo morrendo...")
-	
+
 # Player recebendo dano
 func _on_hit_box_area_entered(area):
 	if is_dead:  # Verifica se o inimigo está morto

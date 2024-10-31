@@ -5,11 +5,11 @@ var direction := -1
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var is_dead := false
-var xp_enemy = 50
+
 # Variáveis do inimigo
 @export var worm_life := 500
 @export var worm_attack := 20
-@export var worm_xp := 200
+@export var xp := 2
 
 @onready var body := $hitBox/collision as Area2D
 @onready var wallDetector := $wallDetector as RayCast2D
@@ -50,6 +50,7 @@ func walking():
 # Função chamada ao morrer
 func die():
 	is_dead = true
+	Global.countXp += xp
 	anim.play("dead")
 	
 	
@@ -99,7 +100,6 @@ func take_damage():
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if worm_life <= 0 and not is_dead:  # Verifica se o inimigo já morreu
 		is_dead = true  # Marca o inimigo como morto
-		Global.player_xp += xp_enemy
 		die()
 	else:
 		if area.is_in_group("player"):
