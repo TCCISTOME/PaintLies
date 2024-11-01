@@ -282,9 +282,6 @@ script = ExtResource("1_cexty")
 position = Vector2(1.5, -15.5)
 shape = SubResource("RectangleShape2D_ioide")
 
-[node name="camera" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
-
 [node name="anim" type="AnimatedSprite2D" parent="."]
 visibility_layer = 18
 position = Vector2(1, -16)
@@ -321,5 +318,7 @@ theme_override_styles/background = SubResource("StyleBoxEmpty_ajc75")
 [node name="shieldBar" parent="CanvasLayer" instance=ExtResource("4_lcax5")]
 offset_top = 11.0
 offset_bottom = 19.0
+
+[node name="remote" type="RemoteTransform2D" parent="."]
 
 [connection signal="body_entered" from="hurtBox" to="." method="_on_hurt_box_body_entered"]

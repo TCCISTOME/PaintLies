@@ -12,7 +12,9 @@ var knockback_vetor := Vector2.ZERO
 @onready var hitbox := $hitBox/collision as CollisionShape2D
 @onready var healthbar = $CanvasLayer/HealthBar
 @onready var shieldBar = $CanvasLayer/shieldBar
+@onready var remote_transform: RemoteTransform2D = $remote
 
+signal player_has_died()
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_attack = false
@@ -39,6 +41,10 @@ func _physics_process(delta):
 		drink()
 		
 	check_void()
+
+func follow_camera(camera):
+	var camera_path = camera.get_path()
+	remote_transform.remote_path = camera_path
 
 func check_void():
 	if global_position.y > 1000:
@@ -120,8 +126,8 @@ func drop_plataform():
 		position.y += 4
 
 func dead():
-	get_tree().quit()  
-	# get_tree().change_scene("res://path_para_sua_cena_de_game_over.tscn")
+	queue_free()
+	emit_signal("player_has_died")
 
 func _on_hurt_box_body_entered(body: Node2D)-> void:
 	print("PL: ", Global.player_life )

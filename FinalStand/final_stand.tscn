@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://bggk7dptqepje"]
+[gd_scene load_steps=19 format=3 uid="uid://bggk7dptqepje"]
 
+[ext_resource type="Script" path="res://FinalStand/scripts/final_stand.gd" id="1_g7gt3"]
 [ext_resource type="Texture2D" uid="uid://c7mjs3t733ly5" path="res://assets/tilesets/Decoracao/Chão De Madeira.png" id="1_h6f4f"]
 [ext_resource type="Texture2D" uid="uid://c48lton4bgggo" path="res://assets/tilesets/Decoracao/Decoração.png" id="2_h5iir"]
 [ext_resource type="Texture2D" uid="uid://b8qqg05du7usc" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Blocks (16 x 16).png" id="3_bph4w"]
@@ -105,6 +106,7 @@ sources/5 = SubResource("TileSetAtlasSource_nelai")
 
 [node name="FinalStand" type="Node2D"]
 position = Vector2(1, 19)
+script = ExtResource("1_g7gt3")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_sc7w7")
@@ -141,3 +143,8 @@ position = Vector2(320, 165)
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="control" parent="HUD" instance=ExtResource("11_svidw")]
+default_minutes = 2
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2(317, 152)
+zoom = Vector2(1.5, 1.5)
