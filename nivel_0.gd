@@ -22,6 +22,5 @@ func _process(delta: float) -> void:
 	pass
 
 func reload_game():
-	#Metódo de reiniciar a fase temporário (Colocar caminho para a tela de game over)
 	await get_tree().create_timer(1.5).timeout
 	get_tree().reload_current_scene()

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ds6pn36p24glp"]
+
+[node name="potionLife" type="CharacterBody2D"]
+
+[node name="collision" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -313,11 +313,19 @@ disabled = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthBar" parent="CanvasLayer" instance=ExtResource("3_klwxf")]
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 171.0
+offset_bottom = 13.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_ajc75")
+metadata/_edit_use_anchors_ = true
 
 [node name="shieldBar" parent="CanvasLayer" instance=ExtResource("4_lcax5")]
-offset_top = 11.0
-offset_bottom = 19.0
+offset_left = 7.0
+offset_top = 20.0
+offset_right = 171.0
+offset_bottom = 28.0
+metadata/_edit_use_anchors_ = true
 
 [node name="remote" type="RemoteTransform2D" parent="."]
 

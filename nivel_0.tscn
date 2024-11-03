@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://c3d2r8wubvu6x"]
+[gd_scene load_steps=29 format=3 uid="uid://c3d2r8wubvu6x"]
 
 [ext_resource type="Texture2D" uid="uid://dxmoslt75dr3i" path="res://assets/tilesets/Maytch 16x16 Tilesets/tilesheet_pagoda.png" id="1_5q02s"]
 [ext_resource type="Texture2D" uid="uid://b8qqg05du7usc" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Blocks (16 x 16).png" id="1_hjic5"]
+[ext_resource type="Script" path="res://nivel_0.gd" id="1_t2pkk"]
 [ext_resource type="Texture2D" uid="uid://bpy61macm0ffx" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Snack_machine_Bench_Trash_bin (16 x 16).png" id="2_ytw0h"]
 [ext_resource type="Texture2D" uid="uid://dkenh1asmyiil" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Blocks (16 x 16) - Copia.png" id="4_jx21d"]
 [ext_resource type="Texture2D" uid="uid://c20625xcgetvu" path="res://assets/tilesets/Seasonal Tilesets/3 - Tropics/Terrain (16 x 16).png" id="5_d3sut"]
@@ -232,6 +233,7 @@ sources/5 = SubResource("TileSetAtlasSource_omvag")
 sources/6 = SubResource("TileSetAtlasSource_dxtgl")
 
 [node name="PlataformForTest" type="Node2D"]
+script = ExtResource("1_t2pkk")
 
 [node name="level" type="TileMap" parent="."]
 position = Vector2(13, -5)
@@ -311,3 +313,5 @@ position = Vector2(54, -8)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="control" parent="CanvasLayer" instance=ExtResource("19_ng3u8")]
+
+[node name="camera" type="Camera2D" parent="."]
