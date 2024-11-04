@@ -1,6 +1,7 @@
 extends CharacterBody2D
 const SPEED = 1500.0
 const JUMP_VELOCITY = -400.0
+const potion_instance = preload("res://UI/scenes/potion_rigid.tscn")
 var direction := -1
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -11,6 +12,7 @@ var is_dead := false
 @export var darkGhost_attack := 20
 @export var xp := 2
 
+@onready var spawn_potion: Marker2D = $spawn_potion
 @onready var body := $hitBox/collision as Area2D
 @onready var wallDetector := $wallDetector as RayCast2D
 @onready var texture := $texture as Sprite2D
@@ -45,6 +47,13 @@ func _physics_process(delta):
 	# Valida se a personagem caiu no void
 	check_void()
 
+func create_potion():
+	var potion = potion_instance.instantiate()
+	get_parent().call_deferred("add_child", potion)
+	potion.global_position = spawn_potion.global_position
+	potion.apply_impulse(Vector2(randi_range(-50,50), -200))
+	
+	
 
 # Função para verificar se a personagem caiu no void
 func check_void():
@@ -90,6 +99,7 @@ func _on_anim_animation_finished(anim_name):
 	if anim_name == "attack":
 		anim.play("walking")
 	elif anim_name == "dead":
+		create_potion()
 		queue_free()
 
 #Subtraindo a vida do player

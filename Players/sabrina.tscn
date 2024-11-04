@@ -275,7 +275,7 @@ size = Vector2(22, 31)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ajc75"]
 
 [node name="sabrina" type="CharacterBody2D" groups=["player"]]
-collision_mask = 102
+collision_mask = 110
 script = ExtResource("1_cexty")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

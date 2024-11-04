@@ -26,7 +26,7 @@ var is_jump = false
 
 func _ready() -> void:
 	healthbar.init_health(Global.player_life)
-	shieldBar.init_shield(Global.player_defese)
+	shieldBar.init_shield()  # Chama init_shield sem argumentos
 	
 func _physics_process(delta):
 	drop_plataform()
@@ -38,7 +38,7 @@ func _physics_process(delta):
 		attack_player()
 	
 	if !animation_jump:
-		drink()
+		potionLife_drink()
 		
 	check_void()
 
@@ -114,12 +114,31 @@ func attack_player():
 		animation.play("attack")
 		$hitBox/collision.disabled = false
 
-func drink():
+func potionLife_drink():
+	# Verifica se a animação de beber terminou
 	if not animation.is_playing():
 		is_drink = false
-	if Input.is_action_just_pressed("beber") and is_on_floor():
-		is_drink = true
-		animation.play("drink")
+
+	# Verifica se o botão "beber" foi pressionado e o player está no chão
+	if Input.is_action_just_pressed("beber") and is_on_floor() and not is_drink:
+		# Condição para usar uma poção
+		if Global.countPotion > 0 and Global.player_life < Global.player_life_max:
+			# Ativa a animação de beber
+			is_drink = true
+			animation.play("drink")
+
+			# Aumenta a vida do player em 5, mas não ultrapassa o máximo
+			Global.player_life = min(Global.player_life + 5, Global.player_life_max)
+
+			# Atualiza a barra de vida para refletir a nova vida
+			if is_instance_valid(healthbar):
+				healthbar.health = Global.player_life
+
+			# Diminui o número de poções
+			Global.countPotion -= 1
+
+
+
 
 func drop_plataform():
 	if Input.is_action_just_pressed("descer"):

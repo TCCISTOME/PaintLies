@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bggk7dptqepje"]
+[gd_scene load_steps=20 format=3 uid="uid://bggk7dptqepje"]
 
 [ext_resource type="Script" path="res://FinalStand/scripts/final_stand.gd" id="1_g7gt3"]
 [ext_resource type="Texture2D" uid="uid://c7mjs3t733ly5" path="res://assets/tilesets/Decoracao/Chão De Madeira.png" id="1_h6f4f"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://7ru60vjmj7c0" path="res://Enemys/ink_monster.tscn" id="9_4k7cl"]
 [ext_resource type="PackedScene" uid="uid://dah007dnf4lm5" path="res://Enemys/worm.tscn" id="10_t2ylt"]
 [ext_resource type="PackedScene" uid="uid://d34scno7exfdo" path="res://UI/scenes/HUD.tscn" id="11_svidw"]
+[ext_resource type="PackedScene" uid="uid://ds6pn36p24glp" path="res://UI/scenes/potion_life.tscn" id="13_2kewo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a6648"]
 texture = ExtResource("1_h6f4f")
@@ -131,13 +132,15 @@ position = Vector2(-108, 291)
 [node name="sabrina" parent="." instance=ExtResource("6_b5hht")]
 position = Vector2(-194, 302)
 
-[node name="DarkGhost" parent="." instance=ExtResource("8_gwtg1")]
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="DarkGhost" parent="enemies" instance=ExtResource("8_gwtg1")]
 position = Vector2(153, 242)
 
-[node name="ink_monster" parent="." instance=ExtResource("9_4k7cl")]
+[node name="ink_monster" parent="enemies" instance=ExtResource("9_4k7cl")]
 position = Vector2(446, 230)
 
-[node name="worm" parent="." instance=ExtResource("10_t2ylt")]
+[node name="worm" parent="enemies" instance=ExtResource("10_t2ylt")]
 position = Vector2(320, 165)
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -148,3 +151,8 @@ default_minutes = 2
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(317, 152)
 zoom = Vector2(1.5, 1.5)
+
+[node name="potions" type="Node2D" parent="."]
+
+[node name="potion_life" parent="potions" instance=ExtResource("13_2kewo")]
+position = Vector2(164, 291)

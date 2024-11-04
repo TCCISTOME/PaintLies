@@ -14,7 +14,7 @@ func _ready() -> void:
 	xp_counter.text = str("%03d" % Global.countXp)
 	potion_counter.text = str("%02d" % Global.countPotion)
 	reset_clock_timer()
-	clock_timer.start()  # Inicia o temporizador para a contagem regressiva
+	clock_timer.start()  
 
 
 # Update counters each frame
