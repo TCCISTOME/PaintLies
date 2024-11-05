@@ -1,6 +1,8 @@
 extends CharacterBody2D
 const SPEED = 1500.0
 const JUMP_VELOCITY = -400.0
+const potion_instance = preload("res://UI/scenes/potion_rigid.tscn")
+
 var direction := -1
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -17,6 +19,8 @@ var is_dead := false
 @onready var texture := $texture as Sprite2D
 @onready var anim := $anim as AnimationPlayer
 @onready var healthbar = $HealthBar
+@onready var spawn_potion: Marker2D = $spawn_potion
+
 
 func _ready() -> void:
 	healthbar.init_health(blueSlime_life)
@@ -43,6 +47,12 @@ func _physics_process(delta):
 	# Só executa walking se o inimigo não estiver morrendo
 	if not is_dead and anim.current_animation != "attack":
 		walking()
+
+func create_potion():
+	var potion = potion_instance.instantiate()
+	get_parent().call_deferred("add_child", potion)
+	potion.global_position = spawn_potion.global_position
+	potion.apply_impulse(Vector2(randi_range(-50,50), -200))
 
 func walking():
 	anim.play("walking")
@@ -71,6 +81,7 @@ func _on_anim_animation_finished(anim_name):
 	if anim_name == "attack":
 		anim.play("walking")
 	elif anim_name == "dead":
+		create_potion()
 		queue_free()  # O inimigo só será removido quando a animação "dead" terminar
 
 

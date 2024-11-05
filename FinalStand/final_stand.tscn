@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bggk7dptqepje"]
+[gd_scene load_steps=26 format=3 uid="uid://bggk7dptqepje"]
 
 [ext_resource type="Script" path="res://FinalStand/scripts/final_stand.gd" id="1_g7gt3"]
 [ext_resource type="Texture2D" uid="uid://c7mjs3t733ly5" path="res://assets/tilesets/Decoracao/Chão De Madeira.png" id="1_h6f4f"]
@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://dl1dluded6qcw" path="res://Enemys/pink_slime.tscn" id="15_d3p5c"]
 [ext_resource type="PackedScene" uid="uid://nk5gqrbetekb" path="res://Enemys/purple_slime.tscn" id="16_ismch"]
 [ext_resource type="PackedScene" uid="uid://udyvalhxyb3e" path="res://Enemys/yellow_slime.tscn" id="17_bcaeq"]
-[ext_resource type="PackedScene" uid="uid://cv10kwkhhbtpl" path="res://FinalStand/spawner.tscn" id="20_llt7v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a6648"]
 texture = ExtResource("1_h6f4f")
@@ -134,7 +133,7 @@ layer_4/name = "Plataform"
 layer_4/tile_data = PackedInt32Array(983048, 3, 0, 983049, 3, 0, 983050, 3, 0, 983051, 3, 0, 983052, 3, 0, 983053, 3, 0, 983054, 3, 0, 983055, 3, 0, 983064, 3, 0, 983065, 3, 0, 983066, 3, 0, 983067, 3, 0, 983068, 3, 0, 983069, 3, 0, 983070, 3, 0, 983071, 3, 0, 720896, 3, 0, 720897, 3, 0, 720898, 3, 0, 720899, 3, 0, 720900, 3, 0, 720901, 3, 0, 720902, 3, 0, 720903, 3, 0, 720913, 3, 0, 720914, 3, 0, 720915, 3, 0, 720916, 3, 0, 720917, 3, 0, 720918, 3, 0, 720919, 3, 0, 720928, 3, 0, 720929, 3, 0, 720930, 3, 0, 720931, 3, 0, 720932, 3, 0, 720933, 3, 0, 720934, 3, 0, 720935, 3, 0, 458755, 3, 0, 458756, 3, 0, 458757, 3, 0, 458758, 3, 0, 458759, 3, 0, 458760, 3, 0, 458761, 3, 0, 458762, 3, 0, 458763, 3, 0, 458764, 3, 0, 458765, 3, 0, 458766, 3, 0, 458767, 3, 0, 458776, 3, 0, 458777, 3, 0, 458778, 3, 0, 458779, 3, 0, 458780, 3, 0, 458781, 3, 0, 458782, 3, 0, 458783, 3, 0, 458784, 3, 0, 458785, 3, 0, 458786, 3, 0, 458787, 3, 0, 458788, 3, 0, 196608, 3, 0, 196609, 3, 0, 196610, 3, 0, 196611, 3, 0, 196612, 3, 0, 196613, 3, 0, 196614, 3, 0, 196615, 3, 0, 196616, 3, 0, 196617, 3, 0, 196638, 3, 0, 196639, 3, 0, 196640, 3, 0, 196641, 3, 0, 196642, 3, 0, 196643, 3, 0, 196644, 3, 0, 196645, 3, 0, 196646, 3, 0, 196647, 3, 0, 196623, 3, 0, 196624, 3, 0, 196625, 3, 0, 196626, 3, 0, 196627, 3, 0, 196628, 3, 0, 196629, 3, 0, 196630, 3, 0, 196631, 3, 0, 196632, 3, 0, 720912, 3, 0)
 
 [node name="Instrutor" parent="." instance=ExtResource("7_qm5a6")]
-position = Vector2(-108, 291)
+position = Vector2(312, 290)
 
 [node name="sabrina" parent="." instance=ExtResource("6_b5hht")]
 position = Vector2(-194, 302)
@@ -142,31 +141,31 @@ position = Vector2(-194, 302)
 [node name="enemies" type="Node2D" parent="."]
 
 [node name="DarkGhost" parent="enemies" instance=ExtResource("8_gwtg1")]
-position = Vector2(82, 47)
+position = Vector2(319, 178)
 
 [node name="ink_monster" parent="enemies" instance=ExtResource("9_4k7cl")]
-position = Vector2(106, 35)
+position = Vector2(191, 229)
 
 [node name="worm" parent="enemies" instance=ExtResource("10_t2ylt")]
-position = Vector2(27, 33)
-
-[node name="blue_slime" parent="enemies" instance=ExtResource("12_7cyms")]
-position = Vector2(122, 33)
-
-[node name="greenSlime" parent="enemies" instance=ExtResource("13_a8ku6")]
-position = Vector2(59, 34)
-
-[node name="orange_slime" parent="enemies" instance=ExtResource("14_hx583")]
-position = Vector2(49, 28)
-
-[node name="pink_slime" parent="enemies" instance=ExtResource("15_d3p5c")]
-position = Vector2(73, 30)
+position = Vector2(446, 232)
 
 [node name="purple_slime" parent="enemies" instance=ExtResource("16_ismch")]
-position = Vector2(58, 24)
+position = Vector2(187, 94)
+
+[node name="greenSlime" parent="enemies" instance=ExtResource("13_a8ku6")]
+position = Vector2(217, 226)
+
+[node name="orange_slime" parent="enemies" instance=ExtResource("14_hx583")]
+position = Vector2(415, 226)
+
+[node name="blue_slime" parent="enemies" instance=ExtResource("12_7cyms")]
+position = Vector2(59, 163)
+
+[node name="pink_slime" parent="enemies" instance=ExtResource("15_d3p5c")]
+position = Vector2(580, 160)
 
 [node name="yellow_slime" parent="enemies" instance=ExtResource("17_bcaeq")]
-position = Vector2(25, 28)
+position = Vector2(490, 97)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -176,11 +175,14 @@ default_minutes = 2
 [node name="potions" type="Node2D" parent="."]
 
 [node name="potion_life" parent="potions" instance=ExtResource("13_2kewo")]
-position = Vector2(164, 291)
+position = Vector2(80, 36)
+
+[node name="potion_life2" parent="potions" instance=ExtResource("13_2kewo")]
+position = Vector2(320, 36)
+
+[node name="potion_life3" parent="potions" instance=ExtResource("13_2kewo")]
+position = Vector2(558, 36)
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(317, 152)
 zoom = Vector2(1.5, 1.5)
-
-[node name="spawner" parent="." instance=ExtResource("20_llt7v")]
-position = Vector2(345, 291)

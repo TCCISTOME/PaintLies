@@ -2,6 +2,7 @@ extends CharacterBody2D
 const SPEED = 1500.0
 const JUMP_VELOCITY = -400.0
 const potion_instance = preload("res://UI/scenes/potion_rigid.tscn")
+
 var direction := -1
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
