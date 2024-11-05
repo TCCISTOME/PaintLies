@@ -291,6 +291,9 @@ offset_bottom = -2.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_ajc75")
 max_value = 1000.0
 
+[node name="spawn_potion" type="Marker2D" parent="."]
+position = Vector2(-0.666667, 3.33333)
+
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="area_entered" from="hurtBox" to="." method="hurtBoxYellow"]
 [connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]

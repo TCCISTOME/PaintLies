@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://d34scno7exfdo"]
 
-[ext_resource type="FontFile" uid="uid://5w0bmf18yf0b" path="res://assets/fonts/dogicapixel.ttf" id="1_hr2oq"]
+[ext_resource type="FontFile" uid="uid://bvlwicyivdlbn" path="res://assets/fonts/Symtext.ttf" id="1_hr2oq"]
 [ext_resource type="Script" path="res://UI/scripts/hud.gd" id="1_i4rcs"]
 [ext_resource type="Texture2D" uid="uid://bii63qo7mvfkq" path="res://assets/tilesets/icones/Estrela 32x32.png" id="2_hh721"]
 [ext_resource type="Texture2D" uid="uid://cucfgxjc0xvu2" path="res://assets/tilesets/icones/Poções 32x32.png" id="3_v7y3m"]
@@ -53,7 +53,7 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("1_hr2oq")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 15
 text = "000000"
 vertical_alignment = 1
 
@@ -73,7 +73,7 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("1_hr2oq")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 15
 text = "TIMER:"
 vertical_alignment = 1
 
@@ -82,7 +82,7 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("1_hr2oq")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 15
 text = "0000"
 vertical_alignment = 1
 
@@ -99,20 +99,21 @@ texture = ExtResource("3_v7y3m")
 
 [node name="potion_counter" type="Label" parent="container/potion_container/potion_icon"]
 layout_mode = 1
-anchors_preset = 6
+anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 1.031
 anchor_bottom = 0.5
-offset_top = -1.0
-offset_right = 14.0
-offset_bottom = 6.0
+offset_left = 4.0
+offset_top = -11.0
+offset_right = 30.504
+offset_bottom = 12.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("1_hr2oq")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 15
 text = "00"
 vertical_alignment = 1
 

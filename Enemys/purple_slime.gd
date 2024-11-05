@@ -47,6 +47,12 @@ func _physics_process(delta):
 	if not is_dead and anim.current_animation != "attack":
 		walking()
 
+func create_potion():
+	var potion = potion_instance.instantiate()
+	get_parent().call_deferred("add_child", potion)
+	potion.global_position = spawn_potion.global_position
+	potion.apply_impulse(Vector2(randi_range(-50,50), -200))
+
 func walking():
 	anim.play("walking")
 
@@ -74,6 +80,7 @@ func _on_anim_animation_finished(anim_name):
 	if anim_name == "attack":
 		anim.play("walking")
 	elif anim_name == "dead":
+		create_potion()
 		queue_free()  # O inimigo só será removido quando a animação "dead" terminar
 
 
@@ -96,7 +103,7 @@ func take_damage():
 		
 	texture.modulate = Color(0, 0, 0)  # Muda para Preto
 	await get_tree().create_timer(0.2).timeout
-	texture.modulate = Color(1, 1, 1)  # Volta para branco
+	texture.modulate = Color(0.382, 0.697, 0.947)  # Volta para branco
 
 
 
