@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bggk7dptqepje"]
+[gd_scene load_steps=27 format=3 uid="uid://bggk7dptqepje"]
 
 [ext_resource type="Script" path="res://FinalStand/scripts/final_stand.gd" id="1_g7gt3"]
 [ext_resource type="Texture2D" uid="uid://c7mjs3t733ly5" path="res://assets/tilesets/Decoracao/Chão De Madeira.png" id="1_h6f4f"]
@@ -12,7 +12,14 @@
 [ext_resource type="PackedScene" uid="uid://7ru60vjmj7c0" path="res://Enemys/ink_monster.tscn" id="9_4k7cl"]
 [ext_resource type="PackedScene" uid="uid://dah007dnf4lm5" path="res://Enemys/worm.tscn" id="10_t2ylt"]
 [ext_resource type="PackedScene" uid="uid://d34scno7exfdo" path="res://UI/scenes/HUD.tscn" id="11_svidw"]
+[ext_resource type="PackedScene" uid="uid://fld66um2q5o5" path="res://Enemys/blue_slime.tscn" id="12_7cyms"]
 [ext_resource type="PackedScene" uid="uid://ds6pn36p24glp" path="res://UI/scenes/potion_life.tscn" id="13_2kewo"]
+[ext_resource type="PackedScene" uid="uid://bbrmcct01lqr0" path="res://Enemys/green_slime.tscn" id="13_a8ku6"]
+[ext_resource type="PackedScene" uid="uid://qgkawkctkfmb" path="res://Enemys/orange_slime.tscn" id="14_hx583"]
+[ext_resource type="PackedScene" uid="uid://dl1dluded6qcw" path="res://Enemys/pink_slime.tscn" id="15_d3p5c"]
+[ext_resource type="PackedScene" uid="uid://nk5gqrbetekb" path="res://Enemys/purple_slime.tscn" id="16_ismch"]
+[ext_resource type="PackedScene" uid="uid://udyvalhxyb3e" path="res://Enemys/yellow_slime.tscn" id="17_bcaeq"]
+[ext_resource type="PackedScene" uid="uid://cv10kwkhhbtpl" path="res://FinalStand/spawner.tscn" id="20_llt7v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a6648"]
 texture = ExtResource("1_h6f4f")
@@ -135,24 +142,45 @@ position = Vector2(-194, 302)
 [node name="enemies" type="Node2D" parent="."]
 
 [node name="DarkGhost" parent="enemies" instance=ExtResource("8_gwtg1")]
-position = Vector2(153, 242)
+position = Vector2(82, 47)
 
 [node name="ink_monster" parent="enemies" instance=ExtResource("9_4k7cl")]
-position = Vector2(446, 230)
+position = Vector2(106, 35)
 
 [node name="worm" parent="enemies" instance=ExtResource("10_t2ylt")]
-position = Vector2(320, 165)
+position = Vector2(27, 33)
+
+[node name="blue_slime" parent="enemies" instance=ExtResource("12_7cyms")]
+position = Vector2(122, 33)
+
+[node name="greenSlime" parent="enemies" instance=ExtResource("13_a8ku6")]
+position = Vector2(59, 34)
+
+[node name="orange_slime" parent="enemies" instance=ExtResource("14_hx583")]
+position = Vector2(49, 28)
+
+[node name="pink_slime" parent="enemies" instance=ExtResource("15_d3p5c")]
+position = Vector2(73, 30)
+
+[node name="purple_slime" parent="enemies" instance=ExtResource("16_ismch")]
+position = Vector2(58, 24)
+
+[node name="yellow_slime" parent="enemies" instance=ExtResource("17_bcaeq")]
+position = Vector2(25, 28)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="control" parent="HUD" instance=ExtResource("11_svidw")]
 default_minutes = 2
 
-[node name="camera" type="Camera2D" parent="."]
-position = Vector2(317, 152)
-zoom = Vector2(1.5, 1.5)
-
 [node name="potions" type="Node2D" parent="."]
 
 [node name="potion_life" parent="potions" instance=ExtResource("13_2kewo")]
 position = Vector2(164, 291)
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2(317, 152)
+zoom = Vector2(1.5, 1.5)
+
+[node name="spawner" parent="." instance=ExtResource("20_llt7v")]
+position = Vector2(345, 291)

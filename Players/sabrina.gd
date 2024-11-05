@@ -10,8 +10,6 @@ var knockback_vetor := Vector2.ZERO
 
 @onready var animation := $anim as AnimatedSprite2D
 @onready var hitbox := $hitBox/collision as CollisionShape2D
-@onready var healthbar = $CanvasLayer/HealthBar
-@onready var shieldBar = $CanvasLayer/shieldBar
 @onready var remote_transform: RemoteTransform2D = $remote
 
 signal player_has_died()
@@ -25,8 +23,9 @@ var is_jump = false
 
 
 func _ready() -> void:
-	healthbar.init_health(Global.player_life)
-	shieldBar.init_shield()  # Chama init_shield sem argumentos
+	pass
+	#healthbar.init_health(Global.player_life)
+	#shieldBar.init_shield()  # Chama init_shield sem argumentos
 	
 func _physics_process(delta):
 	drop_plataform()
@@ -130,15 +129,8 @@ func potionLife_drink():
 			# Aumenta a vida do player em 5, mas não ultrapassa o máximo
 			Global.player_life = min(Global.player_life + 5, Global.player_life_max)
 
-			# Atualiza a barra de vida para refletir a nova vida
-			if is_instance_valid(healthbar):
-				healthbar.health = Global.player_life
-
 			# Diminui o número de poções
 			Global.countPotion -= 1
-
-
-
 
 func drop_plataform():
 	if Input.is_action_just_pressed("descer"):
@@ -155,11 +147,6 @@ func _on_hurt_box_body_entered(body: Node2D)-> void:
 	knockBack(knockback)
 	if Global.player_life <= 0:
 		dead()
-	if is_instance_valid(shieldBar):
-		shieldBar.shield = Global.player_defese  # Apenas atualiza se o shieldBar ainda existir
-		
-	if is_instance_valid(healthbar):
-		healthbar.health = Global.player_life  # Apenas atualiza se o healthbar ainda existir
 
 func knockBack(knockback_force := Vector2.ZERO, duration := 0.15):
 	if knockback_force != Vector2.ZERO:

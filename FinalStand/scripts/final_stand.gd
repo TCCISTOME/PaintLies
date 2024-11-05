@@ -4,9 +4,9 @@ extends Node2D
 @onready var camera: Camera2D = $camera
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print(Global.player_defese)
 	player.follow_camera(camera)
 	player.player_has_died.connect(reload_game)
 	
@@ -18,8 +18,8 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+#func _process(delta: float) -> void:
+	#pass
 
 func reload_game():
 	#Metódo de reiniciar a fase temporário (Colocar caminho para a tela de game over)
