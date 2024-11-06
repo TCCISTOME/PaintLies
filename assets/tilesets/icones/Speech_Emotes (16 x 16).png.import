@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sd42ouqeedl8"
-path="res://.godot/imported/Sprite_Alicia.png-dbd0f8fe3fefa1582427b1ca617a4769.ctex"
+uid="uid://cv6amx4lcq3mw"
+path="res://.godot/imported/Speech_Emotes (16 x 16).png-85378e3188290dca2ce579a7cfb47e13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Players/Sprite_Alicia.png"
-dest_files=["res://.godot/imported/Sprite_Alicia.png-dbd0f8fe3fefa1582427b1ca617a4769.ctex"]
+source_file="res://assets/tilesets/icones/Speech_Emotes (16 x 16).png"
+dest_files=["res://.godot/imported/Speech_Emotes (16 x 16).png-85378e3188290dca2ce579a7cfb47e13.ctex"]
 
 [params]
 

@@ -16,11 +16,6 @@ func _ready() -> void:
 	Global.countXp = 0
 	Global.countPotion = 0
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-	#pass
-
 func reload_game():
 	#Metódo de reiniciar a fase temporário (Colocar caminho para a tela de game over)
 	await get_tree().create_timer(1.5).timeout

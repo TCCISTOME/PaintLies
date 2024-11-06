@@ -44,7 +44,7 @@ size = Vector2(16, 17)
 
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("animation")]
 visibility_layer = 2
-position = Vector2(-1, -16)
+position = Vector2(0, -12)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_r8hsq")
 animation = NodePath("Comerciante")
@@ -52,7 +52,7 @@ animation = NodePath("Comerciante")
 [node name="Comerciante" type="AnimatedSprite2D" parent="."]
 light_mask = 16
 visibility_layer = 2
-position = Vector2(4, -7.5)
+position = Vector2(-2, -8)
 sprite_frames = SubResource("SpriteFrames_oe7uf")
 animation = &"Comerciante"
 autoplay = "Comerciante_parado"
@@ -62,5 +62,5 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(0, -0.5)
+position = Vector2(1.33333, -0.666667)
 shape = SubResource("RectangleShape2D_u0dde")

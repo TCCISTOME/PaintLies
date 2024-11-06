@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv6m2nn8gwjiq"
-path="res://.godot/imported/Josh 2.0.png-a6349ee65586382842b73cc7d4bb8189.ctex"
+uid="uid://bwpcqjrgpkyob"
+path="res://.godot/imported/Yellow_Sparkle (16 x 16).png-57ad02434a6314e2ce8b86ce2b3d723c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Players/Josh 2.0.png"
-dest_files=["res://.godot/imported/Josh 2.0.png-a6349ee65586382842b73cc7d4bb8189.ctex"]
+source_file="res://assets/tilesets/icones/Yellow_Sparkle (16 x 16).png"
+dest_files=["res://.godot/imported/Yellow_Sparkle (16 x 16).png-57ad02434a6314e2ce8b86ce2b3d723c.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@ extends MarginContainer
 @onready var text_label: Label = $label_margin/text_label
 @onready var letter_timer_display: Timer = $letter_timer_display
 
-const MAX_WIDHT = 256
+const MAX_WIDHT = 200
 
 var text = ""
 var letter_index = 0
@@ -52,15 +52,6 @@ func display_letter():
 			
 			
 		
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 
 func _on_letter_timer_display_timeout() -> void:
