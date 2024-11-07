@@ -1,6 +1,5 @@
 [gd_scene load_steps=29 format=3 uid="uid://c3d2r8wubvu6x"]
 
-[ext_resource type="Texture2D" uid="uid://dxmoslt75dr3i" path="res://assets/tilesets/Maytch 16x16 Tilesets/tilesheet_pagoda.png" id="1_5q02s"]
 [ext_resource type="Texture2D" uid="uid://b8qqg05du7usc" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Blocks (16 x 16).png" id="1_hjic5"]
 [ext_resource type="Script" path="res://nivel_0.gd" id="1_t2pkk"]
 [ext_resource type="Texture2D" uid="uid://bpy61macm0ffx" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Snack_machine_Bench_Trash_bin (16 x 16).png" id="2_ytw0h"]
@@ -54,8 +53,11 @@ texture = ExtResource("2_ytw0h")
 5:2/0 = 0
 6:2/0 = 0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e2ctq"]
+load_path = "res://.godot/imported/tilesheet_pagoda.png-9f5dfb992a0e1de564ba35bfce23b00b.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w5qgo"]
-texture = ExtResource("1_5q02s")
+texture = SubResource("CompressedTexture2D_e2ctq")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
