@@ -28,7 +28,7 @@ func display_text(text_to_display: String):
 		await resized
 		custom_minimum_size.y = size.y
 		
-		global_position.x -= size.x / 2
+		global_position.x -= size.x / 1.5
 		global_position.y -= size.y + 24
 		text_label.text = ""
 		display_letter()
@@ -49,6 +49,7 @@ func display_letter():
 			letter_timer_display.start(space_display_timer)
 		_:
 			letter_timer_display.start(letter_display_timer)
+
 
 func _on_letter_timer_display_timeout() -> void:
 	display_letter()

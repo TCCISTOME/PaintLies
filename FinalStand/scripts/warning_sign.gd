@@ -4,7 +4,7 @@ extends Node2D
 @onready var area_sign: Area2D = $area_sign
 
 const lines: Array[String] = [
-	"Bem-vindo, aventureiro!",
+	"Ola caro aventureito! ",
 	"Preparado para enfrentar suas inseguranças nessa última fase?",
 	"Eu irei treiná-lo para enfrentar o grande mal!",
 	"Prepare-se!",

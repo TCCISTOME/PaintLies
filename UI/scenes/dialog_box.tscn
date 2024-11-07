@@ -5,9 +5,8 @@
 [ext_resource type="FontFile" uid="uid://bvlwicyivdlbn" path="res://assets/fonts/Symtext.ttf" id="2_7t7kw"]
 
 [node name="dialog_box" type="MarginContainer"]
-offset_right = 107.0
-offset_bottom = 56.0
-scale = Vector2(0.3, 0.3)
+offset_right = 197.0
+offset_bottom = 39.0
 script = ExtResource("1_rke6q")
 
 [node name="background" type="NinePatchRect" parent="."]
@@ -30,7 +29,7 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_7t7kw")
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 12
 text = "teste"
 vertical_alignment = 1
 
