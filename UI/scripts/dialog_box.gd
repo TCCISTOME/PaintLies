@@ -3,14 +3,14 @@ extends MarginContainer
 @onready var text_label: Label = $label_margin/text_label
 @onready var letter_timer_display: Timer = $letter_timer_display
 
-const MAX_WIDHT = 200
+const MAX_WIDTH = 256
 
 var text = ""
 var letter_index = 0
 
-var letter_display_time := 0.07
-var space_display_time := 0.05
-var punctuaction_display_time := 0.2
+var letter_display_timer := 0.07
+var space_display_timer := 0.05
+var punctuaction_display_timer := 0.2
 
 signal text_display_finished()
 
@@ -20,9 +20,9 @@ func display_text(text_to_display: String):
 
 	await  resized
 	
-	custom_minimum_size.x = min(size.x, MAX_WIDHT)
+	custom_minimum_size.x = min(size.x, MAX_WIDTH)
 	
-	if size.x > MAX_WIDHT:
+	if size.x > MAX_WIDTH:
 		text_label.autowrap_mode = TextServer.AUTOWRAP_WORD
 		await resized
 		await resized
@@ -44,15 +44,11 @@ func display_letter():
 		
 	match text[letter_index]:
 		"!","?",",",".":
-			letter_timer_display.star(punctuaction_display_time)
+			letter_timer_display.start(punctuaction_display_timer)
 		" ":
-			letter_timer_display.star(space_display_time)
+			letter_timer_display.start(space_display_timer)
 		_:
-			letter_timer_display.star(letter_display_time)
-			
-			
-		
-
+			letter_timer_display.start(letter_display_timer)
 
 func _on_letter_timer_display_timeout() -> void:
 	display_letter()
