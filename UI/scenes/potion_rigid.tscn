@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8ggmitclvmh2"]
+[gd_scene load_steps=4 format=3 uid="uid://b8ggmitclvmh2"]
 
+[ext_resource type="Script" path="res://UI/scripts/potion_rigid.gd" id="1_mto07"]
 [ext_resource type="PackedScene" uid="uid://ds6pn36p24glp" path="res://UI/scenes/potion_life.tscn" id="1_ntj2j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c3vq7"]
@@ -9,8 +10,11 @@ radius = 8.0
 collision_layer = 0
 collision_mask = 2
 lock_rotation = true
+script = ExtResource("1_mto07")
 
 [node name="potion_life" parent="." instance=ExtResource("1_ntj2j")]
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_c3vq7")
+
+[connection signal="tree_exited" from="potion_life" to="." method="_on_potion_life_tree_exited"]

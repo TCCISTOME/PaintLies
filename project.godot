@@ -29,6 +29,7 @@ window/stretch/mode="viewport"
 [file_customization]
 
 folder_colors={
+"res://Enemys/Boss/": "purple",
 "res://FinalStand/": "red",
 "res://assets/": "pink",
 "res://scripts/": "yellow"

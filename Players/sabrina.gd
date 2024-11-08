@@ -41,6 +41,8 @@ func _physics_process(delta):
 		
 	check_void()
 
+
+
 func follow_camera(camera):
 	var camera_path = camera.get_path()
 	remote_transform.remote_path = camera_path
@@ -102,6 +104,11 @@ func move(delta):
 
 	# Realiza o movimento com o knockback e gravidade aplicados
 	move_and_slide()
+	
+	for platforms in get_slide_collision_count():
+		var collision = get_slide_collision(platforms)
+		if collision.get_collider().has_method("has_collided_with"):
+			collision.get_collider().has_collided_with(collision, self)
 
 func attack_player():
 	if not animation.is_playing():
