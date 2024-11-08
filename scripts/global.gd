@@ -10,5 +10,8 @@ var countXp := 0
 var countTimer := 0
 var countPotion := 0
 
+var hit_enemyes := 20
+var hit_cubs := 25
+
 #Evita a colisão dupla
 #await $hurtBox/collision.call_deferred("queue_free")

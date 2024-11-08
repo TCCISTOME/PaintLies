@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dl1dluded6qcw"]
+[gd_scene load_steps=12 format=3 uid="uid://dl1dluded6qcw"]
 
 [ext_resource type="Script" path="res://Enemys/pink_slime.gd" id="1_vumla"]
 [ext_resource type="Texture2D" uid="uid://d1tuqsukobwul" path="res://assets/inimigos/slimes/slimeRosa.png" id="2_eatqx"]
@@ -222,9 +222,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wbr7"]
 size = Vector2(11.3333, 8)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_geurn"]
-size = Vector2(11.3333, 7.83333)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vao1b"]
 size = Vector2(14, 8)
 
@@ -262,17 +259,6 @@ position = Vector2(0, 2.66667)
 target_position = Vector2(0, 5.33333)
 collision_mask = 2
 
-[node name="hitBox" type="Area2D" parent="."]
-visible = false
-position = Vector2(-9, 1)
-collision_layer = 32
-collision_mask = 64
-
-[node name="collision" type="CollisionShape2D" parent="hitBox"]
-position = Vector2(8.66667, 2.25)
-shape = SubResource("RectangleShape2D_geurn")
-debug_color = Color(0.704133, 0.271064, 1, 0.42)
-
 [node name="hurtBox" type="Area2D" parent="."]
 visible = false
 collision_layer = 64
@@ -295,5 +281,4 @@ metadata/_edit_use_anchors_ = true
 [node name="spawn_potion" type="Marker2D" parent="."]
 
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
-[connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]

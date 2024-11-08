@@ -10,11 +10,9 @@ var is_dead := false
 
 # Variáveis do inimigo
 @export var darkGhost_life := 500
-@export var darkGhost_attack := 20
 @export var xp := 2
 
 @onready var spawn_potion: Marker2D = $spawn_potion
-@onready var body := $hitBox/collision as Area2D
 @onready var wallDetector := $wallDetector as RayCast2D
 @onready var texture := $texture as Sprite2D
 @onready var anim := $anim as AnimationPlayer
@@ -84,17 +82,6 @@ func die():
 	anim.play("dead")
 	
 
-# Player recebendo dano
-func _on_hit_box_area_entered(area):
-	if is_dead:  # Verifica se o inimigo está morto
-		return  # Se o inimigo estiver morto, não ataca
-	
-	if area.is_in_group("player"):
-		anim.play("attack")
-		Global.player_defese -= darkGhost_attack
-		if Global.player_defese <= 0:
-			apply_damage_to_player()
-
 # Sinal para quando a animação terminar
 func _on_anim_animation_finished(anim_name):
 	if anim_name == "attack":
@@ -103,12 +90,6 @@ func _on_anim_animation_finished(anim_name):
 		create_potion()
 		queue_free()
 
-#Subtraindo a vida do player
-func apply_damage_to_player():
-	Global.player_life -= darkGhost_attack
-	print("Vida do player: ", Global.player_life)
-
-#Subtraindo a vida do inimigo e exibindo animação de dano
 # Função para receber dano
 func take_damage():
 	print("VDG: ", darkGhost_life)

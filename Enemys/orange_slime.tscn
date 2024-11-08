@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://qgkawkctkfmb"]
+[gd_scene load_steps=12 format=3 uid="uid://qgkawkctkfmb"]
 
 [ext_resource type="Script" path="res://Enemys/orange_slime.gd" id="1_ty1y5"]
 [ext_resource type="Texture2D" uid="uid://b8q0wxn4h203y" path="res://assets/inimigos/slimes/slimeLaranja.png" id="2_t7r6m"]
@@ -198,9 +198,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xupte"]
 size = Vector2(11.3333, 8)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3n3m"]
-size = Vector2(11.3333, 7.83333)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gil4w"]
 size = Vector2(14, 8)
 
@@ -240,17 +237,6 @@ position = Vector2(0, 2.66667)
 target_position = Vector2(0, 5.33333)
 collision_mask = 2
 
-[node name="hitBox" type="Area2D" parent="."]
-visible = false
-position = Vector2(-9, 1)
-collision_layer = 32
-collision_mask = 64
-
-[node name="collision" type="CollisionShape2D" parent="hitBox"]
-position = Vector2(8.66667, 2.25)
-shape = SubResource("RectangleShape2D_y3n3m")
-debug_color = Color(0.704133, 0.271064, 1, 0.42)
-
 [node name="hurtBox" type="Area2D" parent="."]
 visible = false
 collision_layer = 64
@@ -272,5 +258,4 @@ max_value = 1000.0
 [node name="spawn_potion" type="Marker2D" parent="."]
 
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
-[connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]

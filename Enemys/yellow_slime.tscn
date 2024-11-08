@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://udyvalhxyb3e"]
+[gd_scene load_steps=12 format=3 uid="uid://udyvalhxyb3e"]
 
 [ext_resource type="Script" path="res://Enemys/yellow_slime.gd" id="1_0sxoc"]
 [ext_resource type="Texture2D" uid="uid://xq3w4siuye77" path="res://assets/inimigos/slimes/slimeAmarelo.png" id="1_mk42v"]
@@ -225,9 +225,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_41w1p"]
 size = Vector2(14, 8)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ums8s"]
-size = Vector2(12, 7)
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ajc75"]
 
 [node name="yellow_slime" type="CharacterBody2D" groups=["enemy"]]
@@ -273,16 +270,6 @@ position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_41w1p")
 debug_color = Color(0.993183, 0, 0.241368, 0.42)
 
-[node name="hitBox" type="Area2D" parent="."]
-visible = false
-collision_layer = 32
-collision_mask = 64
-
-[node name="collision" type="CollisionShape2D" parent="hitBox"]
-position = Vector2(0, 3.5)
-shape = SubResource("RectangleShape2D_ums8s")
-debug_color = Color(0.765267, 0.448558, 1.92523e-07, 0.42)
-
 [node name="HealthBar" parent="." instance=ExtResource("3_ro71f")]
 offset_left = -7.0
 offset_top = -4.0
@@ -296,4 +283,3 @@ position = Vector2(-0.666667, 3.33333)
 
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="area_entered" from="hurtBox" to="." method="hurtBoxYellow"]
-[connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]

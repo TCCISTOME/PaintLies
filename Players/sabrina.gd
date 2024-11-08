@@ -148,14 +148,25 @@ func dead():
 	emit_signal("player_has_died")
 
 func _on_hurt_box_body_entered(body: Node2D)-> void:
-	print("PL: ", Global.player_life )
-	print("PE: ", Global.player_defese )
 	var knockback = Vector2((global_position.x - body.global_position.x) * knockback_power, -50)
 	knockBack(knockback)
-	if Global.player_life <= 0:
-		dead()
+	
+	if body.is_in_group("enemy") or body.is_in_group("trap"):
+		
+		print("Player levou dano")
+		if Global.player_life <= 0:
+			dead()
+		else:
+			if Global.player_defese > 0:
+				Global.player_defese -= Global.hit_enemyes
+			elif Global.player_defese <= 0:
+				Global.player_life -= Global.hit_enemyes
+				
 
 func knockBack(knockback_force := Vector2.ZERO, duration := 0.15):
+	if Global.player_life > 0 and Global.player_defese <=0:
+		Global.player_life -= 20
+	
 	if knockback_force != Vector2.ZERO:
 		knockback_vetor = knockback_force
 		# Tween para resetar o knockback

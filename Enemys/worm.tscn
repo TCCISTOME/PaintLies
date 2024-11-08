@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dah007dnf4lm5"]
+[gd_scene load_steps=12 format=3 uid="uid://dah007dnf4lm5"]
 
 [ext_resource type="Script" path="res://Enemys/worm.gd" id="1_hd5ae"]
 [ext_resource type="Texture2D" uid="uid://bnyi1bimxvrlb" path="res://assets/inimigos/lacaios/Minhoquinha_Sprite.png" id="1_xufri"]
@@ -210,9 +210,6 @@ _data = {
 "walking": SubResource("Animation_iunoi")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tph83"]
-size = Vector2(25, 16)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_114p7"]
 size = Vector2(19, 17)
 
@@ -248,16 +245,6 @@ position = Vector2(0, 1)
 target_position = Vector2(0, 9)
 collision_mask = 2
 
-[node name="hitBox" type="Area2D" parent="."]
-position = Vector2(-9, 1)
-collision_layer = 32
-collision_mask = 64
-
-[node name="collision" type="CollisionShape2D" parent="hitBox"]
-position = Vector2(8.5, 0)
-shape = SubResource("RectangleShape2D_tph83")
-debug_color = Color(0.704133, 0.271064, 1, 0.42)
-
 [node name="hurtBox" type="Area2D" parent="."]
 visible = false
 collision_layer = 64
@@ -280,5 +267,4 @@ metadata/_edit_use_anchors_ = true
 [node name="spawn_potion" type="Marker2D" parent="."]
 
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
-[connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]

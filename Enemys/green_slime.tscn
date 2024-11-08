@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bbrmcct01lqr0"]
+[gd_scene load_steps=13 format=3 uid="uid://bbrmcct01lqr0"]
 
 [ext_resource type="Texture2D" uid="uid://bnc8pexghotn5" path="res://assets/inimigos/slimes/slimeGreen.png" id="1_gdm54"]
 [ext_resource type="Script" path="res://Enemys/green_slime.gd" id="1_l64gn"]
@@ -262,9 +262,6 @@ _data = {
 "walking": SubResource("Animation_sy4ax")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dy6p"]
-size = Vector2(11.3333, 7.83333)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j34pb"]
 size = Vector2(14, 8)
 
@@ -304,17 +301,6 @@ position = Vector2(0, 2.66667)
 target_position = Vector2(0, 5.33333)
 collision_mask = 2
 
-[node name="hitBox" type="Area2D" parent="."]
-visible = false
-position = Vector2(-9, 1)
-collision_layer = 32
-collision_mask = 64
-
-[node name="collision" type="CollisionShape2D" parent="hitBox"]
-position = Vector2(8.66667, 2.25)
-shape = SubResource("RectangleShape2D_7dy6p")
-debug_color = Color(0.704133, 0.271064, 1, 0.42)
-
 [node name="hurtBox" type="Area2D" parent="."]
 visible = false
 collision_layer = 64
@@ -336,5 +322,4 @@ max_value = 1000.0
 [node name="spawn_potion" type="Marker2D" parent="."]
 
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
-[connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_entered" from="hurtBox" to="." method="hurtBoxGreen"]

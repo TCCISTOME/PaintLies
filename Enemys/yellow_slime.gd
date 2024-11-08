@@ -10,10 +10,8 @@ var is_dead := false
 
 # Variáveis do inimigo
 @export var yellowSlime_life := 300
-@export var yellowSlime_attack := 10
 @export var xp := 1
 
-@onready var body := $hitBox/collision as Area2D
 @onready var wallDetector := $wallDetector as RayCast2D
 @onready var floorDetector := $floorDetector as RayCast2D  # Detector de chão
 @onready var texture := $texture as Sprite2D
@@ -82,20 +80,6 @@ func _on_anim_animation_finished(anim_name):
 		create_potion()
 		queue_free()
 
-# Função de ataque do inimigo
-func _on_hit_box_area_entered(area):
-	if is_dead:  # Verifica se o inimigo está morto
-		return  # Se o inimigo estiver morto, não ataca
-	
-	if area.is_in_group("player"):
-		anim.play("attack")
-		Global.player_defese -= yellowSlime_attack
-		if Global.player_defese <= 0:
-			apply_damage_to_player()
-
-func apply_damage_to_player():
-	Global.player_life -= yellowSlime_attack
-	print("Vida do player: ", Global.player_life)
 
 func take_damage():
 	print("YS: ", yellowSlime_life)
