@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://d34scno7exfdo"]
 
-[ext_resource type="FontFile" uid="uid://bvlwicyivdlbn" path="res://assets/fonts/Symtext.ttf" id="1_hr2oq"]
+[ext_resource type="FontFile" uid="uid://45plj3feayaj" path="res://assets/fonts/Symtext.ttf" id="1_hr2oq"]
 [ext_resource type="Script" path="res://UI/scripts/hud.gd" id="1_i4rcs"]
-[ext_resource type="Texture2D" uid="uid://bii63qo7mvfkq" path="res://assets/tilesets/icones/Estrela 32x32.png" id="2_hh721"]
-[ext_resource type="Texture2D" uid="uid://cucfgxjc0xvu2" path="res://assets/tilesets/icones/Poções 32x32.png" id="3_v7y3m"]
+[ext_resource type="Texture2D" uid="uid://bpfrn6q5xobfu" path="res://assets/tilesets/icones/Estrela 32x32.png" id="2_hh721"]
+[ext_resource type="Texture2D" uid="uid://uuiwma7unug6" path="res://assets/tilesets/icones/Poções 32x32.png" id="3_v7y3m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7t2jf"]
 bg_color = Color(0.0605303, 0.0605304, 0.0605303, 1)

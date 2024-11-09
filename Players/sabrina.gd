@@ -7,6 +7,7 @@ var is_dead: bool = false
 var knockback_power := 15
 
 var knockback_vetor := Vector2.ZERO
+var take_demage_traps_vetor := Vector2.ZERO
 
 @onready var animation := $anim as AnimatedSprite2D
 @onready var hitbox := $hitBox/collision as CollisionShape2D
@@ -101,6 +102,9 @@ func move(delta):
 	# Aplicando o knockback, se houver
 	if knockback_vetor != Vector2.ZERO:
 		velocity += knockback_vetor
+	
+	if take_demage_traps_vetor != Vector2.ZERO:
+		velocity += take_demage_traps_vetor
 
 	# Realiza o movimento com o knockback e gravidade aplicados
 	move_and_slide()
@@ -134,7 +138,7 @@ func potionLife_drink():
 			animation.play("drink")
 
 			# Aumenta a vida do player em 5, mas não ultrapassa o máximo
-			Global.player_life = min(Global.player_life + 5, Global.player_life_max)
+			Global.player_life = min(Global.player_life + 20, Global.player_life_max)
 
 			# Diminui o número de poções
 			Global.countPotion -= 1
@@ -151,21 +155,23 @@ func _on_hurt_box_body_entered(body: Node2D)-> void:
 	var knockback = Vector2((global_position.x - body.global_position.x) * knockback_power, -50)
 	knockBack(knockback)
 	
-	if body.is_in_group("enemy") or body.is_in_group("trap"):
-		
-		print("Player levou dano")
-		if Global.player_life <= 0:
-			dead()
+	if body.is_in_group("trap"):
+#		Player entrou na trap
+		var take_demage = Vector2((global_position.x - body.global_position.x) * knockback_power, -50)
+		take_demage_traps(take_demage)
+	
+	if body.is_in_group("enemy"):
+		#Tratando dano de inimigos com valor istático
+		if Global.player_life > 0 and Global.player_defese >= 0:
+			print("Player levou dano")
+			Global.player_defese -= Global.hit_enemyes
 		else:
-			if Global.player_defese > 0:
-				Global.player_defese -= Global.hit_enemyes
-			elif Global.player_defese <= 0:
-				Global.player_life -= Global.hit_enemyes
-				
+			Global.player_life -= Global.hit_enemyes
+			if Global.player_life <= 0:
+				dead()
+		
 
 func knockBack(knockback_force := Vector2.ZERO, duration := 0.15):
-	if Global.player_life > 0 and Global.player_defese <=0:
-		Global.player_life -= 20
 	
 	if knockback_force != Vector2.ZERO:
 		knockback_vetor = knockback_force
@@ -174,3 +180,23 @@ func knockBack(knockback_force := Vector2.ZERO, duration := 0.15):
 		knockback_tween.parallel().tween_property(self, "knockback_vetor", Vector2.ZERO, duration)
 		animation.modulate = Color(1,0,0,1)
 		knockback_tween.parallel().tween_property(animation, "modulate", Color(1,1,1,1), duration)
+
+
+func take_demage_traps(take_demage_traps_force := Vector2.ZERO, duration := 0.15):
+	
+	#Tratando dano de traps com valor istático
+	if Global.player_life > 0 and Global.player_defese >= 0:
+		print("Player entrou na trap")
+		Global.player_defese -= 40
+	else:
+		Global.player_life -= 40
+		if Global.player_life <= 0:
+			dead()
+		
+	if take_demage_traps_force != Vector2.ZERO:
+		take_demage_traps_vetor = take_demage_traps_force
+		# Tween para resetar o take_demage_traps
+		var take_demage_traps_tween := get_tree().create_tween()
+		take_demage_traps_tween.parallel().tween_property(self, "take_demage_traps_vetor", Vector2.ZERO, duration)
+		animation.modulate = Color(1,0,0,1)
+		take_demage_traps_tween.parallel().tween_property(animation, "modulate", Color(1,1,1,1), duration)
