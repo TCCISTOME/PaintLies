@@ -14,4 +14,9 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	print("Colidiu com a poção")
 	Global.countPotion += 1
+	$anim.play("colect")
+	
+
+
+func _on_anim_animation_finished() -> void:
 	queue_free()

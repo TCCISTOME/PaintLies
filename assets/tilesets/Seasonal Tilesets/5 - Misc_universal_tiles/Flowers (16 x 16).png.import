@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dma31v2b7jgj5"
-path="res://.godot/imported/Rock_shape (16 x 16).png-0e73bfb43fe4a6e8cebda65f3e1ccb37.ctex"
+uid="uid://b3x4oe1pdw3g2"
+path="res://.godot/imported/Flowers (16 x 16).png-0dff4bea1c1321f9eaeb8c50627a2f69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Rock_shape (16 x 16).png"
-dest_files=["res://.godot/imported/Rock_shape (16 x 16).png-0e73bfb43fe4a6e8cebda65f3e1ccb37.ctex"]
+source_file="res://assets/tilesets/Seasonal Tilesets/5 - Misc_universal_tiles/Flowers (16 x 16).png"
+dest_files=["res://.godot/imported/Flowers (16 x 16).png-0dff4bea1c1321f9eaeb8c50627a2f69.ctex"]
 
 [params]
 

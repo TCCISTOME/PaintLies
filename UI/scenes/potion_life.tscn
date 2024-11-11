@@ -1,10 +1,27 @@
-[gd_scene load_steps=9 format=3 uid="uid://ds6pn36p24glp"]
+[gd_scene load_steps=14 format=3 uid="uid://ds6pn36p24glp"]
 
-[ext_resource type="Texture2D" uid="uid://gqsmy3wkh231" path="res://assets/tilesets/icones/potionLife.png" id="1_bq0aw"]
+[ext_resource type="Texture2D" uid="uid://ckplj3vwnfbg0" path="res://assets/tilesets/icones/potionLife.png" id="1_bq0aw"]
 [ext_resource type="Script" path="res://UI/scripts/potion_life.gd" id="1_fxiue"]
+[ext_resource type="Texture2D" uid="uid://bwpcqjrgpkyob" path="res://assets/tilesets/icones/Yellow_Sparkle (16 x 16).png" id="2_6oec6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_maw8s"]
 radius = 9.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0aaw1"]
+atlas = ExtResource("2_6oec6")
+region = Rect2(0, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8l533"]
+atlas = ExtResource("2_6oec6")
+region = Rect2(20, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yvdu"]
+atlas = ExtResource("2_6oec6")
+region = Rect2(40, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or8aw"]
+atlas = ExtResource("2_6oec6")
+region = Rect2(60, 0, 20, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xa3jt"]
 atlas = ExtResource("1_bq0aw")
@@ -24,6 +41,23 @@ region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_34w6o"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0aaw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l533")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yvdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or8aw")
+}],
+"loop": false,
+"name": &"colect",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xa3jt")
@@ -51,8 +85,10 @@ shape = SubResource("CircleShape2D_maw8s")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_34w6o")
-animation = &"idle"
+animation = &"colect"
 autoplay = "idle"
-frame_progress = 0.941739
+frame = 3
+frame_progress = 1.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

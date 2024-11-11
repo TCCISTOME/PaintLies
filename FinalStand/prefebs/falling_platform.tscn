@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bt36lxhkaovvk"]
 
 [ext_resource type="Script" path="res://FinalStand/scripts/falling_platform.gd" id="1_qfw6k"]
-[ext_resource type="Texture2D" uid="uid://b8qqg05du7usc" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Blocks (16 x 16).png" id="2_0454f"]
+[ext_resource type="Texture2D" uid="uid://2iolcdcma64p" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc_universal_tiles/BlocksElements.png" id="2_0454f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k8l2u"]
 size = Vector2(32, 16)

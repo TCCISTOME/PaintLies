@@ -3,6 +3,8 @@ extends Node2D
 @onready var player: CharacterBody2D = $sabrina
 @onready var camera: Camera2D = $camera
 @onready var hud: Control = $HUD/control
+#@onready var transition = get_parent().get_node("transition")
+#@onready var transition: CanvasLayer = $transition
 
 
 # Called when the node enters the scene tree for the first time.
@@ -20,11 +22,9 @@ func _ready() -> void:
 	Global.countPotion = 0
 
 #func _on_time_to_change_scene() -> void:
-
-
 	#print("Tentando mudar de cena...")
+	#get_tree().change_scene_to_file("res://FinalStand/final_stand_boss.tscn")
 	#get_tree().call_deferred("change_scene_to_file", "res://FinalStand/final_stand_boss.tscn")
-
 	#get_tree().change_scene_to_file("C:/Users/Isabella/OneDrive/Documentos/GitHub/Scripts/FinalStand/final_stand_boss.tscn")  # Muda para a nova cena diretamente
 	#get_tree().change_scene("res://FinalStand/final_stand_boss.tscn")
 

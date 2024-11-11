@@ -29,6 +29,9 @@ func _ready() -> void:
 	#shieldBar.init_shield()  # Chama init_shield sem argumentos
 	
 func _physics_process(delta):
+	if is_dead:
+		return  # Ignora todo o código abaixo se o jogador está morto
+		
 	drop_plataform()
 	
 	if !is_attack && !is_drink:
@@ -39,6 +42,7 @@ func _physics_process(delta):
 	
 	if !animation_jump:
 		potionLife_drink()
+	
 		
 	check_void()
 
@@ -148,10 +152,21 @@ func drop_plataform():
 		position.y += 4
 
 func dead():
-	queue_free()
-	emit_signal("player_has_died")
+	if is_dead:  # Verifica se o personagem já está morto para evitar repetição
+		return
+	is_dead = true
+	animation.play("dead")  # Reproduz a animação de morte
+	
+func _on_anim_animation_finished() -> void:
+	if is_dead and animation.animation == "dead":
+		print("entrou >:)")  # Confirma que entrou na condição correta
+		emit_signal("player_has_died")
+		queue_free()  # Remove o personagem da cena
 
 func _on_hurt_box_body_entered(body: Node2D)-> void:
+	if is_dead:
+		return  # Ignora dano se o jogador já está morto
+	
 	var knockback = Vector2((global_position.x - body.global_position.x) * knockback_power, -50)
 	knockBack(knockback)
 	
@@ -194,6 +209,10 @@ func take_demage_traps(take_demage_traps_force := Vector2.ZERO, duration := 0.15
 			dead()
 		
 	if take_demage_traps_force != Vector2.ZERO:
+		
+		if is_dead:
+			return  # Ignora dano se o jogador já está morto
+		
 		take_demage_traps_vetor = take_demage_traps_force
 		# Tween para resetar o take_demage_traps
 		var take_demage_traps_tween := get_tree().create_tween()

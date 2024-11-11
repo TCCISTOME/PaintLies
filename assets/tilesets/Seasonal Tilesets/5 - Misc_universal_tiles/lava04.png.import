@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3x4oe1pdw3g2"
-path="res://.godot/imported/Flowers (16 x 16).png-05b2e449d7b6d4797bd7507e8d5243dc.ctex"
+uid="uid://dm1nbvfqgyr3u"
+path="res://.godot/imported/lava04.png-9aaec82cb457beabc5636d99f3f123df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Flowers (16 x 16).png"
-dest_files=["res://.godot/imported/Flowers (16 x 16).png-05b2e449d7b6d4797bd7507e8d5243dc.ctex"]
+source_file="res://assets/tilesets/Seasonal Tilesets/5 - Misc_universal_tiles/lava04.png"
+dest_files=["res://.godot/imported/lava04.png-9aaec82cb457beabc5636d99f3f123df.ctex"]
 
 [params]
 

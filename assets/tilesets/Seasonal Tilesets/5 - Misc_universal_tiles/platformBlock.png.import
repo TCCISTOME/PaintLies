@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ciyduxunmn6ro"
-path="res://.godot/imported/lava03.png-538b58f6afb5aa90cc410b4b6697bcb6.ctex"
+uid="uid://b1hup6wu6uff"
+path="res://.godot/imported/platformBlock.png-bfb91304ce8f57ce7c5d445c27f3f015.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/lava03.png"
-dest_files=["res://.godot/imported/lava03.png-538b58f6afb5aa90cc410b4b6697bcb6.ctex"]
+source_file="res://assets/tilesets/Seasonal Tilesets/5 - Misc_universal_tiles/platformBlock.png"
+dest_files=["res://.godot/imported/platformBlock.png-bfb91304ce8f57ce7c5d445c27f3f015.ctex"]
 
 [params]
 

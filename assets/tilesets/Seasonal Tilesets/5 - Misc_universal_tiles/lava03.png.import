@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm15rq38fsyh5"
-path="res://.godot/imported/Metal_Wire_fence (16 x 16).png-c71fd0d3bcb23207cd4934c46e00cc7b.ctex"
+uid="uid://ciyduxunmn6ro"
+path="res://.godot/imported/lava03.png-c2c457852527578586121991e6b34e64.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Metal_Wire_fence (16 x 16).png"
-dest_files=["res://.godot/imported/Metal_Wire_fence (16 x 16).png-c71fd0d3bcb23207cd4934c46e00cc7b.ctex"]
+source_file="res://assets/tilesets/Seasonal Tilesets/5 - Misc_universal_tiles/lava03.png"
+dest_files=["res://.godot/imported/lava03.png-c2c457852527578586121991e6b34e64.ctex"]
 
 [params]
 

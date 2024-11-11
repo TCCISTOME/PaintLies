@@ -14,7 +14,7 @@ var seconds = 0
 @export_range(0, 59) var default_seconds := 0
 
 # Define o sinal para quando o tempo chegar a 3 segundos
-signal time_to_change_scene
+#signal time_to_change_scene
 
 # Variável para garantir que o sinal seja emitido uma vez
 var scene_change_triggered = false
@@ -51,9 +51,9 @@ func _on_clock_timer_timeout() -> void:
 	timer_counter.text = str("%02d" % minutes) + ":" + str("%02d" % seconds)
 
 	# Verifique se o tempo chegou a 3 segundos e se o sinal ainda não foi emitido
-	if minutes == 0 and seconds == 3 and not scene_change_triggered:
-		emit_signal("time_to_change_scene")  # Emite o sinal
-		scene_change_triggered = true  # Garante que o sinal só será emitido uma vez
+	#if minutes == 9 and seconds == 45 and not scene_change_triggered:
+		#emit_signal("time_to_change_scene")  # Emite o sinal
+		#scene_change_triggered = true  # Garante que o sinal só será emitido uma vez
 
 func reset_clock_timer():
 	minutes = default_minutes

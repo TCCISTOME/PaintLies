@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wktgjcleyiim"
-path="res://.godot/imported/Bubbling_Oil_frames (16 x 32).png-a60e26ea23e4eac7d29aec48bf15fe2a.ctex"
+uid="uid://dm15rq38fsyh5"
+path="res://.godot/imported/Metal_Wire_fence (16 x 16).png-a9f02344d72ccec35e8ec184222d7998.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Bubbling_Oil_frames (16 x 32).png"
-dest_files=["res://.godot/imported/Bubbling_Oil_frames (16 x 32).png-a60e26ea23e4eac7d29aec48bf15fe2a.ctex"]
+source_file="res://assets/tilesets/Seasonal Tilesets/5 - Misc_universal_tiles/Metal_Wire_fence (16 x 16).png"
+dest_files=["res://.godot/imported/Metal_Wire_fence (16 x 16).png-a9f02344d72ccec35e8ec184222d7998.ctex"]
 
 [params]
 

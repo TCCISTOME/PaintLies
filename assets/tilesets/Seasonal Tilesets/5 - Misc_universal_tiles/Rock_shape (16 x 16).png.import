@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw0e7oq3r5lg6"
-path="res://.godot/imported/lava02.png-abd3326db67f81f7ad3ad5443ee9b877.ctex"
+uid="uid://dma31v2b7jgj5"
+path="res://.godot/imported/Rock_shape (16 x 16).png-fdcd43baf7e9789f623ea60ad7af0367.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/lava02.png"
-dest_files=["res://.godot/imported/lava02.png-abd3326db67f81f7ad3ad5443ee9b877.ctex"]
+source_file="res://assets/tilesets/Seasonal Tilesets/5 - Misc_universal_tiles/Rock_shape (16 x 16).png"
+dest_files=["res://.godot/imported/Rock_shape (16 x 16).png-fdcd43baf7e9789f623ea60ad7af0367.ctex"]
 
 [params]
 

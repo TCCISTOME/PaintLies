@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpy61macm0ffx"
-path="res://.godot/imported/Snack_machine_Bench_Trash_bin (16 x 16).png-4ff63705d70b2f7bc7020f707d805e8a.ctex"
+uid="uid://d3nq4anlvmfhd"
+path="res://.godot/imported/Water_frames (16 x 32).png-08f17f8e1d3c7194732e0be19bff5dd5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Snack_machine_Bench_Trash_bin (16 x 16).png"
-dest_files=["res://.godot/imported/Snack_machine_Bench_Trash_bin (16 x 16).png-4ff63705d70b2f7bc7020f707d805e8a.ctex"]
+source_file="res://assets/tilesets/Seasonal Tilesets/5 - Misc_universal_tiles/Water_frames (16 x 32).png"
+dest_files=["res://.godot/imported/Water_frames (16 x 32).png-08f17f8e1d3c7194732e0be19bff5dd5.ctex"]
 
 [params]
 
