@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://5jvawgmbknwq"]
 
-[ext_resource type="Texture2D" uid="uid://2iolcdcma64p" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc_universal_tiles/BlocksElements.png" id="1_8twst"]
+[ext_resource type="Texture2D" uid="uid://cch4lvqihkssg" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc_universal_tiles/elementsBlocks.png" id="1_8twst"]
 [ext_resource type="Script" path="res://FinalStand/scripts/moving_plataform.gd" id="1_i0sse"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jojm"]

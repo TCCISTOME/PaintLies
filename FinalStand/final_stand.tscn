@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://FinalStand/scripts/final_stand.gd" id="1_g7gt3"]
 [ext_resource type="Texture2D" uid="uid://c7mjs3t733ly5" path="res://assets/tilesets/Decoracao/Chão De Madeira.png" id="1_h6f4f"]
 [ext_resource type="Texture2D" uid="uid://c48lton4bgggo" path="res://assets/tilesets/Decoracao/Decoração.png" id="2_h5iir"]
-[ext_resource type="Texture2D" uid="uid://2iolcdcma64p" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc_universal_tiles/BlocksElements.png" id="4_a0b16"]
+[ext_resource type="Texture2D" uid="uid://cch4lvqihkssg" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc_universal_tiles/elementsBlocks.png" id="4_a0b16"]
 [ext_resource type="Texture2D" uid="uid://bpy61macm0ffx" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc_universal_tiles/Snack_machine_Bench_Trash_bin (16 x 16).png" id="5_0fx3g"]
 [ext_resource type="Texture2D" uid="uid://b1hup6wu6uff" path="res://assets/tilesets/Seasonal Tilesets/5 - Misc_universal_tiles/platformBlock.png" id="5_8ll5o"]
 [ext_resource type="PackedScene" uid="uid://lx6vqi7othwx" path="res://Players/sabrina.tscn" id="6_b5hht"]
