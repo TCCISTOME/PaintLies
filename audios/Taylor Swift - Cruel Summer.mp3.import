@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3rat5lv3t37w"
+path="res://.godot/imported/Taylor Swift - Cruel Summer.mp3-50e21785ef0a1cb8734ff38e474fe773.mp3str"
+
+[deps]
+
+source_file="res://audios/Taylor Swift - Cruel Summer.mp3"
+dest_files=["res://.godot/imported/Taylor Swift - Cruel Summer.mp3-50e21785ef0a1cb8734ff38e474fe773.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

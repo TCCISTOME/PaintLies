@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=3 uid="uid://bu58octmw0xa0"]
+
+[ext_resource type="Texture2D" uid="uid://dkg0xg2hvff3p" path="res://jogo-sabrina/assets/vendedores/alquimista/idle.png" id="1_461oq"]
+[ext_resource type="Script" path="res://assets-isa/vendedores/alquimista/Alquimista.gd" id="1_blc8j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dda7"]
+atlas = ExtResource("1_461oq")
+region = Rect2(0, 0, 119, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_godvk"]
+atlas = ExtResource("1_461oq")
+region = Rect2(0, 124, 119, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rap1y"]
+atlas = ExtResource("1_461oq")
+region = Rect2(0, 248, 119, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rcxh"]
+atlas = ExtResource("1_461oq")
+region = Rect2(0, 372, 119, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oiu1w"]
+atlas = ExtResource("1_461oq")
+region = Rect2(0, 496, 119, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3qnm"]
+atlas = ExtResource("1_461oq")
+region = Rect2(0, 620, 119, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vg1fl"]
+atlas = ExtResource("1_461oq")
+region = Rect2(0, 744, 119, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ephic"]
+atlas = ExtResource("1_461oq")
+region = Rect2(0, 868, 119, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5ren"]
+atlas = ExtResource("1_461oq")
+region = Rect2(0, 992, 119, 124)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tkhe6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dda7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_godvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rap1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rcxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oiu1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3qnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vg1fl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ephic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5ren")
+}],
+"loop": true,
+"name": &"Alquimista",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ollu"]
+size = Vector2(20, 38)
+
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("animation")]
+visibility_layer = 2
+position = Vector2(0, -14)
+script = ExtResource("1_blc8j")
+animation = NodePath("Alquimista")
+
+[node name="Alquimista" type="AnimatedSprite2D" parent="."]
+position = Vector2(6, -46)
+sprite_frames = SubResource("SpriteFrames_tkhe6")
+animation = &"Alquimista"
+frame_progress = 0.6713
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_5ollu")

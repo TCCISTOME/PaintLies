@@ -1,0 +1,335 @@
+[gd_scene load_steps=26 format=3 uid="uid://dhqvcxgmmmne4"]
+
+[ext_resource type="Script" path="res://scripts/cena-nova-tutorias.gd" id="1_0wko6"]
+[ext_resource type="Texture2D" uid="uid://cvu88cjjcyxab" path="res://imgs/quadrado-1.png" id="1_uvgth"]
+[ext_resource type="FontFile" uid="uid://cp37jsc5gadek" path="res://fonts/Symtext.ttf" id="2_m7mwg"]
+[ext_resource type="Texture2D" uid="uid://btwfvauii0soh" path="res://imgs/quadrado-2.png" id="2_x41on"]
+[ext_resource type="Texture2D" uid="uid://dgjs5jdufcro7" path="res://imgs/btnVoltar-cinza.png" id="4_drs4c"]
+[ext_resource type="Theme" uid="uid://fsnb182s8xjf" path="res://themes/tema-tutorial.tres" id="6_21hak"]
+[ext_resource type="FontFile" uid="uid://bvlwicyivdlbn" path="res://jogo-sabrina/assets/fonts/Symtext.ttf" id="7_3xebj"]
+[ext_resource type="Texture2D" uid="uid://hyd6rnagwieu" path="res://sprites/galinha/galinha/01.png" id="8_12og8"]
+[ext_resource type="Texture2D" uid="uid://dwsxnqtp7hims" path="res://sprites/galinha/galinha/02.png" id="9_2ic50"]
+[ext_resource type="Texture2D" uid="uid://bk8uat4ah8aw2" path="res://sprites/galinha/galinha/03.png" id="10_c7r0o"]
+[ext_resource type="Texture2D" uid="uid://jg78wjbnags8" path="res://sprites/galinha/galinha/04.png" id="11_uc4bx"]
+[ext_resource type="Texture2D" uid="uid://cqodsok0thrug" path="res://sprites/galinha/galinha/05.png" id="12_436q4"]
+[ext_resource type="AudioStream" uid="uid://8lkik1n3vcny" path="res://audios/bgMusic03.mp3" id="13_qup4c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ynggv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ti3l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nxfms"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oeq1g"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_m1jpj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5cceo"]
+texture = SubResource("CanvasTexture_m1jpj")
+modulate_color = Color(0.0941176, 0.231373, 0.360784, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_dpyyw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4fnx"]
+texture = SubResource("CanvasTexture_dpyyw")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_f8ncn"]
+OptionButton/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.291)
+OptionButton/colors/font_focus_color = Color(0.886275, 0.517647, 0.329412, 1)
+OptionButton/colors/font_hover_color = Color(1, 1, 1, 1)
+OptionButton/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+OptionButton/font_sizes/font_size = 16
+OptionButton/fonts/font = ExtResource("2_m7mwg")
+OptionButton/styles/hover = SubResource("StyleBoxTexture_5cceo")
+OptionButton/styles/normal = SubResource("StyleBoxTexture_g4fnx")
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ye3mn"]
+color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_6qupi"]
+color = Color(1, 1, 1, 1)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_84kv3"]
+frames = 5
+speed_scale = 0.5
+frame_0/texture = ExtResource("8_12og8")
+frame_0/duration = 0.2
+frame_1/texture = ExtResource("9_2ic50")
+frame_1/duration = 0.2
+frame_2/texture = ExtResource("10_c7r0o")
+frame_2/duration = 0.2
+frame_3/texture = ExtResource("11_uc4bx")
+frame_3/duration = 0.2
+frame_4/texture = ExtResource("12_436q4")
+frame_4/duration = 0.2
+
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_0wko6")
+metadata/_edit_horizontal_guides_ = [127.0, 98.0, 647.0, 4.0]
+metadata/_edit_vertical_guides_ = [1152.0, 0.0]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_stretch_ratio = 4.06
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_uvgth")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_x41on")
+expand_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.08
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ynggv")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.08
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.06
+theme_override_styles/separator = SubResource("StyleBoxEmpty_1ti3l")
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.08
+texture_normal = ExtResource("4_drs4c")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.83
+theme_override_styles/separator = SubResource("StyleBoxEmpty_1ti3l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="LabelAudio" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.858824, 0.890196, 0.901961, 1)
+theme_override_fonts/font = ExtResource("2_m7mwg")
+theme_override_font_sizes/font_size = 40
+text = "ÁUDIO"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="Label1" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.858824, 0.890196, 0.901961, 1)
+theme_override_fonts/font = ExtResource("2_m7mwg")
+theme_override_font_sizes/font_size = 26
+text = "MÚSICA"
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.858824, 0.890196, 0.901961, 1)
+theme_override_fonts/font = ExtResource("2_m7mwg")
+theme_override_font_sizes/font_size = 26
+text = "EFEITOS"
+
+[node name="HSlider2" type="HSlider" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="HSeparator4" type="HSeparator" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nxfms")
+
+[node name="HSeparator5" type="HSeparator" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nxfms")
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ynggv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.54
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+theme_override_styles/separator = SubResource("StyleBoxEmpty_oeq1g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.03
+theme_override_styles/separator = SubResource("StyleBoxEmpty_oeq1g")
+
+[node name="LabelTutoriais" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.858824, 0.890196, 0.901961, 1)
+theme_override_fonts/font = ExtResource("2_m7mwg")
+theme_override_font_sizes/font_size = 40
+text = "ajuda"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nxfms")
+
+[node name="Button3" type="Button" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.02
+theme = ExtResource("6_21hak")
+text = "Tutoriais"
+
+[node name="Button4" type="Button" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.02
+theme = ExtResource("6_21hak")
+text = "Modo de tela
+"
+
+[node name="HSeparator4" type="HSeparator" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nxfms")
+
+[node name="label_option" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.858824, 0.890196, 0.901961, 1)
+theme_override_fonts/font = ExtResource("2_m7mwg")
+theme_override_font_sizes/font_size = 26
+text = "opções de tela"
+
+[node name="button_option" type="OptionButton" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_f8ncn")
+theme_override_colors/font_disabled_color = Color(0.0941176, 0.231373, 0.360784, 1)
+theme_override_colors/font_hover_color = Color(0.886275, 0.517647, 0.329412, 1)
+theme_override_fonts/font = ExtResource("7_3xebj")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxLine_ye3mn")
+theme_override_styles/normal = SubResource("StyleBoxLine_6qupi")
+item_count = 5
+popup/item_0/text = "Windowed"
+popup/item_1/text = "Minimized"
+popup/item_1/id = 1
+popup/item_2/text = "Maximized"
+popup/item_2/id = 2
+popup/item_3/text = "Fullscreen"
+popup/item_3/id = 3
+popup/item_4/text = "Exclusive Fullscreen"
+popup/item_4/id = 4
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nxfms")
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_oeq1g")
+
+[node name="galinha" type="TextureRect" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/VSeparator2"]
+layout_mode = 2
+offset_left = -372.0
+offset_top = 7.0
+offset_right = -251.0
+offset_bottom = 119.0
+texture = SubResource("AnimatedTexture_84kv3")
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.35
+theme_override_styles/separator = SubResource("StyleBoxEmpty_oeq1g")
+
+[node name="bgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_qup4c")
+volume_db = -10.0
+autoplay = true
+bus = &"music"
+
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/TextureButton" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/TextureButton" to="." method="voltar_button_pressed"]
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer/HSlider2" to="." method="_on_h_slider_2_value_changed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="item_selected" from="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/button_option" to="." method="_on_button_option_item_selected"]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://bj0htm7kgb38v"]
+
+[ext_resource type="Texture2D" uid="uid://c4h4qdg715sxe" path="res://imgs/imagem_fundo_tutoris.jpg" id="1_7i70y"]
+[ext_resource type="Script" path="res://scripts/creditos.gd" id="1_rdg12"]
+[ext_resource type="VideoStream" path="res://cutscenes/Créditos_Final.ogv" id="3_ifw2b"]
+[ext_resource type="AudioStream" uid="uid://cqjbys3axkdtm" path="res://audios/songBoss.mp3" id="5_tfrim"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_rdg12")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = -376.0
+offset_top = -250.0
+offset_right = 1558.22
+offset_bottom = 838.0
+texture = ExtResource("1_7i70y")
+expand_mode = 3
+
+[node name="creditosPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 2
+offset_left = -7.0
+offset_top = -4.0
+offset_right = 1153.0
+offset_bottom = 652.0
+size_flags_vertical = 3
+stream = ExtResource("3_ifw2b")
+autoplay = true
+expand = true
+
+[node name="container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 28.837
+anchor_bottom = 16.265
+offset_left = -376.0
+offset_top = -250.0
+offset_right = 404.742
+offset_bottom = 187.4
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_tfrim")
+volume_db = -10.0
+autoplay = true
+bus = &"music"
+
+[connection signal="finished" from="creditosPlayer" to="." method="_on_cutscene_josh_finished"]
