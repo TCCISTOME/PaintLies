@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://h8f8340bvhcc"]
 
-[ext_resource type="Script" path="res://scripts/escolha_fases.gd" id="1_21xf8"]
+[ext_resource type="Script" uid="uid://b6744p08q2ji3" path="res://scripts/escolha_fases.gd" id="1_21xf8"]
 [ext_resource type="Texture2D" uid="uid://b4dd5kh0bbi5i" path="res://imgs/nome-salvamento.png" id="1_not6a"]
 [ext_resource type="Texture2D" uid="uid://decn7jct8hsds" path="res://imgs/btn-cancel.png" id="2_snmnm"]
 [ext_resource type="FontFile" uid="uid://cp37jsc5gadek" path="res://fonts/Symtext.ttf" id="3_xp4ex"]

@@ -151,23 +151,6 @@ func play_next_screen():
 	finished.emit()
 	play_screen(next_screen)
 
-
-# When you call func "play_screen":
-# How it works:
-# Presudocode:
-# 1 - Run animation screen "appear" (ex: Fade, Diamond, ...).
-# 2 - Wait for animation "appear" finished.
-
-# 3 - Run animation of splash screen.
-# 4 - Wait for animation of splash finished.
-
-# 5 - Run animation "disappear".
-# 6 - Wait for animation "disappear" finished.
-
-# 7 - If the next screen exist in list_screen: call "play_screen" with
-# next screen and return to step 1.
-# - If the next screen doesn't exist: Emit signal "finished_all".
-
 func play_screen(screen):
 	_remove_old_screen()
 	screen.visible = true

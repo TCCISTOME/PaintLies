@@ -31,13 +31,13 @@ GlobalSabrina="*res://jogo-sabrina/scripts/global.gd"
 
 [display]
 
-window/size/mode=3
+window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/awesome_splash/plugin.cfg", "res://addons/godot-action/plugin.cfg", "res://addons/godot-firebase/plugin.cfg")
+enabled=PackedStringArray("res://addons/awesome_splash/plugin.cfg", "res://addons/godot-action/plugin.cfg")
 
 [file_customization]
 

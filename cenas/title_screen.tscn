@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://chskr1vptlpr5"]
 
-[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_c3r0k"]
+[ext_resource type="Script" uid="uid://bgr3lk15d4c1v" path="res://scripts/title_screen.gd" id="1_c3r0k"]
 [ext_resource type="Texture2D" uid="uid://k62l673sjdwm" path="res://imgs/predios-noite.jpg" id="2_0kbiw"]
 [ext_resource type="AudioStream" uid="uid://8lkik1n3vcny" path="res://audios/bgMusic03.mp3" id="4_5wgyt"]
 [ext_resource type="Theme" uid="uid://bpb22s2mlije0" path="res://themes/new_theme.tres" id="4_ncpjk"]
