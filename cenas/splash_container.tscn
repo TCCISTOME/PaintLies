@@ -1,12 +1,142 @@
-[gd_scene load_steps=4 format=3 uid="uid://qxvjdvhsidp6"]
+[gd_scene load_steps=23 format=3 uid="uid://qxvjdvhsidp6"]
 
-[ext_resource type="Script" path="res://addons/awesome_splash/core/SplashContainer.gd" id="1_c8rkk"]
-[ext_resource type="PackedScene" uid="uid://cy4ptsbia3m7y" path="res://cenas/tela_login.tscn" id="2_kjl4l"]
+[ext_resource type="Script" uid="uid://s5sg4wt4hoa6" path="res://addons/awesome_splash/core/SplashContainer.gd" id="1_c8rkk"]
+[ext_resource type="Texture2D" uid="uid://b4dd5kh0bbi5i" path="res://imgs/nome-salvamento.png" id="2_iorqi"]
 [ext_resource type="PackedScene" uid="uid://bvp1p5sxea7hc" path="res://src/demo_collection/twist/splash_screen.tscn" id="2_p0jbt"]
+[ext_resource type="Texture2D" uid="uid://cguxbks0rxiy4" path="res://imgs/bloco-branco.png" id="3_l5y53"]
+[ext_resource type="Texture2D" uid="uid://decn7jct8hsds" path="res://imgs/btn-cancel.png" id="4_ecrcx"]
+[ext_resource type="FontFile" uid="uid://cp37jsc5gadek" path="res://fonts/Symtext.ttf" id="5_keeck"]
+[ext_resource type="Theme" uid="uid://bpb22s2mlije0" path="res://themes/new_theme.tres" id="6_uvjab"]
+[ext_resource type="AudioStream" uid="uid://8lkik1n3vcny" path="res://audios/bgMusic03.mp3" id="7_eo55t"]
+
+[sub_resource type="GDScript" id="GDScript_3a0ca"]
+script/source = "extends Control
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	Firebase.Auth.login_succeeded.connect(on_login_succeeded)
+	Firebase.Auth.signup_succeeded.connect(on_signup_succeeded)
+	Firebase.Auth.login_failed.connect(on_login_failed)
+	Firebase.Auth.signup_failed.connect(on_signup_failed)
+	
+	#if Firebase.Auth.check_auth_file():
+		#%StateLabel.text = \"Logged in\"
+		#get_tree().change_scene_to_file(\"res://cenas/title_screen.tscn\")
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass
+
+func _on_login_button_pressed():
+	var email = %EmailLineEdit.text
+	var password = %PasswordLineEdit.text
+	Firebase.Auth.login_with_email_and_password(email, password)
+	$TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/StateLabel[\"theme_override_font_sizes/font_size\"] = 10
+	$TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/StateLabel.text = \"Logging in\"
+
+func _on_signup_button_pressed():
+	var email = %EmailLineEdit.text
+	var password = %PasswordLineEdit.text
+	Firebase.Auth.signup_with_email_and_password(email, password)
+	%StateLabel[\"theme_override_font_sizes/font_size\"] = 40
+	%StateLabel.text = \"Singing up\"
+
+func on_login_succeeded(auth):
+	print(auth)
+	%StateLabel[\"theme_override_font_sizes/font_size\"] = 40
+	%StateLabel.text = \"Login success!\"
+	Global.email=auth[\"email\"];
+	Firebase.Auth.save_auth(auth)
+	get_tree().change_scene_to_file(\"res://cenas/title_screen.tscn\")
+	
+func on_signup_succeeded(auth):
+	print(auth)
+	%StateLabel[\"theme_override_font_sizes/font_size\"] = 40
+	%StateLabel.text = \"Sign up success!\"
+	Global.email=auth[\"email\"];
+	Firebase.Auth.save_auth(auth)
+	get_tree().change_scene_to_file(\"res://cenas/title_screen.tscn\")
+	
+func on_login_failed(error_code, message):
+	print(error_code)
+	print(message)
+	%StateLabel[\"theme_override_font_sizes/font_size\"] = 15
+	%StateLabel.text = \"Login failed. Error: %s\" % message
+	
+func on_signup_failed(error_code, message):
+	print(error_code)
+	print(message)
+	%StateLabel[\"theme_override_font_sizes/font_size\"] = 15
+	%StateLabel.text = \"Sign up failed. Error: %s\" % message
+
+
+func _on_email_line_edit_focus_entered() -> void:
+	%EmailLineEdit[\"theme_override_colors/font_placeholder_color\"] = \"#0000004a\"
+
+
+func _on_email_line_edit_focus_exited() -> void:
+	%EmailLineEdit[\"theme_override_colors/font_placeholder_color\"] = \"#000000\"
+
+
+func _on_password_line_edit_focus_entered() -> void:
+	%PasswordLineEdit[\"theme_override_colors/font_placeholder_color\"] = \"#0000004a\"
+
+
+func _on_password_line_edit_focus_exited() -> void:
+	%PasswordLineEdit[\"theme_override_colors/font_placeholder_color\"] = \"#000000\"
+"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7fi31"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6jyl3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kfyfe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bbc5t"]
+
+[sub_resource type="Theme" id="Theme_jl11j"]
+
+[sub_resource type="Theme" id="Theme_457vo"]
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0, 0, 0, 1)
+LineEdit/font_sizes/font_size = 26
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xdmje"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uk1mv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hnwod"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_agibv"]
+pressed = true
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_1clqv"]
+events = [SubResource("InputEventKey_agibv")]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5wkte"]
+
+[sub_resource type="PackedScene" id="PackedScene_w8kxv"]
+_bundled = {
+"conn_count": 6,
+"conns": PackedInt32Array(1073741860, 1073741859, 250, 249, 2, 0, 0, 1073741862, 1073741861, 252, 251, 2, 0, 0, 1073741864, 1073741863, 254, 253, 2, 0, 0, 1073741866, 1073741865, 256, 255, 2, 0, 0, 1073741868, 1073741867, 258, 257, 2, 0, 0, 1073741870, 1073741869, 260, 259, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("Authentication", "Control", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "grow_horizontal", "grow_vertical", "script", "TextureRect", "TextureRect", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "grow_horizontal", "grow_vertical", "texture", "expand_mode", "HBoxContainer", "HBoxContainer", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "grow_horizontal", "grow_vertical", "HSeparator", "HSeparator", "layout_mode", "size_flags_horizontal", "size_flags_stretch_ratio", "theme_override_styles/separator", "VBoxContainer", "VBoxContainer", "layout_mode", "size_flags_horizontal", "VSeparator", "VSeparator", "layout_mode", "size_flags_vertical", "theme_override_styles/separator", "TextureRect", "TextureRect", "material", "layout_mode", "size_flags_horizontal", "size_flags_vertical", "size_flags_stretch_ratio", "texture", "expand_mode", "VSeparator2", "VSeparator", "layout_mode", "size_flags_vertical", "theme_override_styles/separator", "HSeparator2", "HSeparator", "layout_mode", "size_flags_horizontal", "size_flags_stretch_ratio", "theme_override_styles/separator", "HBoxContainer2", "HBoxContainer", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "grow_horizontal", "grow_vertical", "HSeparator", "HSeparator", "layout_mode", "size_flags_horizontal", "size_flags_stretch_ratio", "theme_override_styles/separator", "VBoxContainer", "VBoxContainer", "layout_mode", "size_flags_horizontal", "VSeparator", "VSeparator", "layout_mode", "size_flags_vertical", "size_flags_stretch_ratio", "theme_override_styles/separator", "HBoxContainer", "HBoxContainer", "layout_mode", "size_flags_vertical", "HSeparator2", "HSeparator", "layout_mode", "size_flags_horizontal", "size_flags_stretch_ratio", "theme_override_styles/separator", "VBoxContainer", "VBoxContainer", "layout_mode", "size_flags_horizontal", "size_flags_stretch_ratio", "TextureButton", "TextureButton", "visible", "layout_mode", "size_flags_horizontal", "size_flags_vertical", "theme", "texture_normal", "texture_pressed", "texture_hover", "texture_focused", "ignore_texture_size", "stretch_mode", "VSeparator", "VSeparator", "layout_mode", "size_flags_vertical", "size_flags_stretch_ratio", "theme_override_styles/separator", "HSeparator3", "HSeparator", "layout_mode", "size_flags_horizontal", "theme_override_styles/separator", "VBoxContainer2", "VBoxContainer", "layout_mode", "size_flags_horizontal", "StateLabel", "Label", "unique_name_in_owner", "layout_mode", "size_flags_vertical", "size_flags_stretch_ratio", "theme_override_colors/font_color", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "text", "horizontal_alignment", "HBoxContainer2", "HBoxContainer", "layout_mode", "size_flags_vertical", "Label", "Label", "layout_mode", "theme_override_colors/font_color", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "text", "EmailLineEdit", "LineEdit", "unique_name_in_owner", "layout_mode", "size_flags_horizontal", "size_flags_vertical", "theme", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "theme_override_styles/focus", "theme_override_styles/read_only", "theme_override_styles/normal", "placeholder_text", "HBoxContainer3", "HBoxContainer", "layout_mode", "size_flags_vertical", "size_flags_stretch_ratio", "Label", "Label", "layout_mode", "theme_override_colors/font_color", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "text", "PasswordLineEdit", "LineEdit", "unique_name_in_owner", "layout_mode", "size_flags_horizontal", "size_flags_vertical", "theme", "theme_override_colors/font_placeholder_color", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "theme_override_styles/focus", "theme_override_styles/read_only", "theme_override_styles/normal", "placeholder_text", "secret", "HBoxContainer", "HBoxContainer", "layout_mode", "HSeparator", "HSeparator", "layout_mode", "size_flags_horizontal", "size_flags_stretch_ratio", "theme_override_styles/separator", "LoginButton", "Button", "layout_mode", "size_flags_horizontal", "theme", "theme_override_constants/align_to_largest_stylebox", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "shortcut", "text", "SignupButton", "Button", "layout_mode", "size_flags_horizontal", "theme", "theme_override_constants/align_to_largest_stylebox", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "text", "HSeparator2", "HSeparator", "layout_mode", "size_flags_horizontal", "size_flags_stretch_ratio", "theme_override_styles/separator", "HSeparator", "HSeparator", "layout_mode", "size_flags_horizontal", "size_flags_stretch_ratio", "theme_override_styles/separator", "VSeparator2", "VSeparator", "layout_mode", "size_flags_vertical", "size_flags_stretch_ratio", "theme_override_styles/separator", "HSeparator2", "HSeparator", "layout_mode", "size_flags_horizontal", "size_flags_stretch_ratio", "theme_override_styles/separator", "bgMusic", "AudioStreamPlayer", "stream", "volume_db", "autoplay", "bus", "_on_email_line_edit_focus_entered", "focus_entered", "_on_email_line_edit_focus_exited", "focus_exited", "_on_password_line_edit_focus_entered", "focus_entered", "_on_password_line_edit_focus_exited", "focus_exited", "_on_login_button_pressed", "pressed", "_on_signup_button_pressed", "pressed"),
+"node_count": 36,
+"node_paths": [NodePath("."), NodePath("./TextureRect"), NodePath("./TextureRect/HBoxContainer"), NodePath("./TextureRect/HBoxContainer"), NodePath("./TextureRect/HBoxContainer/VBoxContainer"), NodePath("./TextureRect/HBoxContainer/VBoxContainer"), NodePath("./TextureRect/HBoxContainer/VBoxContainer"), NodePath("./TextureRect/HBoxContainer"), NodePath("./TextureRect"), NodePath("./TextureRect/HBoxContainer2"), NodePath("./TextureRect/HBoxContainer2"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer3"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer3"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer"), NodePath("./TextureRect/HBoxContainer2/VBoxContainer"), NodePath("./TextureRect/HBoxContainer2"), NodePath("."), NodePath("."), NodePath("TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer2/EmailLineEdit"), NodePath("."), NodePath("TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer2/EmailLineEdit"), NodePath("."), NodePath("TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer3/PasswordLineEdit"), NodePath("."), NodePath("TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer3/PasswordLineEdit"), NodePath("."), NodePath("TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/LoginButton"), NodePath("."), NodePath("TextureRect/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/SignupButton")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 7, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 0, 1073741824, 0, 10, 9, -1, 8, 11, 7, 12, 8, 13, 9, 14, 10, 15, 11, 16, 12, 17, 13, 18, 14, 0, 1073741825, 0, 20, 19, -1, 6, 21, 15, 22, 16, 23, 17, 24, 18, 25, 19, 26, 20, 0, 1073741826, 0, 28, 27, -1, 4, 29, 21, 30, 22, 31, 23, 32, 24, 0, 1073741827, 0, 34, 33, -1, 2, 35, 25, 36, 26, 0, 1073741828, 0, 38, 37, -1, 3, 39, 27, 40, 28, 41, 29, 0, 1073741829, 0, 43, 42, -1, 7, 44, 30, 45, 31, 46, 32, 47, 33, 48, 34, 49, 35, 50, 36, 0, 1073741830, 0, 52, 51, -1, 3, 53, 37, 54, 38, 55, 39, 0, 1073741831, 0, 57, 56, -1, 4, 58, 40, 59, 41, 60, 42, 61, 43, 0, 1073741832, 0, 63, 62, -1, 6, 64, 44, 65, 45, 66, 46, 67, 47, 68, 48, 69, 49, 0, 1073741833, 0, 71, 70, -1, 4, 72, 50, 73, 51, 74, 52, 75, 53, 0, 1073741834, 0, 77, 76, -1, 2, 78, 54, 79, 55, 0, 1073741835, 0, 81, 80, -1, 4, 82, 56, 83, 57, 84, 58, 85, 59, 0, 1073741836, 0, 87, 86, -1, 2, 88, 60, 89, 61, 0, 1073741837, 0, 91, 90, -1, 4, 92, 62, 93, 63, 94, 64, 95, 65, 0, 1073741838, 0, 97, 96, -1, 3, 98, 66, 99, 67, 100, 68, 0, 1073741839, 0, 102, 101, -1, 11, 103, 69, 104, 70, 105, 71, 106, 72, 107, 73, 108, 74, 109, 75, 110, 76, 111, 77, 112, 78, 113, 79, 0, 1073741840, 0, 115, 114, -1, 4, 116, 80, 117, 81, 118, 82, 119, 83, 0, 1073741841, 0, 121, 120, -1, 3, 122, 84, 123, 85, 124, 86, 0, 1073741842, 0, 126, 125, -1, 2, 127, 87, 128, 88, 0, 1073741843, 0, 130, 129, -1, 9, 131, 89, 132, 90, 133, 91, 134, 92, 135, 93, 136, 94, 137, 95, 138, 96, 139, 97, 0, 1073741844, 0, 141, 140, -1, 2, 142, 98, 143, 99, 0, 1073741845, 0, 145, 144, -1, 5, 146, 100, 147, 101, 148, 102, 149, 103, 150, 104, 0, 1073741846, 0, 152, 151, -1, 11, 153, 105, 154, 106, 155, 107, 156, 108, 157, 109, 158, 110, 159, 111, 160, 112, 161, 113, 162, 114, 163, 115, 0, 1073741847, 0, 165, 164, -1, 3, 166, 116, 167, 117, 168, 118, 0, 1073741848, 0, 170, 169, -1, 5, 171, 119, 172, 120, 173, 121, 174, 122, 175, 123, 0, 1073741849, 0, 177, 176, -1, 13, 178, 124, 179, 125, 180, 126, 181, 127, 182, 128, 183, 129, 184, 130, 185, 131, 186, 132, 187, 133, 188, 134, 189, 135, 190, 136, 0, 1073741850, 0, 192, 191, -1, 1, 193, 137, 0, 1073741851, 0, 195, 194, -1, 4, 196, 138, 197, 139, 198, 140, 199, 141, 0, 1073741852, 0, 201, 200, -1, 8, 202, 142, 203, 143, 204, 144, 205, 145, 206, 146, 207, 147, 208, 148, 209, 149, 0, 1073741853, 0, 211, 210, -1, 7, 212, 150, 213, 151, 214, 152, 215, 153, 216, 154, 217, 155, 218, 156, 0, 1073741854, 0, 220, 219, -1, 4, 221, 157, 222, 158, 223, 159, 224, 160, 0, 1073741855, 0, 226, 225, -1, 4, 227, 161, 228, 162, 229, 163, 230, 164, 0, 1073741856, 0, 232, 231, -1, 4, 233, 165, 234, 166, 235, 167, 236, 168, 0, 1073741857, 0, 238, 237, -1, 4, 239, 169, 240, 170, 241, 171, 242, 172, 0, 1073741858, 0, 244, 243, -1, 4, 245, 173, 246, 174, 247, 175, 248, 176, 0),
+"variants": [3, 15, 1.0, 1.0, 2, 2, SubResource("GDScript_3a0ca"), 1, 15, 1.0, 1.0, 2, 2, ExtResource("2_iorqi"), 3, 1, 15, 1.0, 1.0, 2, 2, 2, 3, 0.33, SubResource("StyleBoxEmpty_7fi31"), 2, 3, 2, 3, SubResource("StyleBoxEmpty_6jyl3"), SubResource("ShaderMaterial_kfyfe"), 2, 3, 3, 3.01, ExtResource("3_l5y53"), 3, 2, 3, SubResource("StyleBoxEmpty_6jyl3"), 2, 3, 0.33, SubResource("StyleBoxEmpty_7fi31"), 1, 15, 1.0, 1.0, 2, 2, 2, 3, 0.3, SubResource("StyleBoxEmpty_7fi31"), 2, 3, 2, 3, 0.63, SubResource("StyleBoxEmpty_bbc5t"), 2, 3, 2, 3, 3.33, SubResource("StyleBoxEmpty_bbc5t"), 2, 3, 3.37, false, 2, 3, 3, SubResource("Theme_jl11j"), ExtResource("4_ecrcx"), ExtResource("4_ecrcx"), ExtResource("4_ecrcx"), ExtResource("4_ecrcx"), true, 4, 2, 3, 4.45, SubResource("StyleBoxEmpty_bbc5t"), 2, 3, SubResource("StyleBoxEmpty_bbc5t"), 2, 3, true, 2, 3, 0.0, Color(0.164706, 0.239216, 0.356863, 1), ExtResource("5_keeck"), 40, "       Login:        ", 1, 2, 3, 2, Color(0.698039, 0.717647, 0.8, 1), ExtResource("5_keeck"), 35, "E-mail:", true, 2, 3, 3, SubResource("Theme_457vo"), ExtResource("5_keeck"), 15, SubResource("StyleBoxEmpty_xdmje"), SubResource("StyleBoxEmpty_uk1mv"), SubResource("StyleBoxTexture_hnwod"), "................................................................", 2, 3, 18.3, 2, Color(0.698039, 0.717647, 0.8, 1), ExtResource("5_keeck"), 35, "Senha:", true, 2, 3, 3, SubResource("Theme_457vo"), Color(0, 0, 0, 1), ExtResource("5_keeck"), 15, SubResource("StyleBoxEmpty_xdmje"), SubResource("StyleBoxEmpty_uk1mv"), SubResource("StyleBoxTexture_hnwod"), "................................................................", true, 2, 2, 3, 0.36, SubResource("StyleBoxEmpty_bbc5t"), 2, 3, ExtResource("6_uvjab"), 1, ExtResource("5_keeck"), 28, SubResource("Shortcut_1clqv"), " Confirmar ", 2, 3, ExtResource("6_uvjab"), 1, ExtResource("5_keeck"), 28, " Cadastrar ", 2, 3, 0.36, SubResource("StyleBoxEmpty_bbc5t"), 2, 3, 8.82, SubResource("StyleBoxEmpty_bbc5t"), 2, 3, 0.79, SubResource("StyleBoxEmpty_5wkte"), 2, 3, 0.3, SubResource("StyleBoxEmpty_7fi31"), ExtResource("7_eo55t"), -10.0, true, &"music"],
+"version": 3
+}
 
 [node name="SplashContainer" type="Node2D"]
 script = ExtResource("1_c8rkk")
-move_to_scene = ExtResource("2_kjl4l")
+custom_node/type = 0
+custom_node/default_time = 1.0
+skip/type = 0
+move_to_scene = SubResource("PackedScene_w8kxv")
+transition_time = 1.0
+fade_color = Color(1, 1, 1, 1)
 
 [node name="SplashTwist" parent="." instance=ExtResource("2_p0jbt")]
 position = Vector2(-1, 55)
