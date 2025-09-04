@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://d2tb2mmb0ksos"]
+
+[ext_resource type="Texture2D" uid="uid://6ayx6rxauoiw" path="res://jogo-sabrina/assets/tilesets/icones/Explosion_Poof (16 x 16).png" id="1_e5dki"]
+[ext_resource type="Script" path="res://jogo-sabrina/FinalStand/scripts/explosion.gd" id="2_sy6j3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8eaf7"]
+atlas = ExtResource("1_e5dki")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxsqi"]
+atlas = ExtResource("1_e5dki")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uj1n"]
+atlas = ExtResource("1_e5dki")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm7vm"]
+atlas = ExtResource("1_e5dki")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrbmh"]
+atlas = ExtResource("1_e5dki")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adrul"]
+atlas = ExtResource("1_e5dki")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_256v8"]
+atlas = ExtResource("1_e5dki")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8c4n"]
+atlas = ExtResource("1_e5dki")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_euuu7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8eaf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxsqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3uj1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm7vm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrbmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adrul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_256v8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8c4n")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 22.0
+}]
+
+[node name="explosion" type="AnimatedSprite2D"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_euuu7")
+animation = &"explosion"
+autoplay = "explosion"
+frame = 7
+frame_progress = 1.0
+script = ExtResource("2_sy6j3")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://bekmpdx0e4tnm"]
+
+[ext_resource type="Script" path="res://Comerciantes/Ferreiro.gd" id="1_1dxjn"]
+[ext_resource type="Texture2D" uid="uid://dj35tnj20l2ev" path="res://jogo-sabrina/assets/vendedores/ferreiro/idle.png" id="1_2mvbh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beyc5"]
+atlas = ExtResource("1_2mvbh")
+region = Rect2(0, 0, 41, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy8nd"]
+atlas = ExtResource("1_2mvbh")
+region = Rect2(0, 23, 41, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knxj0"]
+atlas = ExtResource("1_2mvbh")
+region = Rect2(0, 46, 41, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctnj0"]
+atlas = ExtResource("1_2mvbh")
+region = Rect2(0, 69, 41, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abk82"]
+atlas = ExtResource("1_2mvbh")
+region = Rect2(0, 92, 41, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_apjaw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beyc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iy8nd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knxj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctnj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abk82")
+}],
+"loop": true,
+"name": &"Ferreiro",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvv4j"]
+size = Vector2(24.5, 17)
+
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("animation")]
+light_mask = 16
+visibility_layer = 2
+script = ExtResource("1_1dxjn")
+animation = NodePath("Ferreiro")
+
+[node name="Ferreiro" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_apjaw")
+animation = &"Ferreiro"
+frame_progress = 0.168081
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1.75, 0.5)
+shape = SubResource("RectangleShape2D_lvv4j")
