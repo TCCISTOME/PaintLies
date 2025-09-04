@@ -1,7 +1,3 @@
-## You can download demo splash screen here
-## https://github.com/duongvituan/godot-awesome-splash
-## Import a demo AweSplashScreen you like to your project.
-## Drag and drop it to SplashContainer.
 @icon("res://addons/awesome_splash/assets/icon/splash_container_icon.png")
 @tool
 extends "res://addons/awesome_splash/core/BaseSplashContainer.gd"
