@@ -147,4 +147,3 @@ func shake_text_animation():
 		]),
 		gd.fade_alpha_to(1, SHAKE_TEXT_TIME)
 	]).start(info_node)
-
