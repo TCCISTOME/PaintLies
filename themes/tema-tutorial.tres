@@ -1,0 +1,27 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://fsnb182s8xjf"]
+
+[ext_resource type="FontFile" uid="uid://cp37jsc5gadek" path="res://fonts/Symtext.ttf" id="1_10fad"]
+[ext_resource type="Texture2D" uid="uid://d1qjpks64c0x1" path="res://imgs/btn-azul-tutorial.png" id="2_1iccn"]
+[ext_resource type="Texture2D" uid="uid://ctvmihfdmgg58" path="res://imgs/btn-principal-azul1.png" id="3_ayt23"]
+[ext_resource type="Texture2D" uid="uid://tck5qsxs41lx" path="res://imgs/btn-principal-cinza.png" id="3_p6puk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h41u2"]
+content_margin_top = 8.0
+content_margin_bottom = 9.0
+texture = ExtResource("2_1iccn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kqtcm"]
+content_margin_top = 8.0
+content_margin_bottom = 9.0
+texture = ExtResource("3_p6puk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4adjc"]
+content_margin_top = 8.0
+texture = ExtResource("3_ayt23")
+
+[resource]
+Button/font_sizes/font_size = 18
+Button/fonts/font = ExtResource("1_10fad")
+Button/styles/hover = SubResource("StyleBoxTexture_h41u2")
+Button/styles/normal = SubResource("StyleBoxTexture_kqtcm")
+Button/styles/pressed = SubResource("StyleBoxTexture_4adjc")

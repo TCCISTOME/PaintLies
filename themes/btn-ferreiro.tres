@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://b8vp00ppnaery"]
+
+[ext_resource type="FontFile" uid="uid://cp37jsc5gadek" path="res://fonts/Symtext.ttf" id="1_3dpnh"]
+[ext_resource type="Texture2D" uid="uid://vf2p5m16vyyb" path="res://imgs/img-botoesgrossos/btn-azulclaro-largo.png" id="1_vsf85"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4y0tb"]
+texture = ExtResource("1_vsf85")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r51c6"]
+texture = ExtResource("1_vsf85")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ieyp"]
+texture = ExtResource("1_vsf85")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_alp6y"]
+texture = ExtResource("1_vsf85")
+
+[resource]
+Button/font_sizes/font_size = 21
+Button/fonts/font = ExtResource("1_3dpnh")
+Button/styles/focus = SubResource("StyleBoxTexture_4y0tb")
+Button/styles/hover = SubResource("StyleBoxTexture_r51c6")
+Button/styles/normal = SubResource("StyleBoxTexture_0ieyp")
+Button/styles/pressed = SubResource("StyleBoxTexture_alp6y")

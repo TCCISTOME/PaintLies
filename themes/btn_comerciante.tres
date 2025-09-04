@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bhhb1vk71kutu"]
+
+[ext_resource type="Texture2D" uid="uid://dpum8tdbygklg" path="res://imgs/img-botoesgrossos/btn-azulescuro-largo.png" id="1_sknba"]
+[ext_resource type="FontFile" uid="uid://cp37jsc5gadek" path="res://fonts/Symtext.ttf" id="1_vnpvp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xu3xa"]
+texture = ExtResource("1_sknba")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1bjgo"]
+texture = ExtResource("1_sknba")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8hsa6"]
+texture = ExtResource("1_sknba")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0hqw8"]
+texture = ExtResource("1_sknba")
+
+[resource]
+Button/font_sizes/font_size = 21
+Button/fonts/font = ExtResource("1_vnpvp")
+Button/styles/focus = SubResource("StyleBoxTexture_xu3xa")
+Button/styles/hover = SubResource("StyleBoxTexture_1bjgo")
+Button/styles/normal = SubResource("StyleBoxTexture_8hsa6")
+Button/styles/pressed = SubResource("StyleBoxTexture_0hqw8")

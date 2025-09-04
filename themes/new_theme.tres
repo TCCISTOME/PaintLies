@@ -1,0 +1,33 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://bpb22s2mlije0"]
+
+[ext_resource type="FontFile" uid="uid://cp37jsc5gadek" path="res://fonts/Symtext.ttf" id="1_v45ix"]
+[ext_resource type="Texture2D" uid="uid://bqw3ah3safe3t" path="res://imgs/btn-principal-marrom.png" id="2_auelo"]
+[ext_resource type="Texture2D" uid="uid://dcuhka7qufqe8" path="res://imgs/btn-principal.png" id="2_gx3qq"]
+[ext_resource type="Texture2D" uid="uid://ckky534jnjtr4" path="res://imgs/btn-principal-preto.png" id="2_nrawd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j0bue"]
+texture = ExtResource("2_nrawd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vr28n"]
+texture = ExtResource("2_auelo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h6nx5"]
+texture = ExtResource("2_gx3qq")
+region_rect = Rect2(0, 0, 866, 118)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qblbx"]
+texture = ExtResource("2_nrawd")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w7ov1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rshmn"]
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/fonts/font = ExtResource("1_v45ix")
+Button/styles/focus = SubResource("StyleBoxTexture_j0bue")
+Button/styles/hover = SubResource("StyleBoxTexture_vr28n")
+Button/styles/normal = SubResource("StyleBoxTexture_h6nx5")
+Button/styles/pressed = SubResource("StyleBoxTexture_qblbx")
+HSeparator/styles/separator = SubResource("StyleBoxEmpty_w7ov1")
+VSeparator/styles/separator = SubResource("StyleBoxEmpty_rshmn")

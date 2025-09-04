@@ -1,0 +1,29 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cu66mhpfoga31"]
+
+[ext_resource type="FontFile" uid="uid://cp37jsc5gadek" path="res://fonts/Symtext.ttf" id="1_ylv8a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2nrjg"]
+bg_color = Color(0.858824, 0.890196, 0.901961, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6sxv"]
+bg_color = Color(0.886275, 0.517647, 0.329412, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[resource]
+ProgressBar/colors/font_color = Color(0, 0, 0, 1)
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/font_sizes/font_size = 26
+ProgressBar/fonts/font = ExtResource("1_ylv8a")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_2nrjg")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_l6sxv")
