@@ -1,0 +1,184 @@
+[gd_scene load_steps=22 format=3 uid="uid://ctkp4umjchjp1"]
+
+[ext_resource type="Script" path="res://jogo-alicia/script/player.gd" id="1_82cyu"]
+[ext_resource type="Texture2D" uid="uid://dlnql7753v2rr" path="res://jogo-alicia/assets/Sprite_Alicia.png" id="2_w3yx3"]
+[ext_resource type="AudioStream" uid="uid://cjiat3cbcrql" path="res://audios/drinkSong.wav" id="3_2e40n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djexc"]
+atlas = ExtResource("2_w3yx3")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yopb"]
+atlas = ExtResource("2_w3yx3")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2e4d"]
+atlas = ExtResource("2_w3yx3")
+region = Rect2(0, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ue5dn"]
+atlas = ExtResource("2_w3yx3")
+region = Rect2(0, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17l88"]
+atlas = ExtResource("2_w3yx3")
+region = Rect2(32, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxrvw"]
+atlas = ExtResource("2_w3yx3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gb8ec"]
+atlas = ExtResource("2_w3yx3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0p08p"]
+atlas = ExtResource("2_w3yx3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kc8e6"]
+atlas = ExtResource("2_w3yx3")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpit6"]
+atlas = ExtResource("2_w3yx3")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ondd"]
+atlas = ExtResource("2_w3yx3")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anapt"]
+atlas = ExtResource("2_w3yx3")
+region = Rect2(96, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcdbr"]
+atlas = ExtResource("2_w3yx3")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxm1y"]
+atlas = ExtResource("2_w3yx3")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g108w"]
+atlas = ExtResource("2_w3yx3")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plfdr"]
+atlas = ExtResource("2_w3yx3")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_45toq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djexc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yopb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2e4d")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ue5dn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17l88")
+}],
+"loop": false,
+"name": &"drink_potion",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxrvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gb8ec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0p08p")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kc8e6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpit6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ondd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anapt")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcdbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxm1y")
+}],
+"loop": true,
+"name": &"move_down",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g108w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plfdr")
+}],
+"loop": true,
+"name": &"move_up",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fourr"]
+size = Vector2(21, 30.5)
+
+[node name="player" type="Area2D" node_paths=PackedStringArray("timerBebida")]
+position = Vector2(574, 291)
+scale = Vector2(3, 3)
+collision_mask = 2
+script = ExtResource("1_82cyu")
+timerBebida = NodePath("Timer")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_45toq")
+animation = &"drink_potion"
+autoplay = "idle"
+frame = 1
+frame_progress = 1.0
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.25)
+shape = SubResource("RectangleShape2D_fourr")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="drink_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2e40n")
+volume_db = -10.0
+pitch_scale = 1.5
+bus = &"sfx"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

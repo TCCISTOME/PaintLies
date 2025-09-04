@@ -1,0 +1,133 @@
+[gd_scene load_steps=19 format=3 uid="uid://bxtqucu87if7f"]
+
+[ext_resource type="Script" path="res://jogo-alicia/script/enemy.gd" id="1_v562u"]
+[ext_resource type="Texture2D" uid="uid://06724g6unjnu" path="res://jogo-alicia/assets/joaninha Azul All.png" id="2_qnqln"]
+[ext_resource type="Texture2D" uid="uid://xvxt4c8qpm3w" path="res://jogo-alicia/assets/Joaninha Vermelha All.png" id="3_o330v"]
+[ext_resource type="Texture2D" uid="uid://8t80mmtnv1vd" path="res://jogo-alicia/assets/joaninha Amarela All.png" id="4_2tfvf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22fck"]
+atlas = ExtResource("2_qnqln")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6adc"]
+atlas = ExtResource("2_qnqln")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8a0t"]
+atlas = ExtResource("2_qnqln")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ry3q"]
+atlas = ExtResource("2_qnqln")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npg4u"]
+atlas = ExtResource("3_o330v")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svdqn"]
+atlas = ExtResource("3_o330v")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcxbh"]
+atlas = ExtResource("3_o330v")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utxp7"]
+atlas = ExtResource("3_o330v")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svl1t"]
+atlas = ExtResource("4_2tfvf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2e60"]
+atlas = ExtResource("4_2tfvf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dh08p"]
+atlas = ExtResource("4_2tfvf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4s7q"]
+atlas = ExtResource("4_2tfvf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qrfqw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22fck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6adc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8a0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ry3q")
+}],
+"loop": true,
+"name": &"blue_beetle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npg4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svdqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcxbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utxp7")
+}],
+"loop": true,
+"name": &"red_beetle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svl1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2e60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dh08p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4s7q")
+}],
+"loop": true,
+"name": &"yellow_beetle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p48m1"]
+radius = 8.22898
+
+[node name="enemy" type="RigidBody2D" groups=["bugs"]]
+collision_layer = 2
+gravity_scale = 0.0
+script = ExtResource("1_v562u")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_qrfqw")
+animation = &"red_beetle"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 0)
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_p48m1")
+
+[node name="visible" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(6, 0)
+scale = Vector2(0.895833, 1.12812)
+
+[connection signal="screen_exited" from="visible" to="." method="_on_visible_screen_exited"]

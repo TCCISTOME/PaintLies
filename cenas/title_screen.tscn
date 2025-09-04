@@ -1,0 +1,139 @@
+[gd_scene load_steps=9 format=3 uid="uid://chskr1vptlpr5"]
+
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_c3r0k"]
+[ext_resource type="Texture2D" uid="uid://k62l673sjdwm" path="res://imgs/predios-noite.jpg" id="2_0kbiw"]
+[ext_resource type="AudioStream" uid="uid://8lkik1n3vcny" path="res://audios/bgMusic03.mp3" id="4_5wgyt"]
+[ext_resource type="Theme" uid="uid://bpb22s2mlije0" path="res://themes/new_theme.tres" id="4_ncpjk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1eax2"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ccrgd"]
+load_path = "res://.godot/imported/logo.png-1f5470ba0718bbffdcb7748f5eef3213.ctex"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3iwg2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0u002"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c3r0k")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0kbiw")
+expand_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_1eax2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="game-logo" type="TextureRect" parent="HBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("CompressedTexture2D_ccrgd")
+expand_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_3iwg2")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HSeparator3" type="HSeparator" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_0u002")
+
+[node name="Button1" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 45)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.9
+theme = ExtResource("4_ncpjk")
+text = "JOGAR"
+
+[node name="Button2" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("4_ncpjk")
+text = "CONFIGURAÇÕES"
+
+[node name="Button3" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("4_ncpjk")
+text = "CRÉDITOS"
+
+[node name="Button4" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("4_ncpjk")
+text = "Sair"
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_0u002")
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_0u002")
+
+[node name="bgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5wgyt")
+volume_db = -10.0
+autoplay = true
+bus = &"music"
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Button1" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Button4" to="." method="_on_button_4_pressed"]

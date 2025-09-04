@@ -1,0 +1,214 @@
+[gd_scene load_steps=13 format=3 uid="uid://be586g2f2u3tb"]
+
+[ext_resource type="Texture2D" uid="uid://vo1uyapyglml" path="res://imgs/painel_grande.png" id="1_8f2wa"]
+[ext_resource type="Script" path="res://scripts/tela_tutorial_cer.gd" id="1_tdf64"]
+[ext_resource type="Texture2D" uid="uid://dgjs5jdufcro7" path="res://imgs/btnVoltar-cinza.png" id="1_wyo6j"]
+[ext_resource type="Theme" uid="uid://dsevhr8jgw82" path="res://themes/teminha.tres" id="2_1g0ub"]
+[ext_resource type="Texture2D" uid="uid://ddvtphbpnjd64" path="res://imgs/imgs-tutoriais/livro-tutoial1.png" id="3_v0ypm"]
+[ext_resource type="FontFile" uid="uid://cp37jsc5gadek" path="res://fonts/Symtext.ttf" id="4_hujh5"]
+[ext_resource type="AudioStream" uid="uid://8lkik1n3vcny" path="res://audios/bgMusic03.mp3" id="7_8m2ut"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l1kwo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_51un6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kh8dd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_880kl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hhywh"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("imgLivroTutoriais")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_tdf64")
+imgLivroTutoriais = NodePath("PanelContainer/HBoxContainer/HBoxContainer2/TextureRect")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_8f2wa")
+expand_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.1
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.07
+theme_override_styles/separator = SubResource("StyleBoxEmpty_l1kwo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.94
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.04
+theme_override_styles/separator = SubResource("StyleBoxEmpty_51un6")
+
+[node name="TextureButton" type="TextureButton" parent="PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.04
+texture_normal = ExtResource("1_wyo6j")
+texture_pressed = ExtResource("1_wyo6j")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.46
+theme_override_styles/separator = SubResource("StyleBoxEmpty_51un6")
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kh8dd")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 13.77
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture = ExtResource("3_v0ypm")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="VSeparator3" type="VSeparator" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kh8dd")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("4_hujh5")
+theme_override_font_sizes/font_size = 22
+text = "Tutoriais Básicos"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/HBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="movimento" type="Button" parent="PanelContainer/HBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_1g0ub")
+text = "jogo josh"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/HBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_880kl")
+
+[node name="atacando" type="Button" parent="PanelContainer/HBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_1g0ub")
+text = "jogo sabrina"
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/HBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_880kl")
+
+[node name="compra" type="Button" parent="PanelContainer/HBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_1g0ub")
+text = "jogo heleanor"
+
+[node name="HSeparator4" type="HSeparator" parent="PanelContainer/HBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_880kl")
+
+[node name="fase" type="Button" parent="PanelContainer/HBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_1g0ub")
+text = "jogo alicia"
+
+[node name="HSeparator5" type="HSeparator" parent="PanelContainer/HBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_880kl")
+
+[node name="salvar" type="Button" parent="PanelContainer/HBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_1g0ub")
+text = "configurações"
+
+[node name="HSeparator6" type="HSeparator" parent="PanelContainer/HBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_880kl")
+
+[node name="inventario" type="Button" parent="PanelContainer/HBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_1g0ub")
+text = "Ajuda"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.47
+theme_override_styles/separator = SubResource("StyleBoxEmpty_hhywh")
+
+[node name="bgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_8m2ut")
+volume_db = -10.0
+autoplay = true
+bus = &"music"
+
+[connection signal="mouse_entered" from="PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer/TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer/TextureButton" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2/movimento" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2/atacando" to="." method="_on_atacando_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2/compra" to="." method="_on_compra_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2/fase" to="." method="_on_fase_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2/salvar" to="." method="_on_salvar_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2/inventario" to="." method="_on_inventario_pressed"]

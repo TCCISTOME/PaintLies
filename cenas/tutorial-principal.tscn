@@ -1,0 +1,169 @@
+[gd_scene load_steps=15 format=3 uid="uid://34m6acb0y5iy"]
+
+[ext_resource type="Texture2D" uid="uid://c4h4qdg715sxe" path="res://imgs/imagem_fundo_tutoris.jpg" id="1_nggsg"]
+[ext_resource type="Script" path="res://scripts/tutorial_principal.gd" id="1_oqmi7"]
+[ext_resource type="Texture2D" uid="uid://t7l7jonehxc1" path="res://imgs/btnQ_tutoriais.png" id="2_72873"]
+[ext_resource type="Texture2D" uid="uid://decn7jct8hsds" path="res://imgs/btn-cancel.png" id="3_ajg36"]
+[ext_resource type="Texture2D" uid="uid://ddvtphbpnjd64" path="res://imgs/imgs-tutoriais/livro-tutoial1.png" id="3_r121s"]
+[ext_resource type="Texture2D" uid="uid://bcx03hyu1b3ur" path="res://imgs/btnE_tutoriais.png" id="4_120e6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekpch"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hblti"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2yjg1"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_btw1n"]
+keycode = 81
+
+[sub_resource type="Shortcut" id="Shortcut_d878p"]
+events = [SubResource("InputEventKey_btw1n")]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i3qi2"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ukva0"]
+keycode = 69
+
+[sub_resource type="Shortcut" id="Shortcut_7e801"]
+events = [SubResource("InputEventKey_ukva0")]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("ImgTutorial")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oqmi7")
+ImgTutorial = NodePath("HBoxContainer/HBoxContainer3/VBoxContainer/TextureRect")
+metadata/_edit_horizontal_guides_ = [410.0, 326.0]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nggsg")
+expand_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.29
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ekpch")
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("3_ajg36")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.56
+theme_override_styles/separator = SubResource("StyleBoxEmpty_hblti")
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2yjg1")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="btn_Q" type="TextureButton" parent="HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+shortcut = SubResource("Shortcut_d878p")
+texture_normal = ExtResource("2_72873")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2yjg1")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.41
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.04
+theme_override_styles/separator = SubResource("StyleBoxEmpty_i3qi2")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_r121s")
+expand_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.04
+theme_override_styles/separator = SubResource("StyleBoxEmpty_i3qi2")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2yjg1")
+
+[node name="btn_E" type="TextureButton" parent="HBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+shortcut = SubResource("Shortcut_7e801")
+texture_normal = ExtResource("4_120e6")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="HSeparator3" type="HSeparator" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2yjg1")
+
+[connection signal="pressed" from="HBoxContainer/HBoxContainer/VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/HBoxContainer2/btn_Q" to="." method="_on_btn_q_pressed"]
+[connection signal="pressed" from="HBoxContainer/HBoxContainer4/btn_E" to="." method="_on_btn_e_pressed"]

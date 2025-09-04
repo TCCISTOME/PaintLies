@@ -1,0 +1,125 @@
+[gd_scene load_steps=15 format=3 uid="uid://drq01vwftubxl"]
+
+[ext_resource type="Texture2D" uid="uid://bkumffckxgcow" path="res://sprites/galinha/galinha.png" id="1_4v6wg"]
+[ext_resource type="Script" path="res://scripts/galinha.gd" id="1_ty33i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wyyb"]
+size = Vector2(90, 79)
+
+[sub_resource type="Animation" id="Animation_ugrjl"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_feppr"]
+resource_name = "anda"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_0omx4"]
+resource_name = "anda_2"
+length = 1.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p3lnh"]
+_data = {
+"RESET": SubResource("Animation_ugrjl"),
+"anda": SubResource("Animation_feppr"),
+"pula": SubResource("Animation_0omx4")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lqwca"]
+animation = &"anda"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_4kmrg"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_8tnq2"]
+graph_offset = Vector2(-298.854, -96)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_lqwca")
+nodes/Animation/position = Vector2(-160, 40)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_4kmrg")
+nodes/TimeScale/position = Vector2(200, 60)
+nodes/output/position = Vector2(500, 80)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7v3jv"]
+animation = &"pula"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_slywe"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_lwwmc"]
+graph_offset = Vector2(53.13, 56.3163)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_7v3jv")
+nodes/Animation/position = Vector2(320, 220)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_slywe")
+nodes/TimeScale/position = Vector2(668.878, 223.335)
+nodes/output/position = Vector2(1040, 240)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_3lg33"]
+states/andar/node = SubResource("AnimationNodeBlendTree_8tnq2")
+states/andar/position = Vector2(457, 177)
+states/pular/node = SubResource("AnimationNodeBlendTree_lwwmc")
+states/pular/position = Vector2(649, 177)
+
+[node name="Area2D" type="Area2D" node_paths=PackedStringArray("Anination")]
+script = ExtResource("1_ty33i")
+Anination = NodePath("AnimationTree")
+speed = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_4v6wg")
+flip_h = true
+hframes = 4
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -3.5)
+shape = SubResource("RectangleShape2D_5wyyb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_p3lnh")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_3lg33")
+anim_player = NodePath("../AnimationPlayer")
+parameters/andar/TimeScale/scale = 1.0
+parameters/pular/TimeScale/scale = 1.0

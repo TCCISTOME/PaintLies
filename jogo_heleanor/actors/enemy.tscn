@@ -1,0 +1,225 @@
+[gd_scene load_steps=12 format=3 uid="uid://bk0km2skye5e5"]
+
+[ext_resource type="Texture2D" uid="uid://c5kjtxnddh76s" path="res://jogo_heleanor/assets/Boss/ataque-2/capanga/Capanga_boss_all.png" id="1_dbtk1"]
+[ext_resource type="Script" path="res://jogo_heleanor/scripts/enemy.gd" id="1_r7xuv"]
+[ext_resource type="Texture2D" uid="uid://b5o4alitcmawk" path="res://jogo_heleanor/assets/Boss/ataque-2/capanga/Capanga_boss_hurt.png" id="3_lk1nd"]
+[ext_resource type="Texture2D" uid="uid://ed43e55g23ol" path="res://jogo_heleanor/assets/Boss/ataque-2/capanga/Capanga_boss_idle_all.png" id="4_teor1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3nuu"]
+size = Vector2(14, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acqdb"]
+size = Vector2(17, 18)
+
+[sub_resource type="Animation" id="Animation_13jbj"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_dbtk1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_tqnqv"]
+resource_name = "hurt"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_lk1nd")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_21xkk"]
+resource_name = "standing"
+length = 0.2
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_teor1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_yh1du"]
+resource_name = "walk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_dbtk1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fy0fn"]
+_data = {
+"RESET": SubResource("Animation_13jbj"),
+"hurt": SubResource("Animation_tqnqv"),
+"standing": SubResource("Animation_21xkk"),
+"walk": SubResource("Animation_yh1du")
+}
+
+[node name="enemy" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_r7xuv")
+
+[node name="texture" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("1_dbtk1")
+hframes = 4
+frame = 1
+
+[node name="hurtBox" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="collision" type="CollisionShape2D" parent="hurtBox"]
+position = Vector2(0, -23)
+shape = SubResource("RectangleShape2D_g3nuu")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -11)
+shape = SubResource("RectangleShape2D_acqdb")
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fy0fn")
+}
+speed_scale = 0.5
+
+[node name="wallDetector" type="RayCast2D" parent="."]
+position = Vector2(0, -11)
+target_position = Vector2(-13, 0)
+collision_mask = 6
+
+[node name="floorDetector" type="RayCast2D" parent="."]
+position = Vector2(0, -5)
+target_position = Vector2(0, 7)
+collision_mask = 2
+
+[node name="spawn_potion" type="Marker2D" parent="."]
+position = Vector2(0, -15)
+
+[connection signal="body_entered" from="hurtBox" to="." method="_on_hurt_box_body_entered"]
+[connection signal="animation_finished" from="animation" to="." method="_on_animation_animation_finished"]

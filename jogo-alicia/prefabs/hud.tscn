@@ -1,0 +1,133 @@
+[gd_scene load_steps=16 format=3 uid="uid://ccuh27t80wry4"]
+
+[ext_resource type="Script" path="res://jogo-alicia/script/hud.gd" id="1_y3hn8"]
+[ext_resource type="FontFile" uid="uid://cp37jsc5gadek" path="res://fonts/Symtext.ttf" id="2_fpd11"]
+[ext_resource type="Texture2D" uid="uid://ckky534jnjtr4" path="res://imgs/btn-principal-preto.png" id="3_f7s0g"]
+[ext_resource type="Texture2D" uid="uid://bqw3ah3safe3t" path="res://imgs/btn-principal-marrom.png" id="4_spuky"]
+[ext_resource type="PackedScene" uid="uid://dfng34rn43ptf" path="res://jogo-sabrina/UI/scenes/shield_bar.tscn" id="4_up3w3"]
+[ext_resource type="Texture2D" uid="uid://dcuhka7qufqe8" path="res://imgs/btn-principal.png" id="5_booja"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j0bue"]
+texture = ExtResource("3_f7s0g")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vr28n"]
+texture = ExtResource("4_spuky")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h6nx5"]
+texture = ExtResource("5_booja")
+region_rect = Rect2(0, 0, 866, 118)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qblbx"]
+texture = ExtResource("3_f7s0g")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w7ov1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rshmn"]
+
+[sub_resource type="Theme" id="Theme_62ieq"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 56
+Button/fonts/font = ExtResource("2_fpd11")
+Button/styles/focus = SubResource("StyleBoxTexture_j0bue")
+Button/styles/hover = SubResource("StyleBoxTexture_vr28n")
+Button/styles/normal = SubResource("StyleBoxTexture_h6nx5")
+Button/styles/pressed = SubResource("StyleBoxTexture_qblbx")
+HSeparator/styles/separator = SubResource("StyleBoxEmpty_w7ov1")
+VSeparator/styles/separator = SubResource("StyleBoxEmpty_rshmn")
+
+[sub_resource type="InputEventAction" id="InputEventAction_mucfq"]
+action = &"start_game"
+
+[sub_resource type="Shortcut" id="Shortcut_cog2w"]
+events = [SubResource("InputEventAction_mucfq")]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_y3hn8")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.932
+anchor_right = 0.944
+anchor_bottom = 0.005
+offset_left = -55.6641
+offset_top = 17.0
+offset_right = 2.51196
+offset_bottom = 113.76
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_fpd11")
+theme_override_font_sizes/font_size = 80
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.0
+offset_top = -153.0
+offset_right = 188.0
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_fpd11")
+theme_override_font_sizes/font_size = 90
+text = "DODGE THE BUGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Startbutton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.475
+anchor_top = 0.895
+anchor_right = 0.525
+anchor_bottom = 0.943
+offset_left = -0.200012
+offset_top = 0.039978
+offset_right = 0.199951
+offset_bottom = -0.0640259
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_62ieq")
+shortcut = SubResource("Shortcut_cog2w")
+text = "  JOGAR  "
+
+[node name="shieldBar" parent="Control" instance=ExtResource("4_up3w3")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.026
+anchor_top = 0.042
+anchor_right = 0.303
+anchor_bottom = 0.083
+offset_left = 0.0480003
+offset_top = -0.216002
+offset_right = -0.0559998
+offset_bottom = 0.215996
+
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="pressed" from="Control/Startbutton" to="." method="_on_startbutton_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]

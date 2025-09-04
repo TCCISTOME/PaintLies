@@ -1,0 +1,105 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1ww3phxc0qop"]
+
+[ext_resource type="Script" path="res://scripts/game_over_sabrina.gd" id="1_rj847"]
+[ext_resource type="PackedScene" uid="uid://boebrpvnduldc" path="res://cenas/TransitionNode.tscn" id="2_bj2af"]
+[ext_resource type="FontFile" uid="uid://cp37jsc5gadek" path="res://fonts/Symtext.ttf" id="3_purwu"]
+[ext_resource type="Theme" uid="uid://bpb22s2mlije0" path="res://themes/new_theme.tres" id="4_wu805"]
+[ext_resource type="AudioStream" uid="uid://8lkik1n3vcny" path="res://audios/bgMusic03.mp3" id="5_bmmn7"]
+
+[node name="game_over" type="CanvasLayer"]
+script = ExtResource("1_rj847")
+
+[node name="Transition" parent="." instance=ExtResource("2_bj2af")]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.859)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_purwu")
+theme_override_font_sizes/font_size = 70
+text = "Você surtou..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_purwu")
+theme_override_font_sizes/font_size = 22
+text = "Mesmo os melhores guias precisam de pausas para se reencontrar.
+Sua força está em transformar desafios em arte e cura,
+continue pintando seu caminho com coragem e empatia!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="ren_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme = ExtResource("4_wu805")
+text = "Reiniciar"
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="sair_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme = ExtResource("4_wu805")
+text = "sair"
+
+[node name="gameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_bmmn7")
+volume_db = -5.0
+autoplay = true
+bus = &"music"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/ren_btn" to="." method="_on_ren_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/sair_btn" to="." method="_on_sair_btn_pressed"]
