@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfd06rj000523"]
+
+[ext_resource type="Script" path="res://jogo_heleanor/scripts/potion_heleanor_rigid.gd" id="1_x3d6f"]
+[ext_resource type="PackedScene" uid="uid://c3rw10vjxc8bc" path="res://jogo_heleanor/prefabs/potion_life_heleanor.tscn" id="2_gniva"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1fujn"]
+radius = 8.0
+
+[node name="potionHeleanor_rigid" type="RigidBody2D"]
+script = ExtResource("1_x3d6f")
+
+[node name="potionLifeHeleanor" parent="." instance=ExtResource("2_gniva")]
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1fujn")

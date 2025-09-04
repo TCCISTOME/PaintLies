@@ -1,0 +1,99 @@
+[gd_scene load_steps=15 format=3 uid="uid://c3rw10vjxc8bc"]
+
+[ext_resource type="Texture2D" uid="uid://bwpcqjrgpkyob" path="res://jogo-sabrina/assets/tilesets/icones/Yellow_Sparkle (16 x 16).png" id="1_6kb4k"]
+[ext_resource type="Script" path="res://jogo_heleanor/scripts/potion_life_heleanor.gd" id="1_nuvpk"]
+[ext_resource type="Texture2D" uid="uid://ckplj3vwnfbg0" path="res://jogo-sabrina/assets/tilesets/icones/potionLife.png" id="2_74u35"]
+[ext_resource type="AudioStream" uid="uid://c77dkd1lg1qj7" path="res://audios/itemSong.wav" id="3_jamtx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dul4q"]
+radius = 9.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0aaw1"]
+atlas = ExtResource("1_6kb4k")
+region = Rect2(0, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8l533"]
+atlas = ExtResource("1_6kb4k")
+region = Rect2(20, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yvdu"]
+atlas = ExtResource("1_6kb4k")
+region = Rect2(40, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or8aw"]
+atlas = ExtResource("1_6kb4k")
+region = Rect2(60, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa3jt"]
+atlas = ExtResource("2_74u35")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcag8"]
+atlas = ExtResource("2_74u35")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj7al"]
+atlas = ExtResource("2_74u35")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c3kh"]
+atlas = ExtResource("2_74u35")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6t7x8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0aaw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l533")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yvdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or8aw")
+}],
+"loop": false,
+"name": &"colect",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa3jt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcag8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj7al")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4c3kh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="potionLifeHeleanor" type="Area2D"]
+script = ExtResource("1_nuvpk")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dul4q")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6t7x8")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.708057
+
+[node name="potin_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jamtx")
+volume_db = -10.0
+pitch_scale = 2.0
+bus = &"sfx"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

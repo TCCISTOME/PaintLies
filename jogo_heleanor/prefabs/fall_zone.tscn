@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds8pu2etnho4r"]
+
+[ext_resource type="Script" path="res://jogo_heleanor/scripts/fall_zone.gd" id="1_ond4c"]
+
+[node name="fallZone" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_ond4c")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
